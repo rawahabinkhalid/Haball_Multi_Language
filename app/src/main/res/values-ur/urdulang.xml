@@ -284,8 +284,7 @@
 		آرڈر
 	</string>
     <string name="retailer_OrderDetails">
-		Order Details
-	</string>
+آرڈر کی تفصیل	</string>
     <string name="title_activity_retailer_view_order">
 		RetailerViewOrder
 	</string>
@@ -1000,11 +999,12 @@
     // drawer activity
     <string name="shipment">شپمینٹ</string>
     <string name="retailer_management">Retailer Management</string>
-    <string name="make_payment_distri"> \t\t\tادائیگی بنائیں</string>
-    <string name="payment_ledger">\t\t\tادائیگی لیجر</string>
-    <string name="retailer_distri">\t\t\t ریٹیلر</string>
-    <string name="order_behalf">\t\t\tبیہلف پر آرڈر</string>
-    <string name="retailer_payment_distri">\t\t\tریٹیلر  پیمنٹس</string>
+<!--    <string name="make_payment_distri1">ادائیگی بنائیں</string>-->
+    <string name="payment_ledger">\t\t\t\t\tادائیگی لیجر</string>
+    <string name="make_payment_distri">\t\t\t\t\tادائیگی بنائیں</string>
+    <string name="retailer_distri">\t\t\t\t\t ریٹیلر</string>
+    <string name="order_behalf">\t\t\t\t\tبیہلف پر آرڈر</string>
+    <string name="retailer_payment_distri">\t\t\t\t\tریٹیلر  پیمنٹس</string>
     //dashboard
     <string name="state_item">"State: "</string>
     <string name="your_payment_id">آپ ک ادائیگی کی شناخت، آئی ڈی</string>
