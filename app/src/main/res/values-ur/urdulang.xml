@@ -925,7 +925,7 @@
 
     <string name="term_and_condition">شرائط و ضوابط</string>
     //place order screen
-    <string name="order_summary">آرڈر ک سمری</string>
+    <string name="order_summary">آرڈر کی سمری</string>
     <string name="get_all_category">تمام کٹیگری</string>
     <string name="order_approval_msg">آرڈر کی منظوری کی بنیاد پر یہاں درج قیمتیں تبدیل کی جاسکتی ہیں۔</string>
     <string name="checkout">چیک آؤٹ</string>
@@ -1007,7 +1007,7 @@
     <string name="retailer_payment_distri">\t\t\t\t\tریٹیلر  پیمنٹس</string>
     //dashboard
     <string name="state_item">"State: "</string>
-    <string name="your_payment_id">آپ ک ادائیگی کی شناخت، آئی ڈی</string>
+    <string name="your_payment_id">آپ کی ادائیگی کی شناخت، آئی ڈی</string>
     <string name="deleted_payment_msg">has been deleted successfully.</string>
     <string name="deleted_payment">Payment Deleted</string>
     //
