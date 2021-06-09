@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -55,12 +56,15 @@ import com.haball.Distributor.ui.shipments.Shipments_Fragments;
 import com.haball.Distributor.ui.support.SupportFragment;
 import com.haball.Distributor.ui.terms_and_conditions.TermsAndConditionsFragment;
 import com.haball.HaballError;
+import com.haball.LanguageClasses.ChangeLanguage;
+import com.haball.LanguageClasses.LanguageHelper;
 import com.haball.Loader;
 import com.haball.ProcessingError;
 import com.haball.R;
 import com.haball.Registration.BooleanRequest;
 import com.haball.Retailer_Login.RetailerLogin;
 import com.haball.Retailor.Retailer_Terms_And_Conditions;
+import com.haball.Retailor.RetailorDashboard;
 import com.haball.Select_User.Register_Activity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
@@ -79,6 +83,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import org.honorato.multistatetogglebutton.MultiStateToggleButton;
+import org.honorato.multistatetogglebutton.ToggleButton;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -90,6 +96,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import io.paperdb.Paper;
 
 public class DistributorDashboard extends AppCompatActivity {
 
@@ -105,6 +113,9 @@ public class DistributorDashboard extends AppCompatActivity {
     private List<String> NavList = new ArrayList<>();
     private List<String> NavList_Payment = new ArrayList<>();
     private List<String> NavList_Retailer = new ArrayList<>();
+    private String language = "";
+    private MultiStateToggleButton mstb_multi_id;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +124,28 @@ public class DistributorDashboard extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Paper.init(this);
+
+        mstb_multi_id = findViewById(R.id.mstb_multi_id);
+        mstb_multi_id.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+            @Override
+            public void onValueChanged(int position) {
+                if(position == 0) {
+                    Paper.book().write("language", "en");
+                } else {
+                    Paper.book().write("language", "ur");
+                }
+                updateView((String) Paper.book().read("language"));
+                Log.d("mstb_multi_id", "Position: " + position);
+            }
+        });
+
+        // selected language
+        SharedPreferences languageType = getSharedPreferences("changeLanguage",
+                Context.MODE_PRIVATE);
+        language = languageType.getString("language", "");
+        String defaultSelectedLanguage = language;
+        changeLanguage();
 
         SharedPreferences sharedPreferences = this.getSharedPreferences("LoginToken",
                 Context.MODE_PRIVATE);
@@ -830,6 +863,41 @@ public class DistributorDashboard extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+    }    void changeLanguage() {
+        ChangeLanguage changeLanguage = new ChangeLanguage();
+        changeLanguage.changeLanguage(this, language);
+        if (language.equals("ur")) {
+            mstb_multi_id.setValue(1);
+            // btn_login.setText(R.string.login);
+//        layout_username.setHint(getResources().getString(R.string.user_name));
+//        layout_password.setHint(getResources().getString(R.string.password));
+            //btn_password.setText(R.string.Forgot_Password);
+            //btn_support.setText(R.string.need_support);
+        } else {
+            mstb_multi_id.setValue(0);
+        }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, language));
+    }
+
+    private void updateView(String lang) {
+        context = LanguageHelper.setLocale(this, lang);
+        Resources resources = context.getResources();
+        SharedPreferences languageType = getSharedPreferences("changeLanguage",
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = languageType.edit();
+        editor.putString("language", lang);
+        editor.apply();
+        ChangeLanguage changeLanguage = new ChangeLanguage();
+        changeLanguage.changeLanguage(this, lang);
+
+        if(!language.equals(lang)) {
+            Intent intent = new Intent(DistributorDashboard.this, DistributorDashboard.class);
+            startActivity(intent);
         }
     }
 }
