@@ -157,6 +157,16 @@
         </LinearLayout>
     </LinearLayout>
 
+<!--    <TextView-->
+<!--        android:id="@+id/footer"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:fontFamily="@font/open_sans"-->
+<!--        android:gravity="center"-->
+<!--        android:text="@string/all_rights_reserved"-->
+<!--        android:textSize="12sp" />-->
     <TextView
         android:id="@+id/footer"
         android:layout_width="match_parent"

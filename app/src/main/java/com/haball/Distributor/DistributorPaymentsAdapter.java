@@ -84,7 +84,7 @@ public class DistributorPaymentsAdapter extends RecyclerView.Adapter<Distributor
             holder.tv_heading.setText(paymentsList.get(position).getName());
             holder.tv_payment_id.setText(paymentsList.get(position).getPrePaidNumber());
 
-            DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+            DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
             String yourFormattedString1 = formatter1.format(Integer.parseInt(paymentsList.get(position).getPaidAmount()));
             holder.tv_amount.setText(yourFormattedString1);
 
@@ -103,7 +103,7 @@ public class DistributorPaymentsAdapter extends RecyclerView.Adapter<Distributor
                 holder.tv_heading.setText(invoiceList.get(position).getCompanyName());
                 holder.tv_payment_id.setText(invoiceList.get(position).getInvoiceNumber());
 
-                DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+                DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                 String yourFormattedString1 = formatter1.format(Integer.parseInt(invoiceList.get(position).getTotalPrice()));
                 holder.tv_amount.setText(yourFormattedString1);
                 holder.tv_status.setText(invoiceList.get(position).getInvoiceStatusValue());

@@ -206,6 +206,9 @@ public class PlaceholderFragment extends Fragment {
                         receiveShipment();
                     }
                 });
+//                receiveShipment();
+
+
                 break;
             }
             case 2: {
@@ -409,9 +412,13 @@ public class PlaceholderFragment extends Fragment {
                 txt_header1 = fbDialogue.findViewById(R.id.txt_header1);
                 tv_pr1 = fbDialogue.findViewById(R.id.txt_details);
                 tv_pr1.setText("");
-                txt_header1.setText("Shipment Received");
-                String steps1 = "Shipment ID ";
-                String steps2 = " has been received successfully.";
+//                txt_header1.setText("Shipment Received");
+//                String steps1 = "Shipment ID ";
+//                String steps2 = " has been received successfully.";
+                String steps1 = getResources().getString(R.string.shipment_received_alert_text_1) + " ";
+                String steps2 = " " + getResources().getString(R.string.shipment_received_alert_text_2);
+//                tv_pr1.setText("Your Payment ID " + invoiceNumber + " has been deleted successfully.");
+                txt_header1.setText(R.string.shipment_received_alert_heading);
                 String title = DeliveryNumber;
                 SpannableString ss1 = new SpannableString(title);
                 ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
@@ -494,7 +501,7 @@ public class PlaceholderFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+                    DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                     String yourFormattedString1 = formatter1.format(Double.parseDouble(response.getString("TotalPrice")));
 
                     total_amount.setText(yourFormattedString1);
@@ -849,7 +856,7 @@ public class PlaceholderFragment extends Fragment {
                         txt_companyName.setText(response.getJSONObject("deliveryCorp").getString("CompanyName"));
                         txt_created_date.setText(invoiceModel.getCreatedDate().split("T")[0]);
 
-                        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+                        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                         String yourFormattedString1_paidamount = formatter1.format(Double.parseDouble(invoiceModel.getPaidAmount()));
                         String yourFormattedString1_totalprice = formatter1.format(Double.parseDouble(invoiceModel.getTotalPrice()));
 

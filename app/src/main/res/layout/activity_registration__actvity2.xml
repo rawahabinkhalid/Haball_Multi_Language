@@ -420,7 +420,7 @@
                     android:layout_below="@+id/btn_register"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="© Haball | All rights reserved" />
+                    android:text="@string/all_rights_reserved" />
             </RelativeLayout>
 
         </RelativeLayout>

@@ -42,10 +42,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.haball.Distributor.StatusKVP;
 import com.haball.Distributor.ui.payments.MyJsonArrayRequest;
 import com.haball.HaballError;
 import com.haball.Loader;
 import com.haball.R;
+import com.haball.Retailer_Login.RetailerLogin;
 import com.haball.Retailor.RetailorDashboard;
 import com.haball.Retailor.ui.Dashboard.RetailerOrderAdapter;
 import com.haball.Retailor.ui.Dashboard.RetailerOrderModel;
@@ -323,6 +325,11 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
     }
 
     private void paymentFragmentTask(View root) throws JSONException {
+//        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("LoginToken",
+//                Context.MODE_PRIVATE);
+//        Token = sharedPreferences.getString("Login_Token", "");
+//        StatusKVP statusKVP = new StatusKVP(getContext(), Token);
+
         myFont = ResourcesCompat.getFont(getContext(), R.font.open_sans);
         tv_shipment_no_data1 = root.findViewById(R.id.tv_shipment_no_data);
         tv_shipment_no_data1.setVisibility(View.GONE);

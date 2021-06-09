@@ -81,7 +81,6 @@ public class RetailerLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retailer_login);
 
-
         Drawable background_drawable = getResources().getDrawable(R.drawable.background_logo);
         background_drawable.setAlpha(80);
         RelativeLayout rl_main_background = findViewById(R.id.rl_main_background);
@@ -446,7 +445,7 @@ public class RetailerLogin extends AppCompatActivity {
                     }
                 } catch (JSONException e) {
                     loader.hideLoader();
-                    new CustomToast().showToast(RetailerLogin.this, "Invalid Credentials");
+                    new CustomToast().showToast(RetailerLogin.this, getResources().getString(R.string.invalid_password_error));
                     e.printStackTrace();
 //                    try {
                     layout_username.setBoxStrokeColor(getResources().getColor(R.color.error_stroke_color));

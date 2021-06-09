@@ -153,7 +153,7 @@ public class Support_Ticket_Form_Fragment extends Fragment {
                 Email.clearFocus();
                 MobileNo.clearFocus();
                 Comment.clearFocus();
-                if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals("Issue Type") || !Criticality.equals("Criticality") || !PrefferedContacts.equals("Preferred Method of Contacting")) {
+                if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals(getResources().getString(R.string.issue_type)) || !Criticality.equals(getResources().getString(R.string.criticality)) || !PrefferedContacts.equals(getResources().getString(R.string.preferred_method_of_contacting))) {
                     showDiscardDialog();
                 } else {
 //                        fm.popBackStack();
@@ -606,13 +606,13 @@ public class Support_Ticket_Form_Fragment extends Fragment {
         String email = Email.getText().toString();
         String mobile = MobileNo.getText().toString();
         String comment = Comment.getText().toString();
-        String contact = "Preferred Method of Contacting";
+        String contact = getResources().getString(R.string.preferred_method_of_contacting);
         if (Preffered_Contact.getItemAtPosition(Preffered_Contact.getSelectedItemPosition()) != null)
             contact = Preffered_Contact.getItemAtPosition(Preffered_Contact.getSelectedItemPosition()).toString();
-        String issue_type = "Issue Type";
+        String issue_type = getResources().getString(R.string.issue_type);
         if (IssueType.getItemAtPosition(IssueType.getSelectedItemPosition()) != null)
             issue_type = IssueType.getItemAtPosition(IssueType.getSelectedItemPosition()).toString();
-        String critical = "Criticality";
+        String critical = getResources().getString(R.string.criticality);
         if (critcicality.getItemAtPosition(critcicality.getSelectedItemPosition()) != null)
             critical = critcicality.getItemAtPosition(critcicality.getSelectedItemPosition()).toString();
 
@@ -699,7 +699,7 @@ public class Support_Ticket_Form_Fragment extends Fragment {
 //                    Email.clearFocus();
 //                    MobileNo.clearFocus();
 //                    Comment.clearFocus();
-                    if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals("Issue Type") || !Criticality.equals("Criticality") || !PrefferedContacts.equals("Preferred Method of Contacting")) {
+                    if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals(getResources().getString(R.string.issue_type)) || !Criticality.equals(getResources().getString(R.string.criticality)) || !PrefferedContacts.equals(getResources().getString(R.string.preferred_method_of_contacting))) {
                         showDiscardDialog();
                         return true;
                     } else {
@@ -740,7 +740,7 @@ public class Support_Ticket_Form_Fragment extends Fragment {
 //                    Email.clearFocus();
 //                    MobileNo.clearFocus();
 //                    Comment.clearFocus();
-                    if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals("Issue Type") || !Criticality.equals("Criticality") || !PrefferedContacts.equals("Preferred Method of Contacting")) {
+                    if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals(getResources().getString(R.string.issue_type)) || !Criticality.equals(getResources().getString(R.string.criticality)) || !PrefferedContacts.equals(getResources().getString(R.string.preferred_method_of_contacting))) {
                         showDiscardDialog();
                         return  true;
                     } else {
@@ -996,7 +996,9 @@ public class Support_Ticket_Form_Fragment extends Fragment {
                 tv_pr1 = fbDialogue.findViewById(R.id.txt_details);
                 txt_header1.setText(getResources().getString(R.string.created_ticket));
                 try {
-                    tv_pr1.setText((getResources().getString(R.string.your_ticket_id)) + result.get("TicketNumber") + (getResources().getString(R.string.ticket_created_msg)));
+//                    tv_pr1.setText((getResources().getString(R.string.your_ticket_id)) + result.get("TicketNumber") + (getResources().getString(R.string.ticket_created_msg)));
+                    String tempStr = getResources().getString(R.string.your_ticket_id) + " " + result.get("TicketNumber") + " " + getResources().getString(R.string.ticket_created_msg);
+                    tv_pr1.setText(tempStr);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

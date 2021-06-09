@@ -198,12 +198,19 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
         amount_filter_rl.setVisibility(View.GONE);
         consolidate_felter = new ArrayList<>();
         consolidate_felter = new ArrayList<>();
-        consolidate_felter.add("Select Criteria");
-        consolidate_felter.add("Order ID");
-        consolidate_felter.add("Company");
-        consolidate_felter.add("Date");
-        consolidate_felter.add("Status");
-        consolidate_felter.add("Amount");
+//        consolidate_felter.add("Select Criteria");
+//        consolidate_felter.add("Order ID");
+//        consolidate_felter.add("Company");
+//        consolidate_felter.add("Date");
+//        consolidate_felter.add("Status");
+//        consolidate_felter.add("Amount");
+        consolidate_felter.add(getResources().getString(R.string.select_criteria));
+        consolidate_felter.add(getResources().getString(R.string.order_id));
+        consolidate_felter.add(getResources().getString(R.string.company));
+//        consolidate_felter.add("Payment Term");
+        consolidate_felter.add(getResources().getString(R.string.date));
+        consolidate_felter.add(getResources().getString(R.string.status));
+        consolidate_felter.add(getResources().getString(R.string.amount));
 
         arrayAdapterPayments = new ArrayAdapter<String>(root.getContext(),
                 android.R.layout.simple_spinner_dropdown_item, consolidate_felter) {
@@ -282,17 +289,17 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
                     recyclerView.setHasFixedSize(true);
 
 
-                    if (Filter_selected.equals("Order ID")) {
+                    if (Filter_selected.equals(getResources().getString(R.string.order_id))) {
                         search_bar.setHint("Search by " + Filter_selected);
                         Filter_selected = "OrderNumber";
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);
-                    } else if (Filter_selected.equals("Company")) {
+                    } else if (Filter_selected.equals(getResources().getString(R.string.company))) {
                         search_bar.setHint("Search by " + Filter_selected);
                         Filter_selected = "Retailer";
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);
-                    } else if (Filter_selected.equals("Date")) {
+                    } else if (Filter_selected.equals(getResources().getString(R.string.date))) {
                         date_filter_rl.setVisibility(View.VISIBLE);
                         Filter_selected = "date";
                         Filter_selected1 = "DateFrom";
@@ -309,7 +316,7 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
                                 openCalenderPopup("second date");
                             }
                         });
-                    } else if (Filter_selected.equals("Amount")) {
+                    } else if (Filter_selected.equals(getResources().getString(R.string.amount))) {
                         amount_filter_rl.setVisibility(View.VISIBLE);
                         Filter_selected = "amount";
                         Filter_selected1 = "AmountMin";
@@ -321,7 +328,7 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);
 
-                    } else if (Filter_selected.equals("Status")) {
+                    } else if (Filter_selected.equals(getResources().getString(R.string.status))) {
                         Filter_selected = "OrderStatus";
                         spinner_container1.setVisibility(View.VISIBLE);
                     }

@@ -508,7 +508,9 @@ public class CreatePaymentRequestFragment extends Fragment {
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
 
         tv_pr1.append(steps1);
+        tv_pr1.append(" ");
         tv_pr1.append(ss1);
+        tv_pr1.append(" ");
         tv_pr1.append(steps2);
         fbDialogue.setCancelable(true);
         fbDialogue.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);

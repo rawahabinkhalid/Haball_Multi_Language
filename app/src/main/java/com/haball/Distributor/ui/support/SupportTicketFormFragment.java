@@ -13,6 +13,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -143,12 +144,18 @@ public class SupportTicketFormFragment extends Fragment {
         MobileNo.setTextColor(getResources().getColor(R.color.textcolor));
         Email.setTextColor(getResources().getColor(R.color.textcolor));
 
-        issue_type.add("Issue Type");
-        issueType = "Issue Type";
-        criticality.add("Criticality");
-        Criticality = "Criticality";
-        preffered_contact.add("Preferred Method of Contacting");
-        PrefferedContacts = "Preferred Method of Contacting";
+//        issue_type.add("Issue Type");
+//        issueType = "Issue Type";
+//        criticality.add("Criticality");
+//        Criticality = "Criticality";
+//        preffered_contact.add("Preferred Method of Contacting");
+//        PrefferedContacts = "Preferred Method of Contacting";
+        issue_type.add(getResources().getString(R.string.issue_type));
+        issueType = getResources().getString(R.string.issue_type);
+        criticality.add(getResources().getString(R.string.criticality));
+        Criticality = getResources().getString(R.string.criticality);
+        preffered_contact.add(getResources().getString(R.string.preferred_method_of_contacting));
+        PrefferedContacts = getResources().getString(R.string.preferred_method_of_contacting);
 
         btn_back = root.findViewById(R.id.btn_back_support);
 
@@ -164,7 +171,7 @@ public class SupportTicketFormFragment extends Fragment {
                 Email.clearFocus();
                 MobileNo.clearFocus();
                 Comment.clearFocus();
-                if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals("Issue Type") || !Criticality.equals("Criticality") || !PrefferedContacts.equals("Preferred Method of Contacting")) {
+                if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals(getResources().getString(R.string.issue_type)) || !Criticality.equals(getResources().getString(R.string.criticality)) || !PrefferedContacts.equals(getResources().getString(R.string.preferred_method_of_contacting))) {
                     showDiscardDialog();
                 } else {
 //                        fm.popBackStack();
@@ -511,25 +518,28 @@ public class SupportTicketFormFragment extends Fragment {
         String email = Email.getText().toString();
         String mobile = MobileNo.getText().toString();
         String comment = Comment.getText().toString();
-        String contact = "Preferred Method of Contacting";
+        String contact = getResources().getString(R.string.preferred_method_of_contacting);
         if (Preffered_Contact.getItemAtPosition(Preffered_Contact.getSelectedItemPosition()) != null)
             contact = Preffered_Contact.getItemAtPosition(Preffered_Contact.getSelectedItemPosition()).toString();
-        String issue_type = "Issue Type";
+//        String issue_type = "Issue Type";
+        String issue_type = getResources().getString(R.string.issue_type);
         if (IssueType.getItemAtPosition(IssueType.getSelectedItemPosition()) != null)
             issue_type = IssueType.getItemAtPosition(IssueType.getSelectedItemPosition()).toString();
-        String critical = "Criticality";
+        String critical = getResources().getString(R.string.criticality);
         if (critcicality.getItemAtPosition(critcicality.getSelectedItemPosition()) != null)
             critical = critcicality.getItemAtPosition(critcicality.getSelectedItemPosition()).toString();
-
+        Log.i("debug_support_str", contact);
+        Log.i("debug_support_str", issue_type);
+        Log.i("debug_support_str", critical);
         if (bname.equals("")
                 || email.equals("")
                 || !Email.getText().toString().matches(reg_ex)
                 || mobile.equals("")
                 || mobile.length() != 12
 //                || comment.equals("")
-                || contact.equals("Preferred Method of Contacting")
-                || issue_type.equals("Issue Type")
-                || critical.equals("Criticality")
+                || contact.equals(getResources().getString(R.string.preferred_method_of_contacting))
+                || issue_type.equals(getResources().getString(R.string.issue_type))
+                || critical.equals(getResources().getString(R.string.criticality))
         ) {
             ticket_btn.setEnabled(false);
             ticket_btn.setBackground(getResources().getDrawable(R.drawable.disabled_button_background));
@@ -581,9 +591,17 @@ public class SupportTicketFormFragment extends Fragment {
                 TextView tv_pr1, txt_header1;
                 txt_header1 = fbDialogue.findViewById(R.id.txt_header1);
                 tv_pr1 = fbDialogue.findViewById(R.id.txt_details);
-                txt_header1.setText("Ticket Created");
+//                txt_header1.setText("Ticket Created");
+//                try {
+//                    tv_pr1.setText("Your Ticket ID " + result.get("TicketNumber") + " has been created successfully.");
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+                txt_header1.setText(getResources().getString(R.string.created_ticket));
                 try {
-                    tv_pr1.setText("Your Ticket ID " + result.get("TicketNumber") + " has been created successfully.");
+//                    tv_pr1.setText((getResources().getString(R.string.your_ticket_id)) + result.get("TicketNumber") + (getResources().getString(R.string.ticket_created_msg)));
+                    String tempStr = getResources().getString(R.string.your_ticket_id) + " " + result.get("TicketNumber") + " " + getResources().getString(R.string.ticket_created_msg);
+                    tv_pr1.setText(tempStr);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -837,7 +855,7 @@ public class SupportTicketFormFragment extends Fragment {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View view_popup = inflater.inflate(R.layout.discard_changes, null);
         TextView tv_discard_txt = view_popup.findViewById(R.id.tv_discard_txt);
-        tv_discard_txt.setText("Are you sure, you want to leave this page? Your changes will be discarded.");
+        tv_discard_txt.setText(getResources().getString(R.string.discard_text));
         alertDialog.setView(view_popup);
         alertDialog.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);
         WindowManager.LayoutParams layoutParams = alertDialog.getWindow().getAttributes();
@@ -897,7 +915,7 @@ public class SupportTicketFormFragment extends Fragment {
 //                    Email.clearFocus();
 //                    MobileNo.clearFocus();
 //                    Comment.clearFocus();
-                    if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals("Issue Type") || !Criticality.equals("Criticality") || !PrefferedContacts.equals("Preferred Method of Contacting")) {
+                    if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals(getResources().getString(R.string.issue_type)) || !Criticality.equals(getResources().getString(R.string.criticality)) || !PrefferedContacts.equals(getResources().getString(R.string.preferred_method_of_contacting))) {
                         showDiscardDialog();
                         return true;
                     } else {
@@ -938,7 +956,7 @@ public class SupportTicketFormFragment extends Fragment {
 //                    Email.clearFocus();
 //                    MobileNo.clearFocus();
 //                    Comment.clearFocus();
-                    if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals("Issue Type") || !Criticality.equals("Criticality") || !PrefferedContacts.equals("Preferred Method of Contacting")) {
+                    if (!txt_BName.equals(first_name) || !txt_Email.equals(email) || !txt_MobileNo.equals(phone_number) || !txt_Comment.equals("") || !issueType.equals(getResources().getString(R.string.issue_type)) || !Criticality.equals(getResources().getString(R.string.criticality)) || !PrefferedContacts.equals(getResources().getString(R.string.preferred_method_of_contacting))) {
                         showDiscardDialog();
                         return true;
                     } else {

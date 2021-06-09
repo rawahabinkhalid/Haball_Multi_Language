@@ -384,7 +384,7 @@
                     android:layout_below="@+id/ln_btn"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="© Haball | All rights reserved" />
+                    android:text="@string/all_rights_reserved" />
 
             </RelativeLayout>
 

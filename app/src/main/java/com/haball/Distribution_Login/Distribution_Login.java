@@ -245,7 +245,7 @@ public class Distribution_Login extends AppCompatActivity {
 
 
         et_username.setText("kashif4169");
-        et_password.setText("@dmin123");
+        et_password.setText("@dmin1234");
         checkFieldsForEmptyValues();
         changeLanguage();
     }
@@ -449,7 +449,7 @@ public class Distribution_Login extends AppCompatActivity {
                             }
                         } catch (JSONException e) {
                             loader.hideLoader();
-                            new CustomToast().showToast(Distribution_Login.this, "Invalid Credentials");
+                            new CustomToast().showToast(Distribution_Login.this, getResources().getString(R.string.invalid_password_error));
                             e.printStackTrace();
 //                    try {
                             layout_username.setBoxStrokeColor(getResources().getColor(R.color.error_stroke_color));
@@ -472,7 +472,7 @@ public class Distribution_Login extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         loader.hideLoader();
-                        new CustomToast().showToast(Distribution_Login.this, "Invalid Credentials");
+                        new CustomToast().showToast(Distribution_Login.this, getResources().getString(R.string.invalid_password_error));
                         error.printStackTrace();
                         layout_username.setBoxStrokeColor(getResources().getColor(R.color.error_stroke_color));
                         layout_username.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.error_stroke_color)));

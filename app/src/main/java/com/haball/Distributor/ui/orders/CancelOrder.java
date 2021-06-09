@@ -88,7 +88,9 @@ public class CancelOrder {
                 TextView tv_pr1, txt_header1;
                 txt_header1 = fbDialogue.findViewById(R.id.txt_header1);
                 tv_pr1 = fbDialogue.findViewById(R.id.txt_details);
-                tv_pr1.setText((R.string.your_order_id) + orderNumber + (R.string.cancelled_order_msg));
+//                tv_pr1.setText((R.string.your_order_id) + orderNumber + (R.string.cancelled_order_msg));
+                String tempStr = context.getResources().getString(R.string.your_order_id) + " " + orderNumber + " " + context.getResources().getString(R.string.cancelled_order_msg);
+                tv_pr1.setText(tempStr);
                 txt_header1.setText(R.string.cancelled_order);
                 fbDialogue.setCancelable(true);
                 fbDialogue.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);

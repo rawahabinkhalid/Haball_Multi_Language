@@ -33,9 +33,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="34dp"
                     android:background="@drawable/border_set"
-                    android:orientation="vertical"
                     android:focusable="true"
-                    android:focusableInTouchMode="true">
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/login_heading"
@@ -63,10 +63,10 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
-                        android:gravity="end"
-                        android:hint="@string/user_name"
                         android:theme="@style/TextLabel"
-                        app:boxBackgroundColor="#fff">
+                        app:boxBackgroundColor="#fff"
+                        android:hint="@string/user_name">
+                        <!--                        android:hint="@string/user_name"-->
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txt_username"
@@ -74,8 +74,9 @@
                             android:layout_height="match_parent"
                             android:fontFamily="@font/open_sans"
                             android:inputType="text"
+                            android:textColor="@color/textcolor"
                             android:theme="@style/TextLabelEditeText"
-                            android:textColor="@color/textcolor" />
+                             />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -83,9 +84,9 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
-                        android:gravity="end"
                         android:layout_below="@+id/layout_username"
                         android:layout_marginTop="16dp"
+                        android:gravity="end"
                         android:hint="@string/password"
                         android:theme="@style/TextLabel"
                         app:boxBackgroundColor="#fff"

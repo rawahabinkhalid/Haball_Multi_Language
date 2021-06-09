@@ -85,7 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginTop="10dp"
-                    android:hint="Email Address"
+                    android:hint="@string/email_address_retailer"
                     android:textColorHint="#A9A9A9"
                     android:theme="@style/TextLabel"
                     app:boxBackgroundColor="#fff"

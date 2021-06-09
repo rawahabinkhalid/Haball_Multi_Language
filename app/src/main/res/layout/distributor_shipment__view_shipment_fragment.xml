@@ -102,7 +102,7 @@
                     android:layout_height="55dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/open_sans"
-                    android:hint="Receiving Date"
+                    android:hint="@string/receiving_date"
                     android:textColorHint="#96bb3c"
                     android:theme="@style/TextLabel"
                     android:visibility="gone">
@@ -124,7 +124,7 @@
                     android:layout_height="55dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/open_sans"
-                    android:hint="DC Number"
+                    android:hint="@string/dc_number"
                     android:textColorHint="#96bb3c"
                     android:theme="@style/TextLabel"
                     android:visibility="gone">
@@ -179,7 +179,7 @@
             <!--                        android:gravity="center"-->
             <!--                        android:layout_marginBottom="10dp"-->
             <!--                        android:layout_alignParentBottom="true"-->
-            <!--                        android:text="© Haball | All rights reserved" />-->
+            <!--                        android:text="@string/all_rights_reserved" />-->
             <!--                </RelativeLayout>-->
 
 
@@ -205,7 +205,7 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:stateListAnimator="@null"
-                    android:text="Receive"
+                    android:text="@string/shipment_receive_btn"
                     android:textAllCaps="false"
                     android:textColor="#fff"
                     android:textSize="@dimen/button_text_size"

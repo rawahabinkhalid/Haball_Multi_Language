@@ -287,11 +287,11 @@ public class Retailer_Support_Ticket_View extends Fragment {
                     for (Map.Entry<String, String> entry : RetailerIssueTypePrivateKVP.entrySet()) {
                         // Log.i("statuskvp3", String.valueOf(entry));
                         // Log.i("statuskvp3", String.valueOf(response.get("IssueType")));
-                        if (entry.getKey().equals(String.valueOf(response.get(getResources().getString(R.string.issue_type)))))
+                        if (entry.getKey().equals(String.valueOf(response.get("IssueType"))))
                             issue_type = entry.getValue();
                     }
                     for (Map.Entry<String, String> entry : RetailerCriticalityPrivateKVP.entrySet()) {
-                        if (entry.getKey().equals(String.valueOf(response.get(getResources().getString(R.string.criticality)))))
+                        if (entry.getKey().equals(String.valueOf(response.get("Criticality"))))
                             criticality = entry.getValue();
                     }
                     for (Map.Entry<String, String> entry : RetailerContactingMethodKVP.entrySet()) {

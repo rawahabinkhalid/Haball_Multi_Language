@@ -44,7 +44,7 @@ public class PaymentLedgerAdapter extends RecyclerView.Adapter<PaymentLedgerAdap
 
         holder.date_ledger_value.setText(PaymentLedgerList.get(position).getTransactionDate());
 
-        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
         String yourFormattedString1;
         if(!PaymentLedgerList.get(position).getDebitAmount().equals("0")) {
             yourFormattedString1 = formatter1.format(Float.parseFloat(PaymentLedgerList.get(position).getDebitAmount()));
@@ -52,7 +52,7 @@ public class PaymentLedgerAdapter extends RecyclerView.Adapter<PaymentLedgerAdap
         } else{
             yourFormattedString1 = formatter1.format(Float.parseFloat(PaymentLedgerList.get(position).getCreditAmount()));
             holder.transaction_value.setText("Rs. " +yourFormattedString1);
-            holder.transaction.setText("Credit Amount: ");
+            holder.transaction.setText(mContxt.getResources().getString(R.string.credit_amount));
         }
         DecimalFormat formatter2 = new DecimalFormat("#,###,##0.00");
         String yourFormattedString2 = formatter2.format(Double.parseDouble(PaymentLedgerList.get(position).getBalanceAmount()));

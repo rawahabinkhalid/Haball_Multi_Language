@@ -907,7 +907,7 @@ public class PlaceholderFragment extends Fragment {
                     txt_paymentID.setText(String.valueOf(response.get("InvoiceNumber")));
                     setTextAndShowDate(layout_txt_created_date, txt_created_date, String.valueOf(response.get("CreatedDate")).split("T")[0]);
 //                    setTextAndShow(layout_txt_amount, txt_amount, String.valueOf(response.get("InvoiceTotalAmount")));
-                    DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+                    DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                     String Formatted_TotalAmount = formatter1.format(Double.parseDouble(response.getString("PaidAmount")));
                     setTextAndShow(layout_txt_amount, txt_amount, "Rs. " + Formatted_TotalAmount);
 

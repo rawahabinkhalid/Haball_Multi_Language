@@ -245,7 +245,7 @@ public class View_Payment_Fragment extends Fragment {
                         txt_settlement.setTextColor(getContext().getResources().getColor(R.color.textcolor));
                     }
                     if (!String.valueOf(result.get("PaidAmount")).equals("null")) {
-                        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+                        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                         String Formatted_TotalAmount = formatter1.format(Double.parseDouble(result.getString("PaidAmount")));
                         txt_amount.setText(Formatted_TotalAmount);
                         txt_amount.setTextColor(getContext().getResources().getColor(R.color.textcolor));
@@ -265,7 +265,7 @@ public class View_Payment_Fragment extends Fragment {
                         txt_transaction_charges.setTextColor(getContext().getResources().getColor(R.color.textcolor));
                     }
                     if (!String.valueOf(result.get("TotalAmount")).equals("null")) {
-                        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+                        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                         String Formatted_TotalAmount = formatter1.format(Double.parseDouble(result.getString("TotalAmount")));
                         txt_total_amount.setText(Formatted_TotalAmount);
                         txt_total_amount.setTextColor(getContext().getResources().getColor(R.color.textcolor));

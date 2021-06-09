@@ -326,7 +326,7 @@
 <!--                android:layout_alignParentBottom="true"-->
 <!--                android:layout_marginBottom="50dp"-->
 <!--                android:gravity="center"-->
-<!--                android:text="© Haball | All rights reserved" />-->
+<!--                android:text="@string/all_rights_reserved" />-->
         </LinearLayout>
     </ScrollView>
 

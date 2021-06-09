@@ -70,5 +70,5 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:text="© Haball | All rights reserved" />
+        android:text="@string/all_rights_reserved" />
 </RelativeLayout>

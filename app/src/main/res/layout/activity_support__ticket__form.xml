@@ -30,7 +30,7 @@
                 android:layout_weight="1"
                 android:paddingBottom="10dp"
                 android:paddingTop="5dp"
-                android:text="Support"
+                android:text="@string/support"
                 android:textSize="20sp" />
             <RelativeLayout
                 android:id="@+id/line"
@@ -51,7 +51,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:hint="Business Name"
+                android:hint="@string/business_name"
                 android:theme="@style/TextLabel"
                 app:boxBackgroundColor="#fff"
                 app:boxStrokeColor="@color/box_stroke">
@@ -73,7 +73,7 @@
                 android:layout_below="@+id/layout_BName"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/open_sans"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:theme="@style/TextLabel"
                 app:boxBackgroundColor="#fff"
                 app:boxStrokeColor="@color/box_stroke">
@@ -96,7 +96,7 @@
                 android:layout_below="@+id/layout_Email"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/open_sans"
-                android:hint="Mobile No"
+                android:hint="@string/mobile_no"
                 android:theme="@style/TextLabel"
                 app:boxBackgroundColor="#fff"
                 app:boxStrokeColor="@color/box_stroke">
@@ -200,7 +200,7 @@
                 android:layout_height="100dp"
                 android:layout_below="@+id/relative_Preffered_Contact"
                 android:layout_marginTop="20dp"
-                android:hint="Comments"
+                android:hint="@string/comments"
                 android:theme="@style/TextLabel"
                 app:boxBackgroundColor="#fff"
                 app:boxStrokeColor="@color/box_stroke"
@@ -230,7 +230,7 @@
             android:background="@drawable/button_round"
             android:fontFamily="@font/open_sans"
             android:stateListAnimator="@null"
-            android:text="Submit"
+            android:text="@string/submit"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="@dimen/button_text_size" />
@@ -244,7 +244,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/button_background"
             android:fontFamily="@font/open_sans"
-            android:text="Back"
+            android:text="@string/back"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="@dimen/button_text_size" />

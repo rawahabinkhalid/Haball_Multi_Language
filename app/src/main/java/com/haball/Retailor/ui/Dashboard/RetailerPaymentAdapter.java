@@ -90,7 +90,7 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
         holder.tv_heading.setText(paymentsList.get(position).getCompanyName());
         holder.tv_payment_id.setText(paymentsList.get(position).getInvoiceNumber());
 
-        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
         String yourFormattedString1 = formatter1.format(Double.parseDouble(paymentsList.get(position).getTotalPrice()));
         holder.tv_amount.setText("Rs. " + yourFormattedString1);
 

@@ -6,20 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Distributor.ui.shipments.main.DistributorShipment_ProductDetails">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/rl_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="27dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="27dp"
-        android:orientation="vertical"
-        android:weightSum="8">
+        android:layout_marginEnd="27dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="9">
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:layout_above="@+id/ln_txt">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/product_rv_shipment"
@@ -27,13 +26,12 @@
                 android:layout_height="match_parent" />
         </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/ln_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:orientation="vertical"
-            android:weightSum="8">
+            android:layout_alignParentBottom="true">
 
             <RelativeLayout
                 android:id="@+id/line_bottom"
@@ -44,9 +42,8 @@
             <RelativeLayout
                 android:id="@+id/asd"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="9.5dp"
-                android:layout_weight="1">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9.5dp">
 
                 <!--                <TextView-->
                 <!--                    android:id="@+id/gross"-->
@@ -142,8 +139,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/button_round"
                 android:fontFamily="@font/open_sans"
+                android:layout_below="@+id/asd"
                 android:gravity="center"
                 android:stateListAnimator="@null"
                 android:text="@string/back"
@@ -151,6 +150,6 @@
                 android:textColor="#fff"
                 android:textSize="@dimen/button_text_size"
                 app:elevation="0dp" />
-        </LinearLayout>
-    </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
 </RelativeLayout>

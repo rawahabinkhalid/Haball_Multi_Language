@@ -567,7 +567,9 @@ public class Retailer_Order_Summary extends Fragment {
                     txt_header1 = fbDialogue.findViewById(R.id.txt_header1);
                     tv_pr1 = fbDialogue.findViewById(R.id.txt_details);
                     txt_header1.setText(getResources().getString(R.string.order_saved));
-                    tv_pr1.setText((getResources().getString(R.string.your_order_id)) + result.getString("OrderNumber") + (getResources().getString(R.string.order_saved_msg)));
+//                    tv_pr1.setText((getResources().getString(R.string.your_order_id)) + result.getString("OrderNumber") + (getResources().getString(R.string.order_saved_msg)));
+                    String tempStr = getContext().getResources().getString(R.string.your_order_id) + " " + result.getString("OrderNumber") + " " + getContext().getResources().getString(R.string.order_saved_msg);
+                    tv_pr1.setText(tempStr);
                     fbDialogue.setCancelable(true);
                     fbDialogue.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);
                     WindowManager.LayoutParams layoutParams = fbDialogue.getWindow().getAttributes();
@@ -676,7 +678,9 @@ public class Retailer_Order_Summary extends Fragment {
                 tv_pr1 = fbDialogue.findViewById(R.id.txt_details);
                 txt_header1.setText(getResources().getString(R.string.order_created));
                 try {
-                    tv_pr1.setText((getResources().getString(R.string.your_order_id)) + result.getString("OrderNumber") + (getResources().getString(R.string.order_created_msg)));
+//                    tv_pr1.setText((getResources().getString(R.string.your_order_id)) + result.getString("OrderNumber") + (getResources().getString(R.string.order_created_msg)));
+                    String tempStr = getContext().getResources().getString(R.string.your_order_id) + " " + result.getString("OrderNumber") + " " + getContext().getResources().getString(R.string.order_created_msg);
+                    tv_pr1.setText(tempStr);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

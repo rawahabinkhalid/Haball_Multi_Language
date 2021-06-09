@@ -82,7 +82,7 @@ public class PaymentDashboardAdapter extends RecyclerView.Adapter<PaymentDashboa
         holder.tv_heading.setText(paymentsList.get(position).getCompanyName());
         holder.tv_payment_id.setText(paymentsList.get(position).getInvoiceNumber());
 
-        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
         String yourFormattedString1 = formatter1.format(Double.parseDouble(paymentsList.get(position).getTotalPrice()));
         holder.tv_amount.setText("Rs. " + yourFormattedString1);
 
@@ -288,9 +288,9 @@ public class PaymentDashboardAdapter extends RecyclerView.Adapter<PaymentDashboa
         LayoutInflater inflater = LayoutInflater.from(context);
         View view_popup = inflater.inflate(R.layout.discard_changes, null);
         TextView tv_discard = view_popup.findViewById(R.id.tv_discard);
-        tv_discard.setText("Delete Payment");
+        tv_discard.setText(context.getResources().getString(R.string.delete_payment));
         TextView tv_discard_txt = view_popup.findViewById(R.id.tv_discard_txt);
-        tv_discard_txt.setText("Are you sure, you want to delete this payment?");
+        tv_discard_txt.setText(context.getResources().getString(R.string.delete_payment_text));
         alertDialog.setView(view_popup);
         alertDialog.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);
         WindowManager.LayoutParams layoutParams = alertDialog.getWindow().getAttributes();
@@ -298,7 +298,7 @@ public class PaymentDashboardAdapter extends RecyclerView.Adapter<PaymentDashboa
         layoutParams.x = -70;// top margin
         alertDialog.getWindow().setAttributes(layoutParams);
         Button btn_discard = (Button) view_popup.findViewById(R.id.btn_discard);
-        btn_discard.setText("Delete");
+        btn_discard.setText(context.getResources().getString(R.string.delete));
         btn_discard.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 alertDialog.dismiss();

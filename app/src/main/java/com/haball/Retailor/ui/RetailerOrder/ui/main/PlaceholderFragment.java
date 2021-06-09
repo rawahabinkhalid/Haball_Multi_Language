@@ -560,7 +560,7 @@ public class PlaceholderFragment extends Fragment {
 //            LayoutInflater inflater = LayoutInflater.from(getContext());
 //            View view_popup = inflater.inflate(R.layout.discard_changes, null);
 //            TextView tv_discard_txt = view_popup.findViewById(R.id.tv_discard_txt);
-//            tv_discard_txt.setText("Are you sure, you want to leave this page? Your changes will be discarded.");
+//            tv_discard_txt.setText(getResources().getString(R.string.discard_text));
 //            alertDialog.setView(view_popup);
 //            alertDialog.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);
 //            WindowManager.LayoutParams layoutParams = alertDialog.getWindow().getAttributes();
@@ -983,7 +983,7 @@ public class PlaceholderFragment extends Fragment {
                     txt_paymentID.setText(String.valueOf(response.get("InvoiceNumber")));
                     setTextAndShowDate(layout_txt_created_date, txt_created_date, String.valueOf(response.get("InvoiceCreatedDate")).split("T")[0]);
 //                    setTextAndShow(layout_txt_amount, txt_amount, String.valueOf(response.get("InvoiceTotalAmount")));
-                    DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+                    DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                     String Formatted_TotalAmount = formatter1.format(Double.parseDouble(response.getString("InvoiceTotalAmount")));
                     setTextAndShow(layout_txt_amount, txt_amount, Formatted_TotalAmount);
 

@@ -780,6 +780,7 @@
 	<string name="user_name">Username Or Mobile No</string>
 	<string name="password">Password</string>
 	<string name="reset">Reset</string>
+	<string name="invalid_password_error">Invalid Credentials</string>
 	// retailer forgot password
 	<string name="forgot_password">Forgot Password</string>
 	<string name="email_sent">Email Sent</string>
@@ -898,6 +899,7 @@
 	<string name="ticket_created_msg">" has been created successfully."</string>
 	// Profile Screen
 	<string name="retailer_code">Retailer Code</string>
+	<string name="retailer_code_adapter">Retailer Code: </string>
 	<string name="full_name">Full Name*</string>
 	<string name="email_address">Email Address*</string>
 	<string name="cnic">CNIC No</string>
@@ -942,8 +944,9 @@
 	<string name="deleted_product_msg">Your product has been deleted successfully.</string>
 	<string name="deleted_product">Product Deleted</string>
 	<string name="order_saved">Order Saved</string>
-	<string name="your_order_id">"Your Order ID "</string>
-	<string name="order_saved_msg">has been saved successfully.</string>
+	<string name="your_order_id">Your Order ID </string>
+	<string name="order_saved_msg"> has been saved successfully.</string>
+	<string name="order_deleted_msg"> has been deleted successfully.</string>
 	<string name="order_created">Order Created</string>
 	<string name="order_created_msg">has been created successfully.</string>
 	//support logged out
@@ -990,7 +993,6 @@
 	<string name="pack_size_adapter"><![CDATA[Pack Size: ]]></string>
 	<string name="cancelled_order_msg">has been cancelled successfully.</string>
 	<string name="cancelled_order">Order Cancelled</string>
-	<string name="order_deleted_msg">has been deleted successfully.</string>
 	<string name="order_deleted">Order Deleted</string>
 	// drawer activity
 	<string name="shipment">Shipment</string>
@@ -1002,8 +1004,8 @@
 	<string name="retailer_payment_distri">\t\t\tRetailer Payments</string>
 	//dashboard
 	<string name="state_item">"State: "</string>
-	<string name="your_payment_id">Your Payment ID</string>
-	<string name="deleted_payment_msg">has been deleted successfully.</string>
+	<string name="your_payment_id">Your Payment ID </string>
+	<string name="deleted_payment_msg"> has been deleted successfully.</string>
 	<string name="deleted_payment">Payment Deleted</string>
 	// others
 	<string name="name">Name</string>
@@ -1067,10 +1069,16 @@
 	<string name="unable_download_msg">UNABLE TO DOWNLOAD FILE</string>
 	<string name="shipment_id">Shipment ID</string>
 	<string name="shipment_no">Shipment No</string>
+	<string name="shipment_no_adapter">Shipment No: </string>
 	<string name="shipment_date">Shipment Date</string>
 	<string name="receiving_date">Receiving Date</string>
+	<string name="dc_number">DC Number</string>
 	<string name="quantity">Quantity</string>
+	<string name="shipment_receive_btn">Receive</string>
 	<string name="received">Received</string>
+	<string name="shipment_received_alert_heading">Shipment Received</string>
+	<string name="shipment_received_alert_text_1">Shipment ID </string>
+	<string name="shipment_received_alert_text_2"> has been received successfully.</string>
 	<string name="in_transit">In Transit</string>
 	<string name="deleted_ticket">Ticket Deleted</string>
 	<string name="deleted_ticket_msg">Your Support Ticket has been deleted successfully.</string>
@@ -1084,6 +1092,7 @@
 	<string name="payment_ledger_id">Ledger ID:</string>
 	<string name="date_item">Date: </string>
 	<string name="debit_amount">Debit Amount: </string>
+	<string name="credit_amount">Credit Amount: </string>
 	<string name="balance_item">Balance: </string>
 	// bottom line
 	<string name="all_rights_reserved">© Haball | All rights reserved</string>

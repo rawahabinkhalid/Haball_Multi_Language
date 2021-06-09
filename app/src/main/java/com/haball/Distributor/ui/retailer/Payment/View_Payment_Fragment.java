@@ -234,7 +234,7 @@ public class View_Payment_Fragment extends Fragment {
                     }
                     if (!String.valueOf(result.getJSONObject("Detail").get("PaidAmount")).equals("null")) {
 //                        txt_amount.setText(String.valueOf(result.get("PaidAmount")));
-                        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+                        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                         String Formatted_TotalAmount = formatter1.format(Double.parseDouble(result.getJSONObject("Detail").getString("PaidAmount")));
                         txt_amount.setText("Rs. "+Formatted_TotalAmount);
                         txt_amount.setTextColor(getContext().getResources().getColor(R.color.textcolor));
@@ -248,7 +248,7 @@ public class View_Payment_Fragment extends Fragment {
                         txt_transaction_charges.setTextColor(getContext().getResources().getColor(R.color.textcolor));
                     }
                     if (!String.valueOf(result.getJSONObject("Detail").get("TotalAmount")).equals("null")) {
-                        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+                        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                         String Formatted_TotalAmount = formatter1.format(Double.parseDouble(result.getJSONObject("Detail").getString("TotalAmount")));
                         txt_total_amount.setText("Rs. "+Formatted_TotalAmount);
                         txt_total_amount.setTextColor(getContext().getResources().getColor(R.color.textcolor));

@@ -24,22 +24,22 @@
 		Invoice Details
 	</string>
     <string name="tab_text_5">
-		Order Detail
+		آرڈر کی تفصیلات
 	</string>
     <string name="tab_text_5_0">
-		Order
+		آرڈر
 	</string>
     <string name="tab_text_5_1">
-		Payment
+		ادائیگی
 	</string>
     <string name="tab_text_6">
 		Product Details
 	</string>
     <string name="tab_text_7">
-		Shipment Detail
+		شپمینٹ کی تفصیلات
 	</string>
     <string name="tab_text_7_0">
-		Shipment
+		شپمینٹ
 	</string>
     //invoice
     <string name="tab_text_01">
@@ -49,7 +49,7 @@
 		Dealer Information
 	</string>
     <string name="tab_text_03">
-		Orders Details
+		آرڈر کی تفصیلات
 	</string>
     <string name="tab_text_04">
 		Products Details
@@ -58,7 +58,7 @@
 		Shipments Details
 	</string>
     <string name="tab_text_06">
-		My Network
+		میرا نیٹ ورک
 	</string>
     <string name="tab_text_06_tab">
 	</string>
@@ -780,8 +780,9 @@
     <string name="txt_forgot">
 		براہ کرم اپنا پاس ورڈ تبدیل کرنے کے لئے اپنا رجسٹرڈ ای میل ایڈریس درج کریں.
 	</string>
-    <string name="email_sent_text">"پاس ورڈ دوبارہ تبدیل کرنے کی ہدایات آپ کے فراہم کردہ ای میل ایڈریس پر بھیج دی گی ہیں۔"</string>
+    <string name="email_sent_text">پاس ورڈ دوبارہ تبدیل کرنے کی ہدایات آپ کے فراہم کردہ ای میل ایڈریس پر بھیج دی گی ہیں۔</string>
     <string name="reset"> تبدیل کریں</string>
+	<string name="invalid_password_error">غلط پاس ورڈ</string>
     <string name="email_sent">ای میل بھیج دی گئ ہے</string>
     <string name="alert">الرٹ</string>
     <string name="alert_text">کیا آپ واقعی اس اسکرین سے باہر نکلنا چاہتے ہیں؟</string>
@@ -820,7 +821,7 @@
     <string name="select_criteria">تلاش کا معیار</string>
     <string name="order_id">آرڈر کی شناخت، آئی ڈی</string>
     <string name="company">کمپنی</string>
-    <string name="status">موجودہ حالت</string>
+	<string name="status">موجودہ حالت</string>
     <string name="created_date">تشکیل کی تاریخ</string>
     <string name="amount">رقم</string>
     <string name="tab_retailer_order">آرڈر</string>
@@ -898,6 +899,7 @@
     <string name="ticket_created_msg"> کامیابی کے ساتھ تشکیل دے دیا گیا ہے. </string>
     // Profile Screen
     <string name="retailer_code">ریٹیلر کوڈ</string>
+	<string name="retailer_code_adapter"> :ریٹیلر کوڈ</string>
     <string name="full_name">پورا نام*</string>
     <string name="email_address">ای میل ایڈریس*</string>
     <string name="cnic">شناختی کارڈ نمبر</string>
@@ -931,8 +933,8 @@
     <string name="checkout">چیک آؤٹ</string>
     <string name="search_by_item">آئٹم کے ذریعہ تلاش کریں</string>
     <string name="btn_add_product">پروڈکٹ شامل کریں</string>
-    <string name="total_disc">Total Disc:</string>
-    <string name="total_amount">Total Amount:</string>
+    <string name="total_disc"> :مکمل ڈسکاؤنٹ</string>
+    <string name="total_amount"> :مکمل رقم</string>
     <string name="btn_draft">ڈرافت</string>
     <string name="btn_confirm_order">آرڈر کنفرم کریں</string>
     <string name="order_summary_approval_msg">منظوری ، ٹیکس ، اور ڈسکاؤنٹ ( اگر کوئی ہے تو ) کی بنیاد پر کل قیمت تبدیل کی جاسکتی ہے۔</string>
@@ -944,8 +946,9 @@
     <string name="deleted_product_msg"> کامیابی کے ساتھ ڈیلیٹ ہوگیا ہے۔</string>
     <string name="deleted_product">پروڈکٹ ڈیلیٹ کردیا گیا ہے</string>
     <string name="order_saved">آرڈر محفوظ کرلیا گیا ہے</string>
-    <string name="your_order_id">"آپ کا آرڈر ID "</string>
-    <string name="order_saved_msg">کامیابی کے ساتھ محفوظ کر لیا گیا ہے۔</string>
+    <string name="your_order_id">آپ کا آرڈر ID </string>
+    <string name="order_saved_msg"> کامیابی کے ساتھ محفوظ کر لیا گیا ہے۔</string>
+	<string name="order_deleted_msg"> کامیابی کے ساتھ ڈیلیٹ ہوگیا ہے۔</string>
     <string name="order_created">آرڈر تشکیل دے دیا گیا</string>
     <string name="order_created_msg">کامیابی کے ساتھ تشکیل دیا گیا ہے۔</string>
     //support logged out
@@ -962,21 +965,21 @@
     <string name="transaction_date">ٹرانزیکشن کی تاریخ</string>
     <string name="bank">بینک</string>
     <string name="auth_id">آتھورائیزیشن آئی ڈی</string>
-    <string name="seltment_id">Settlement ID</string>
-    <string name="trans_charges">سیٹلمنٹ آئی ڈی</string>
+    <string name="seltment_id">سیٹلمنٹ آئی ڈی</string>
+    <string name="trans_charges">ٹرانزیکشن چارجز</string>
     <string name="view_receipt">رسید دیکھیں</string>
     <string name="order_reference_no">آرڈر ریفرنس  نمبر</string>
     <string name="invoice_ref_no">انوائس  ریفرنس  نمبر</string>انٹرنیٹ بینکنگ
 
     <string name="mobile_bank_heading"><![CDATA[انٹرنیٹ اور موبائل بینکنگ]]></string>
     <string name="over_the_counter">کاؤنٹر پر ادائیگی کے لئے</string>
-    <string name="product_code">Product Code: </string>
-    <string name="product_code_for_adapter"><![CDATA[Product Code: ]]></string>
-    <string name="price_adapter"><![CDATA[Price: ]]></string>
-    <string name="UOM_adapter"><![CDATA[UOM: ]]></string>
-    <string name="disc_adpter"><![CDATA[Disc: ]]></string>
-    <string name="qty_adapter"><![CDATA[Qty: ]]></string>
-    <string name="amount_adapter"><![CDATA[Amount: ]]></string>
+    <string name="product_code">پروڈکٹ کوڈ: </string>
+    <string name="product_code_for_adapter"><![CDATA[پروڈکٹ کوڈ: ]]></string>
+    <string name="price_adapter"><![CDATA[\u00A0:قیمت]]></string>
+    <string name="UOM_adapter"><![CDATA[UOM: ]]></string>
+    <string name="disc_adpter"><![CDATA[\u00A0:ڈسکاؤنٹ]]></string>
+    <string name="qty_adapter"><![CDATA[مقدار: ]]></string>
+    <string name="amount_adapter"><![CDATA[رقم: ]]></string>
     <string name="total_unpaid_amount">غیر ادا شدہ رقم</string>
     <string name="total_paid_amount">کل ادا شدہ رقم</string>
     <string name="ledger_balance">لیجر بیلنس</string>
@@ -993,12 +996,10 @@
     <string name="pack_size_adapter"><![CDATA[Pack Size: ]]></string>
     <string name="cancelled_order_msg">کامیابی کے ساتھ منسوخ کر دیا گیا ہے۔</string>
     <string name="cancelled_order">آرڈر منسوخ کر دیا گیا ہے</string>
-    <string name="order_deleted_msg">کامیابی کے ساتھ ڈیلیٹ ہوگیا ہے۔
-</string>
     <string name="order_deleted">آرڈر ڈیلیٹ کردیا گیا ہے </string>
     // drawer activity
     <string name="shipment">شپمینٹ</string>
-    <string name="retailer_management">Retailer Management</string>
+    <string name="retailer_management">ریٹیلر مناجمنٹ</string>
 <!--    <string name="make_payment_distri1">ادائیگی بنائیں</string>-->
     <string name="payment_ledger">\t\t\t\t\tادائیگی لیجر</string>
     <string name="make_payment_distri">\t\t\t\t\tادائیگی بنائیں</string>
@@ -1006,18 +1007,18 @@
     <string name="order_behalf">\t\t\t\t\tبیہلف پر آرڈر</string>
     <string name="retailer_payment_distri">\t\t\t\t\tریٹیلر  پیمنٹس</string>
     //dashboard
-    <string name="state_item">"State: "</string>
-    <string name="your_payment_id">آپ کی ادائیگی کی شناخت، آئی ڈی</string>
-    <string name="deleted_payment_msg">has been deleted successfully.</string>
-    <string name="deleted_payment">Payment Deleted</string>
+    <string name="state_item">State: </string>
+    <string name="your_payment_id">آپ کی ادائیگی کی شناخت، آئی ڈی </string>
+    <string name="deleted_payment_msg"> کامیابی کے ساتھ ڈیلیٹ ہوگیا ہے۔</string>
+    <string name="deleted_payment">ادائیگی ڈیلیٹ کر دی گئی ہے</string>
     //
     <string name="name">نام</string>
     <string name="insufficient_balance_msg">معذرت ، آپ کے آرڈر پر کارروائی نہیں کی جا سکتی ہے۔</string>
     <string name="temperory_save_msg">Order has been saved as template successfully</string>
     <string name="payment_ledger_frag">ادائیگی لیجر</string>
-    <string name="select_company_msg">Please Select Company</string>
+    <string name="select_company_msg">براہ کرم کمپنی منتخب کریں</string>
     <string name="ledger_id_sp">لیجر ID</string>
-    <string name="document_type">ڈاکومنٹ ٹائپ</string>
+    <string name="document_type"> :ڈاکومنٹ ٹائپ</string>
     <string name="credit">کریڈٹ</string>
     <string name="debit">ڈیبٹ</string>
     <string name="balance">بقیہ</string>
@@ -1047,7 +1048,7 @@
     <string name="file_type">File Type *</string>
     <string name="deposite_slip">Deposit-slip</string>
     <string name="requesting_msg">Requesting please wait</string>
-    <string name="uploading">"Uploading ... "</string>
+    <string name="uploading">Uploading ... </string>
     <string name="please_wait">Please wait...</string>
     <string name="take_photo">Take Photo</string>
     <string name="gallery">Gallery</string>
@@ -1072,9 +1073,15 @@
     <string name="file_save_msg">File saved in Downloads</string>
     <string name="unable_download_msg">UNABLE TO DOWNLOAD FILE</string>
     <string name="shipment_id">شپمینٹ  ID</string>
-    <string name="shipment_no">شپمینٹ نمبر</string>
+	<string name="shipment_no">شپمینٹ نمبر</string>
+	<string name="shipment_no_adapter"> :شپمینٹ نمبر</string>
     <string name="shipment_date">شپمینٹ کی تاریخ</string>
     <string name="receiving_date">وصولی  کی تاریخ</string>
+	<string name="dc_number">ڈی سی نمبر</string>
+	<string name="shipment_receive_btn">وصول کریں</string>
+	<string name="shipment_received_alert_heading">شپمنٹ موصول ہوئی</string>
+	<string name="shipment_received_alert_text_1">شپمنٹ ID</string>
+	<string name="shipment_received_alert_text_2"> کامیابی کے ساتھ موصول ھوگی ہے۔</string>
     <string name="quantity">مقدار</string>
     <string name="received">Received</string>
     <string name="in_transit">In Transit</string>
@@ -1087,10 +1094,11 @@
     <string name="my_profile">My Profile</string>
     <string name="my_prepared_acc">My Prepaid Account</string>
     <string name="contract">Contracting</string>
-    <string name="payment_ledger_id">Ledger ID:</string>
-    <string name="date_item">Date: </string>
-    <string name="debit_amount">Debit Amount: </string>
-    <string name="balance_item">Balance: </string>
+    <string name="payment_ledger_id">: لیجر ID</string>
+    <string name="date_item"> :تاریخ</string>
+    <string name="debit_amount"> :ڈیبٹ</string>
+	<string name="credit_amount"> :کریڈٹ</string>
+    <string name="balance_item"> :بقیہ</string>
     // bottom line
     <string name="all_rights_reserved">© حبل | حبل تمام حقوق محفوظ ہیں</string>
 

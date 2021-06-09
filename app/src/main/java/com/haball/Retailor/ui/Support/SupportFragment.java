@@ -152,6 +152,16 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
 
             }
         });
+
+        SharedPreferences prefs = getContext().getSharedPreferences("StatusKVP", getContext().MODE_PRIVATE);
+        String RetailerIssueTypePrivateKVPString = prefs.getString("RetailerIssueTypePrivateKVP", "");
+        String RetailerContactingMethodKVPString = prefs.getString("RetailerContactingMethodKVP", "");
+        String RetailerCriticalityPrivateKVPString = prefs.getString("RetailerCriticalityPrivateKVP", "");
+
+        Log.i("debug_support_kvp_str", RetailerIssueTypePrivateKVPString);
+        Log.i("debug_support_kvp_str", RetailerContactingMethodKVPString);
+        Log.i("debug_support_kvp_str", RetailerCriticalityPrivateKVPString);
+
         //init
         recyclerView = root.findViewById(R.id.rv_support_complaints);
         spinner_container_main = root.findViewById(R.id.spinner_container_main);

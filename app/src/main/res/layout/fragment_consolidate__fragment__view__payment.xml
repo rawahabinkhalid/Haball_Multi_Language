@@ -204,6 +204,6 @@
             android:layout_below="@id/rv_payment_consolidate"
             android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:text="© Haball | All rights reserved" />
+            android:text="@string/all_rights_reserved" />
     </RelativeLayout>
 </ScrollView>

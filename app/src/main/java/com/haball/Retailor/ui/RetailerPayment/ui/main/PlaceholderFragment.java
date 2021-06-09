@@ -569,7 +569,7 @@ public class PlaceholderFragment extends Fragment {
 //            LayoutInflater inflater = LayoutInflater.from(getContext());
 //            View view_popup = inflater.inflate(R.layout.discard_changes, null);
 //            TextView tv_discard_txt = view_popup.findViewById(R.id.tv_discard_txt);
-//            tv_discard_txt.setText("Are you sure, you want to leave this page? Your changes will be discarded.");
+//            tv_discard_txt.setText(getResources().getString(R.string.discard_text));
 //            alertDialog.setView(view_popup);
 //            alertDialog.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);
 //            WindowManager.LayoutParams layoutParams = alertDialog.getWindow().getAttributes();
@@ -950,7 +950,7 @@ public class PlaceholderFragment extends Fragment {
                     }
                     if (response.has("Amount")) {
 //                        setTextAndShow(layout_txt_amount, txt_amount, String.valueOf(response.get("Amount")));
-                        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+                        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                         String Formatted_TotalAmount = formatter1.format(Double.parseDouble(response.getString("Amount")));
                         setTextAndShow(layout_txt_amount, txt_amount, Formatted_TotalAmount);
                         if (!String.valueOf(response.get("Amount")).equals("") && !String.valueOf(response.get("Amount")).equals("null"))
@@ -983,7 +983,7 @@ public class PlaceholderFragment extends Fragment {
                     }
                     if (response.has("TotalAmount")) {
 //                        setTextAndShow(layout_txt_total_amount, txt_total_amount, String.valueOf(response.getString("TotalAmount")));
-                        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+                        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                         String Formatted_TotalAmount = formatter1.format(Double.parseDouble(response.getString("TotalAmount")));
                         setTextAndShow(layout_txt_total_amount, txt_total_amount, Formatted_TotalAmount);
                         if (!String.valueOf(response.get("TotalAmount")).equals("") && !String.valueOf(response.get("TotalAmount")).equals("null"))

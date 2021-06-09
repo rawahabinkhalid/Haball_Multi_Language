@@ -274,7 +274,7 @@
 <!--                    android:layout_height="wrap_content"-->
 <!--                    android:gravity="center"-->
 <!--                    android:layout_alignParentBottom="true"-->
-<!--                    android:text="© Haball | All rights reserved" />-->
+<!--                    android:text="@string/all_rights_reserved" />-->
             </RelativeLayout>
         </ScrollView>
     </RelativeLayout>

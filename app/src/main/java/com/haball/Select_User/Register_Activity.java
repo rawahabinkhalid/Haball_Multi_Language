@@ -48,7 +48,7 @@ import androidx.appcompat.app.ActionBar;
 public class Register_Activity extends AppCompatActivity {
     boolean doubleBackToExitPressedOnce = false;
     private String language;
-    private TextView txt_retailer, txt_distributor, select_type, welcome_text, tv_description;
+    private TextView txt_retailer, txt_distributor, select_type, welcome_text, tv_description, footer;
 
 
     @Override
@@ -72,6 +72,7 @@ public class Register_Activity extends AppCompatActivity {
         txt_distributor = findViewById(R.id.txt_distributor);
         select_type = findViewById(R.id.select_type);
         tv_description = findViewById(R.id.tv_description);
+        footer = findViewById(R.id.footer);
         rl_distributor.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -117,6 +118,8 @@ public class Register_Activity extends AppCompatActivity {
             select_type.setText(R.string.select_account);
             welcome_text.setText(R.string.wellcome_haball);
             tv_description.setText(R.string.Txt_Description_haball);
+            tv_description.setText(R.string.Txt_Description_haball);
+            footer.setText(R.string.all_rights_reserved);
 
 
         }

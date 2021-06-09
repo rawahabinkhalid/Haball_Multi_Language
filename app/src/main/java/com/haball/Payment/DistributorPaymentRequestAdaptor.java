@@ -117,7 +117,7 @@ DistributorPaymentRequestAdaptor extends RecyclerView.Adapter<DistributorPayment
         holder.tv_state_value.setVisibility(View.GONE);
         holder.tv_heading.setText(paymentsRequestList.get(position).getCompanyName());
         holder.payment_id_value.setText(paymentsRequestList.get(position).getPrePaidNumber());
-        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
 
 
         String yourFormattedString1 = formatter1.format(Double.parseDouble(paymentsRequestList.get(position).getPaidAmount()));
@@ -570,8 +570,13 @@ DistributorPaymentRequestAdaptor extends RecyclerView.Adapter<DistributorPayment
                 TextView tv_pr1, txt_header1;
                 txt_header1 = fbDialogue.findViewById(R.id.txt_header1);
                 tv_pr1 = fbDialogue.findViewById(R.id.txt_details);
-                tv_pr1.setText((R.string.your_payment_id) + paymentsRequestList.get(position).getPrePaidNumber() + (R.string.deleted_payment_msg));
-                txt_header1.setText(R.string.deleted_payment);
+
+//                tv_pr1.setText((R.string.your_payment_id) + paymentsRequestList.get(position).getPrePaidNumber() + (R.string.deleted_payment_msg));
+//                txt_header1.setText(R.string.deleted_payment);
+                String tempStr = context.getResources().getString(R.string.your_payment_id) + " " + paymentsRequestList.get(position).getPrePaidNumber() + " " + context.getResources().getString(R.string.deleted_payment_msg);
+                tv_pr1.setText(tempStr);
+//                tv_pr1.setText("Your Payment ID " + invoiceNumber + " has been deleted successfully.");
+                txt_header1.setText(R.string.payment_deleted);
                 fbDialogue.setCancelable(true);
                 fbDialogue.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);
                 WindowManager.LayoutParams layoutParams = fbDialogue.getWindow().getAttributes();

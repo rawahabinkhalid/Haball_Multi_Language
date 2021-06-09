@@ -325,7 +325,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
         android:gravity="center"
-        android:text="No Data Available"
+        android:text="@string/no_data_avaible"
         android:textSize="30sp"
         android:textStyle="bold"
         android:visibility="gone" />
@@ -350,5 +350,5 @@
     <!-- android:layout_alignParentBottom="true" -->
     <!-- android:layout_marginBottom="10dp" -->
     <!-- android:gravity="center" -->
-    <!-- android:text="© Haball | All rights reserved" /> -->
+    <!-- android:text="@string/all_rights_reserved" /> -->
 </RelativeLayout>

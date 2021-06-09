@@ -56,7 +56,7 @@ public class DistributorInvoicesAdapter extends RecyclerView.Adapter<Distributor
         holder.tv_heading.setText(invoicesList.get(position).getCompanyName());
         holder.tv_payment_id.setText(invoicesList.get(position).getInvoiceNumber());
 
-        DecimalFormat formatter1 = new DecimalFormat("#,###,###.00");
+        DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
         String yourFormattedString1 = formatter1.format(Integer.parseInt(invoicesList.get(position).getTotalPrice()));
         holder.tv_amount.setText(yourFormattedString1);
 

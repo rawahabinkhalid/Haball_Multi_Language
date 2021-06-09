@@ -10,6 +10,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -49,6 +50,8 @@ import com.haball.Distributor.ui.expandablelist.CustomExpandableListModel;
 import com.haball.Distributor.ui.retailer.Retailor_Management.Retailer_Dashboard;
 import com.haball.Distributor.ui.terms_and_conditions.TermsAndConditionsFragment;
 import com.haball.LanguageClasses.ChangeLanguage;
+import com.haball.LanguageClasses.LanguageHelper;
+import com.haball.Language_Selection.Language_Selection;
 import com.haball.Loader;
 import com.haball.ProcessingError;
 import com.haball.R;
@@ -96,9 +99,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
 
+import org.honorato.multistatetogglebutton.MultiStateToggleButton;
+import org.honorato.multistatetogglebutton.ToggleButton;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import io.paperdb.Paper;
 
 public class RetailorDashboard extends AppCompatActivity {
 
@@ -126,16 +133,35 @@ public class RetailorDashboard extends AppCompatActivity {
     private String URL_Logout = "http://175.107.203.97:4014/api/users/logout";
     private int UnReadNotifications = 0;
     private List<Retailer_Notification_Model> NotificationList = new ArrayList<>();
-    private  String language = "";
+    private String language = "";
+    private MultiStateToggleButton mstb_multi_id;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retailor_dashboard);
+        Paper.init(this);
+
+        mstb_multi_id = findViewById(R.id.mstb_multi_id);
+        mstb_multi_id.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+            @Override
+            public void onValueChanged(int position) {
+                if(position == 0) {
+                    Paper.book().write("language", "en");
+                } else {
+                    Paper.book().write("language", "ur");
+                }
+                updateView((String) Paper.book().read("language"));
+                Log.d("mstb_multi_id", "Position: " + position);
+            }
+        });
+
         // selected language
         SharedPreferences languageType = getSharedPreferences("changeLanguage",
                 Context.MODE_PRIVATE);
         language = languageType.getString("language", "");
+        String defaultSelectedLanguage = language;
         changeLanguage();
         SharedPreferences sharedPreferences = this.getSharedPreferences("LoginToken",
                 Context.MODE_PRIVATE);
@@ -919,7 +945,8 @@ public class RetailorDashboard extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
         }
     }
-//
+
+    //
 //    private class MyAsyncTaskForMenu extends AsyncTask<Void, Void, Void> {
 //        @Override
 //        protected Void doInBackground(Void... params) {
@@ -946,15 +973,40 @@ public class RetailorDashboard extends AppCompatActivity {
 //        }
 //
 //    }
-      void changeLanguage() {
+    void changeLanguage() {
         ChangeLanguage changeLanguage = new ChangeLanguage();
         changeLanguage.changeLanguage(this, language);
         if (language.equals("ur")) {
-           // btn_login.setText(R.string.login);
+            mstb_multi_id.setValue(1);
+            // btn_login.setText(R.string.login);
 //        layout_username.setHint(getResources().getString(R.string.user_name));
 //        layout_password.setHint(getResources().getString(R.string.password));
             //btn_password.setText(R.string.Forgot_Password);
             //btn_support.setText(R.string.need_support);
+        } else {
+            mstb_multi_id.setValue(0);
+        }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, language));
+    }
+
+    private void updateView(String lang) {
+        context = LanguageHelper.setLocale(this, lang);
+        Resources resources = context.getResources();
+        SharedPreferences languageType = getSharedPreferences("changeLanguage",
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = languageType.edit();
+        editor.putString("language", lang);
+        editor.apply();
+        ChangeLanguage changeLanguage = new ChangeLanguage();
+        changeLanguage.changeLanguage(this, lang);
+
+        if(!language.equals(lang)) {
+            Intent intent = new Intent(RetailorDashboard.this, RetailorDashboard.class);
+            startActivity(intent);
         }
     }
 }

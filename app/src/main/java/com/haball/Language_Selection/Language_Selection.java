@@ -42,8 +42,6 @@ public class Language_Selection extends AppCompatActivity {
             public void onClick(View v) {
                 Paper.book().write("language", "en");
                 updateView((String) Paper.book().read("language"));
-                Intent intent = new Intent(Language_Selection.this, Register_Activity.class);
-                startActivity(intent);
             }
 
         });
@@ -52,8 +50,8 @@ public class Language_Selection extends AppCompatActivity {
                 Paper.book().write("language", "ur");
                 updateView((String) Paper.book().read("language"));
 
-                Intent intent = new Intent(Language_Selection.this, Register_Activity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(Language_Selection.this, Register_Activity.class);
+//                startActivity(intent);
             }
 
         });
@@ -85,6 +83,8 @@ public class Language_Selection extends AppCompatActivity {
         changeLanguage.changeLanguage(this, lang);
 
 
+        Intent intent = new Intent(Language_Selection.this, Register_Activity.class);
+        startActivity(intent);
 
     }
 }

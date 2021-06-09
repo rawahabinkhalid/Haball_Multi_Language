@@ -45,7 +45,7 @@
             android:layout_below="@+id/spinner_containerMain"
             android:fontFamily="@font/open_sans"
             android:gravity="center"
-            android:text="Please Select Company"
+            android:text="@string/select_company_msg"
             android:textSize="@dimen/no_data_available_size"
             android:visibility="visible" />
 
@@ -227,7 +227,7 @@
         <!--        android:layout_height="wrap_content"-->
         <!--        android:layout_alignParentBottom="true"-->
         <!--        android:layout_marginBottom="10dp"-->
-        <!--        android:text="© Haball | All rights reserved"-->
+        <!--        android:text="@string/all_rights_reserved"-->
         <!--        android:gravity="center"-->
         <!--        />-->
     </RelativeLayout>
