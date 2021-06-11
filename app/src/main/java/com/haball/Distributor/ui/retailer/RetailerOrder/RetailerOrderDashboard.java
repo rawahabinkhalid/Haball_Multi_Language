@@ -722,12 +722,12 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
         if (Filter_selected.equals("date")) {
             if (!fromDate.equals(""))
                 jsonObject.put(Filter_selected1, fromDate + "T00:00:00.000Z");
-            else if (!toDate.equals(""))
-                jsonObject.put(Filter_selected1, toDate + "T00:00:00.000Z");
+//            else if (!toDate.equals(""))
+//                jsonObject.put(Filter_selected1, toDate + "T00:00:00.000Z");
             if (!toDate.equals(""))
                 jsonObject.put(Filter_selected2, toDate + "T23:59:59.000Z");
-            else if (!fromDate.equals(""))
-                jsonObject.put(Filter_selected2, fromDate + "T23:59:59.000Z");
+//            else if (!fromDate.equals(""))
+//                jsonObject.put(Filter_selected2, fromDate + "T23:59:59.000Z");
         } else if (Filter_selected.equals("amount")) {
             if (!fromAmount.equals(""))
                 jsonObject.put(Filter_selected1, fromAmount);
@@ -826,12 +826,12 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
         if (Filter_selected.equals("date")) {
             if (!fromDate.equals(""))
                 jsonObject.put(Filter_selected1, fromDate + "T00:00:00.000Z");
-            else if (!toDate.equals(""))
-                jsonObject.put(Filter_selected1, toDate + "T00:00:00.000Z");
+//            else if (!toDate.equals(""))
+//                jsonObject.put(Filter_selected1, toDate + "T00:00:00.000Z");
             if (!toDate.equals(""))
                 jsonObject.put(Filter_selected2, toDate + "T23:59:59.000Z");
-            else if (!fromDate.equals(""))
-                jsonObject.put(Filter_selected2, fromDate + "T23:59:59.000Z");
+//            else if (!fromDate.equals(""))
+//                jsonObject.put(Filter_selected2, fromDate + "T23:59:59.000Z");
         } else if (Filter_selected.equals("amount")) {
             if (!fromAmount.equals(""))
                 jsonObject.put(Filter_selected1, fromAmount);

@@ -616,12 +616,12 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
         if (Filter_selected.equals("date")) {
             if (!fromDate.equals(""))
                 map.put(Filter_selected1, fromDate + "T00:00:00.000Z");
-            else if (!toDate.equals(""))
-                map.put(Filter_selected1, toDate + "T00:00:00.000Z");
+//            else if (!toDate.equals(""))
+//                map.put(Filter_selected1, toDate + "T00:00:00.000Z");
             if (!toDate.equals(""))
                 map.put(Filter_selected2, toDate + "T23:59:59.000Z");
-            else if (!fromDate.equals(""))
-                map.put(Filter_selected2, fromDate + "T23:59:59.000Z");
+//            else if (!fromDate.equals(""))
+//                map.put(Filter_selected2, fromDate + "T23:59:59.000Z");
         } else if (Filter_selected.equals("amount")) {
             if (!fromAmount.equals(""))
                 map.put(Filter_selected1, fromAmount);
@@ -699,12 +699,12 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
         if (Filter_selected.equals("date")) {
             if (!fromDate.equals(""))
                 map.put(Filter_selected1, fromDate + "T00:00:00.000Z");
-            else if (!toDate.equals(""))
-                map.put(Filter_selected1, toDate + "T00:00:00.000Z");
+//            else if (!toDate.equals(""))
+//                map.put(Filter_selected1, toDate + "T00:00:00.000Z");
             if (!toDate.equals(""))
                 map.put(Filter_selected2, toDate + "T23:59:59.000Z");
-            else if (!fromDate.equals(""))
-                map.put(Filter_selected2, fromDate + "T23:59:59.000Z");
+//            else if (!fromDate.equals(""))
+//                map.put(Filter_selected2, fromDate + "T23:59:59.000Z");
         } else if (Filter_selected.equals("amount")) {
             if (!fromAmount.equals(""))
                 map.put(Filter_selected1, fromAmount);
@@ -1782,12 +1782,12 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
         if (Filter_selected.equals("date")) {
             if (!fromDate.equals(""))
                 map.put(Filter_selected1, fromDate + "T00:00:00.000Z");
-            else if (!toDate.equals(""))
-                map.put(Filter_selected1, toDate + "T00:00:00.000Z");
+//            else if (!toDate.equals(""))
+//                map.put(Filter_selected1, toDate + "T00:00:00.000Z");
             if (!toDate.equals(""))
                 map.put(Filter_selected2, toDate + "T23:59:59.000Z");
-            else if (!fromDate.equals(""))
-                map.put(Filter_selected2, fromDate + "T23:59:59.000Z");
+//            else if (!fromDate.equals(""))
+//                map.put(Filter_selected2, fromDate + "T23:59:59.000Z");
         } else if (Filter_selected.equals("amount")) {
             if (!fromAmount.equals(""))
                 map.put(Filter_selected1, fromAmount);
@@ -2002,12 +2002,12 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
         if (Filter_selected.equals("date")) {
             if (!fromDate.equals(""))
                 map.put(Filter_selected1, fromDate + "T00:00:00.000Z");
-            else if (!toDate.equals(""))
-                map.put(Filter_selected1, toDate + "T00:00:00.000Z");
+//            else if (!toDate.equals(""))
+//                map.put(Filter_selected1, toDate + "T00:00:00.000Z");
             if (!toDate.equals(""))
                 map.put(Filter_selected2, toDate + "T23:59:59.000Z");
-            else if (!fromDate.equals(""))
-                map.put(Filter_selected2, fromDate + "T23:59:59.000Z");
+//            else if (!fromDate.equals(""))
+//                map.put(Filter_selected2, fromDate + "T23:59:59.000Z");
         } else if (Filter_selected.equals("amount")) {
             if (!fromAmount.equals(""))
                 map.put(Filter_selected1, fromAmount);
@@ -2020,7 +2020,7 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                 map.put(Filter_selected, Filter_selected_value);
         }
 
-        // Log.i("Map123", String.valueOf(map));
+         Log.i("Map123", String.valueOf(map));
 
         JsonObjectRequest sr = new JsonObjectRequest(Request.Method.POST, URL_DISTRIBUTOR_PAYMENTS, map, new Response.Listener<JSONObject>() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)

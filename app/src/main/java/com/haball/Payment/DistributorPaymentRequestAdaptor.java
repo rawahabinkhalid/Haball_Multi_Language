@@ -121,6 +121,7 @@ DistributorPaymentRequestAdaptor extends RecyclerView.Adapter<DistributorPayment
 
 
         String yourFormattedString1 = formatter1.format(Double.parseDouble(paymentsRequestList.get(position).getPaidAmount()));
+//        holder.amount_value.setText("Rs. " + yourFormattedString1 + " " + paymentsRequestList.get(position).getIsInvoice());
         holder.amount_value.setText("Rs. " + yourFormattedString1);
 //        if (paymentsRequestList.get(position).getStatus().equals("1"))
 //            holder.status_value.setText("Paid");

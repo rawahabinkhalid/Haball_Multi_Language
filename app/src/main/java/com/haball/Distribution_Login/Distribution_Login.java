@@ -41,6 +41,7 @@ import com.android.volley.toolbox.Volley;
 import com.haball.CustomToast;
 import com.haball.Distributor.DistributorDashboard;
 import com.haball.Distributor.Distributor_TermsAndConditionsFragment;
+import com.haball.Distributor.Distributor_UpdatePassword;
 import com.haball.Distributor.ui.terms_and_conditions.TermsAndConditionsFragment;
 import com.haball.HaballError;
 import com.haball.LanguageClasses.ChangeLanguage;
@@ -329,7 +330,7 @@ public class Distribution_Login extends AppCompatActivity {
                                 JSONArray arr = (JSONArray) termsAndConditionObj.get("data");
                                 final String IsTermAndConditionAccepted = String.valueOf(arr.get(0));
                                 // Log.i("abc", IsTermAndConditionAccepted);
-                                //final String UpdatePassword = userAccount.get("UpdatePassword").toString();
+                                final String UpdatePassword = userAccount.get("IsPasswordUpdated").toString();
                                 String userRights = userAccount.get("UserRights").toString();
                                 final String DistributorId = userAccount.get("DistributorID").toString();
                                 String username = userAccount.get("Username").toString();
@@ -370,22 +371,38 @@ public class Distribution_Login extends AppCompatActivity {
                                 //  editor.putString("UpdatePassword", UpdatePassword);
 
                                 editor.apply();
+//                                if (IsTermAndConditionAccepted.equals("0")) {
+//                                    Intent login_intent = new Intent(Distribution_Login.this, Distributor_TermsAndConditionsFragment.class);
+//                                    startActivity(login_intent);
+//                                    finish();
+//                                }
+////                                else if (IsTermAndConditionAccepted.equals("1")) {
+////                                    Intent login_intent = new Intent(Distribution_Login.this, Retailer_UpdatePassword.class);
+////                                    startActivity(login_intent);
+////                                    finish();
+////                                }
+//                                else if (IsTermAndConditionAccepted.equals("1")) {
+//                                    // Toast.makeText(Distribution_Login.this, "Login Success", Toast.LENGTH_LONG).show();
+//                                    Intent login_intent = new Intent(Distribution_Login.this, DistributorDashboard.class);
+//                                    startActivity(login_intent);
+//                                    finish();
+//                                }
+
                                 if (IsTermAndConditionAccepted.equals("0")) {
                                     Intent login_intent = new Intent(Distribution_Login.this, Distributor_TermsAndConditionsFragment.class);
                                     startActivity(login_intent);
                                     finish();
-                                }
-//                                else if (IsTermAndConditionAccepted.equals("1")) {
-//                                    Intent login_intent = new Intent(Distribution_Login.this, Retailer_UpdatePassword.class);
-//                                    startActivity(login_intent);
-//                                    finish();
-//                                }
-                                else if (IsTermAndConditionAccepted.equals("1")) {
-                                    // Toast.makeText(Distribution_Login.this, "Login Success", Toast.LENGTH_LONG).show();
+                                } else if (IsTermAndConditionAccepted.equals("1") && UpdatePassword.equals("0")) {
+                                    Intent login_intent = new Intent(Distribution_Login.this, Distributor_UpdatePassword.class);
+                                    startActivity(login_intent);
+                                    finish();
+                                } else if (IsTermAndConditionAccepted.equals("1") && UpdatePassword.equals("1")) {
+                                    // Toast.makeText(RetailerLogin.this, "Login Success", Toast.LENGTH_LONG).show();
                                     Intent login_intent = new Intent(Distribution_Login.this, DistributorDashboard.class);
                                     startActivity(login_intent);
                                     finish();
                                 }
+
 //                        URL_FORGOT_PASSWORD = URL_FORGOT_PASSWORD + DistributorId;
 //                        JsonObjectRequest sr = new JsonObjectRequest(Request.Method.GET, URL_FORGOT_PASSWORD, null, new Response.Listener<JSONObject>() {
 //                            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
