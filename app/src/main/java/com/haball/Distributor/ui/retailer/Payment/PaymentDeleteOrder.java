@@ -37,7 +37,7 @@ import java.util.Map;
 
 public class PaymentDeleteOrder {
 
-    public String URL_DELETE_PAYMENT = "http://175.107.203.97:4014/api/prepaidrequests/Delete/";
+    public String URL_DELETE_PAYMENT = "https://175.107.203.97:4014/api/prepaidrequests/Delete/";
     public Context context;
     public String invoiceNumber;
     public String RetailerId, Token;

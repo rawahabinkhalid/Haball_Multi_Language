@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> array = new ArrayList<>();
     private TextView btn_add_ticket_retailer;
     private String Token, DistributorId;
-    private String URL_SUPPORT = "http://175.107.203.97:4014/api/support/Search";
+    private String URL_SUPPORT = "https://175.107.203.97:4014/api/support/Search";
     private SupportDashboardRetailerModel supportViewModel;
     private List<SupportDashboardRetailerModel> SupportList = new ArrayList<>();
     //spinner1

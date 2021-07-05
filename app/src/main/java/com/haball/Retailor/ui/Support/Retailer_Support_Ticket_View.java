@@ -72,8 +72,8 @@ public class Retailer_Support_Ticket_View extends Fragment {
     private Button btn_delete, btn_back;
     private TextInputLayout layout_txt_business_name, layout_txt_email_address, layout_txt_mobile_number, layout_txt_comments;
 
-    //    private String URL_SUPPORT_VIEW = "http://175.107.203.97:4014/api/contact//";
-    private String URL_SUPPORT_VIEW = "http://175.107.203.97:4014/api/support/TicketById/";
+    //    private String URL_SUPPORT_VIEW = "https://175.107.203.97:4014/api/contact//";
+    private String URL_SUPPORT_VIEW = "https://175.107.203.97:4014/api/support/TicketById/";
     private TextView tv_ticket_id;
     private TextInputEditText txt_business_name;
     private TextInputEditText txt_email_address;

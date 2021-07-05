@@ -76,7 +76,7 @@ public class Forgot_Pass_Retailer extends AppCompatActivity {
     private TextInputEditText txt_email;
     private TextView heading;
     private Button btn_lgn, btn_reset;
-    private String URL_FORGOT_PASSWORD = "http://175.107.203.97:4014/api/users/forgot";
+    private String URL_FORGOT_PASSWORD = "https://175.107.203.97:4014/api/users/forgot";
     //    ProgressDialog progressDialog;
     private TextInputLayout layout_email;
     private Loader loader;
@@ -341,7 +341,7 @@ public class Forgot_Pass_Retailer extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("Email", String.valueOf(txt_email.getText()));
-                    jsonObject.put("RedirectUrl", "http://175.107.203.97:4014/#/updatePassword");
+                    jsonObject.put("RedirectUrl", "https://175.107.203.97:4014/#/updatePassword");
                     return jsonObject.toString().getBytes(StandardCharsets.UTF_8);
                 } catch (Exception e) {
                     return null;

@@ -118,7 +118,7 @@ public class PlaceholderFragment extends Fragment {
     private FragmentTransaction fragmentTransaction;
 
     private TextView tv_banking_channel, payment_id, btn_newpayment;
-    //    private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "http://175.107.203.97:4014/api/prepaidrequests/GetByRetailerCode";
+    //    private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "https://175.107.203.97:4014/api/prepaidrequests/GetByRetailerCode";
     private String PrePaidNumber = "", PrePaidId = "", RetailerCompanyName = "", Amount = "", CompanyId = "", MenuItem = "";
     private Button btn_voucher, btn_update, btn_back;
     private Spinner spinner_companyName;

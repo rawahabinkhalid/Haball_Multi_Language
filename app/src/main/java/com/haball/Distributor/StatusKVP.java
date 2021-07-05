@@ -41,7 +41,7 @@ public class StatusKVP {
     private String URL_InvoiceState =
             "https://175.107.203.97:4013/api/lookup/INVOICE_STATE";
     private String URL_Retailer_All_Status =
-            "http://175.107.203.97:4014/api/lookup/null";
+            "https://175.107.203.97:4014/api/lookup/null";
     private HashMap<String, String> OrderStatusKVP = new HashMap<>();
     private HashMap<String, String> PREPAIDStatusKVP = new HashMap<>();
     private HashMap<String, String> InvoiceStatusKVP = new HashMap<>();

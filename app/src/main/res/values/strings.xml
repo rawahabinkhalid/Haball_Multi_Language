@@ -714,13 +714,13 @@
 		fcm_default_channel
 	</string>
     <string name="retailer_production_server">
-		http://175.107.203.97:4014/
+		https://175.107.203.97:4014/
 	</string>
     <string name="retailer_qa_server">
-		http://http://175.107.203.97:4014/
+		http://https://175.107.203.97:4014/
 	</string>
     <string name="retailer_server">
-		http://175.107.203.97:4014/
+		https://175.107.203.97:4014/
 	</string>
     <string name="wellcome_haball">Wellcome to Haball</string>
     <string name="select_account">Select Account Type</string>
@@ -782,7 +782,7 @@
     <string name="delete">Delete</string>
     <string name="paid_date">Paid Date</string>
     <string name="paymentid_sp">Payment ID</string>
-    <string name="PSID">Pay By PSID</string>
+	<string name="PSID">Pay By PSID</string>
     <string name="delete_payment">Delete Payment</string>
     <string name="delete_payment_text">Are you sure, you want to delete this payment?</string>
     <string name="payment_deleted">Payment Deleted</string>

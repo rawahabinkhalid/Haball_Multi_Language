@@ -95,7 +95,7 @@ public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private String orderID, InvoiceStatus, invoiceID;
-    private String URL_Order_Data = "http://175.107.203.97:4014/api/Orders/";
+    private String URL_Order_Data = "https://175.107.203.97:4014/api/Orders/";
     private PageViewModel pageViewModel;
     private TextInputLayout layout_txt_orderID, layout_txt_order_company, layout_txt_created_date_order, layout_txt_status_order, layout_txt_comments,
             layout_txt_companName, layout_txt_paymentID, layout_txt_created_date, layout_transaction_date,
@@ -118,7 +118,7 @@ public class PlaceholderFragment extends Fragment {
     private FragmentTransaction fragmentTransaction;
 
     private TextView tv_banking_channel, payment_id, btn_newpayment;
-    private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "http://175.107.203.97:4014/api/prepaidrequests/GetByRetailerCode";
+    private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "https://175.107.203.97:4014/api/prepaidrequests/GetByRetailerCode";
     private String PrePaidNumber = "", PrePaidId = "", CompanyName = "", Amount = "", CompanyId = "", MenuItem = "";
     private Button btn_voucher, btn_update, btn_back;
     private Spinner spinner_companyName;

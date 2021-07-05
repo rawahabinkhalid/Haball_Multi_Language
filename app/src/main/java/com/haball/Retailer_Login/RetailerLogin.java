@@ -65,8 +65,8 @@ public class RetailerLogin extends AppCompatActivity {
     private TextInputLayout layout_username, layout_password;
     private Toolbar tb;
     private RequestQueue queue;
-    private String URL_Token = "http://175.107.203.97:4014/Token";
-    //    private String URL_FORGOT_PASSWORD = "http://175.107.203.97:4014/api/Users/forgot";
+    private String URL_Token = "https://175.107.203.97:4014/Token";
+    //    private String URL_FORGOT_PASSWORD = "https://175.107.203.97:4014/api/Users/forgot";
 //    private String URL_FORGOT_PASSWORD = "https://175.107.203.97:4013/api/users/forgot";
     private HttpURLConnection urlConnection = null;
     private java.net.URL url;
@@ -74,7 +74,7 @@ public class RetailerLogin extends AppCompatActivity {
     private String success_text = "", language = "";
     //    private ProgressDialog progressDialog;
     private Loader loader;
-    private String URL_Profile = "http://175.107.203.97:4014/api/retailer/";
+    private String URL_Profile = "https://175.107.203.97:4014/api/retailer/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -85,7 +85,7 @@ import static android.os.Build.ID;
 public class PaymentScreen3Fragment_Retailer extends Fragment {
     private String Token, DistributorId, ID;
     private TextView tv_banking_channel, payment_id, btn_newpayment;
-    private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "http://175.107.203.97:4014/api/prepaidrequests/GetByRetailerCode";
+    private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "https://175.107.203.97:4014/api/prepaidrequests/GetByRetailerCode";
     private String PrePaidNumber = "", PrePaidId = "", CompanyName = "", Amount = "", CompanyId = "", MenuItem = "";
     private Button btn_voucher, btn_update, btn_back;
     private Spinner spinner_companyName;
@@ -97,7 +97,7 @@ public class PaymentScreen3Fragment_Retailer extends Fragment {
     private static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     private String company_names;
     private Typeface myFont;
-    private String URL_PAYMENT_REQUESTS_SAVE = "http://175.107.203.97:4014/api/prepaidrequests/save";
+    private String URL_PAYMENT_REQUESTS_SAVE = "https://175.107.203.97:4014/api/prepaidrequests/save";
     private String prepaid_number;
     private String prepaid_id;
     private FragmentTransaction fragmentTransaction;

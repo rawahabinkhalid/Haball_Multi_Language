@@ -41,7 +41,7 @@ package com.haball.Retailor.ui.Dashboard;
         import androidx.fragment.app.FragmentTransaction;
 
 public class CancelOrder {
-    public String URL_CANCEL_ORDER = "http://175.107.203.97:4014/api/orders/cancelorder";
+    public String URL_CANCEL_ORDER = "https://175.107.203.97:4014/api/orders/cancelorder";
     public String Token;
     public Context mContext;
     private FragmentTransaction fragmentTransaction;

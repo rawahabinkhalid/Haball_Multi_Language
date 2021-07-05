@@ -71,7 +71,7 @@ import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 import static java.util.stream.Collectors.toList;
 
 public class ViewVoucherRequest {
-    public String URL_VOUCHER_VIEW = "http://175.107.203.97:4014/api/prepaidrequests/mprintRecipt/";
+    public String URL_VOUCHER_VIEW = "https://175.107.203.97:4014/api/prepaidrequests/mprintRecipt/";
     public String Token;
     public Context mContext;
     private static final int PERMISSION_REQUEST_CODE = 1;

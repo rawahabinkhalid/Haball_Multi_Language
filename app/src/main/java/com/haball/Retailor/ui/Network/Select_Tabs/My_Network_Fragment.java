@@ -59,7 +59,7 @@ public class My_Network_Fragment extends Fragment {
     Netwok_Model paymentsViewModel;
     private RecyclerView.Adapter networkAdapter, sentadapter, recieveAdapter;
     private String Token, DistributorId;
-    private String MYNETWORK_URL = " http://175.107.203.97:4014/api/kyc/Search";
+    private String MYNETWORK_URL = " https://175.107.203.97:4014/api/kyc/Search";
     private int pageNumbernetwork = 0;
     private double totalPagesnetwork = 0;
     private double totalEntriesnetwork = 0;

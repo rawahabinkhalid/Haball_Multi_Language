@@ -125,12 +125,12 @@ public class RetailorDashboard extends AppCompatActivity {
     //    private TextView tv_username, tv_user_company;
     boolean doubleBackToExitPressedOnce = false;
     private Socket iSocket;
-    private static final String URL = "http://175.107.203.97:4014/";
+    private static final String URL = "https://175.107.203.97:4014/";
     private String UserId;
     private JSONArray userRights;
     private List<String> NavList = new ArrayList<>();
     private int notification = 0;
-    private String URL_Logout = "http://175.107.203.97:4014/api/users/logout";
+    private String URL_Logout = "https://175.107.203.97:4014/api/users/logout";
     private int UnReadNotifications = 0;
     private List<Retailer_Notification_Model> NotificationList = new ArrayList<>();
     private String language = "";

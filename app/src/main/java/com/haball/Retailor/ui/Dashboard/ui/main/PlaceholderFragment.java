@@ -167,8 +167,8 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
     private RecyclerView.LayoutManager layoutManager;
     private String Token, DistributorId;
     private RelativeLayout search_rl;
-    private String URL = "http://175.107.203.97:4014/api/prepaidrequests/search";
-    private String URL_DISTRIBUTOR_ORDERS = "http://175.107.203.97:4014/api/Orders/Search";
+    private String URL = "https://175.107.203.97:4014/api/prepaidrequests/search";
+    private String URL_DISTRIBUTOR_ORDERS = "https://175.107.203.97:4014/api/Orders/Search";
     //    private String URL_DISTRIBUTOR_PAYMENTS_COUNT = "https://175.107.203.97:4013/api/prepaidrequests/searchCount";
 //    private String URL_DISTRIBUTOR_ORDERS_COUNT = "https://175.107.203.97:4013/api/orders/searchCount";
     private TextView tv_shipment_no_data, tv_shipment_no_data1;

@@ -90,10 +90,10 @@ import androidx.lifecycle.ViewModelProviders;
  */
 public class PlaceholderFragment extends Fragment {
 
-    private String ChangePass_URL = " http://175.107.203.97:4014/api/users/ChangePassword";
-    private String PROFILE_EDIT_URL = "http://175.107.203.97:4014/api/retailer/Save";
+    private String ChangePass_URL = " https://175.107.203.97:4014/api/users/ChangePassword";
+    private String PROFILE_EDIT_URL = "https://175.107.203.97:4014/api/retailer/Save";
     private String Token;
-    private String PROFILE_URL = "http://175.107.203.97:4014/api/retailer/";
+    private String PROFILE_URL = "https://175.107.203.97:4014/api/retailer/";
     private String RetailerId, ID, username, CompanyName;
     private Button btn_changepwd, btn_save_password, update_password;
     private TextInputEditText Rfirstname, Remail, Rcode, Rcnic, Rmobile, R_created_date, R_Address, txt_password, txt_newpassword, txt_cfmpassword;

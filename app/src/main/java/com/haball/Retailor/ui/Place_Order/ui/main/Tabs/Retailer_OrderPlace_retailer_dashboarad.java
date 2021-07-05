@@ -99,8 +99,8 @@ public class Retailer_OrderPlace_retailer_dashboarad extends Fragment {
     private List<OrderParentlist_Model> titles = new ArrayList<>();
     private List<OrderChildlist_Model> productList = new ArrayList<>();
     private List<SimpleParent> parentObjects = new ArrayList<>();
-    private String URL_PRODUCT_CATEGORY = "http://175.107.203.97:4014/api/products/GetProductByDealerCode/";
-    //    private String URL_PRODUCT = "http://175.107.203.97:4014/api/products/GetProductByDealerCode/";
+    private String URL_PRODUCT_CATEGORY = "https://175.107.203.97:4014/api/products/GetProductByDealerCode/";
+    //    private String URL_PRODUCT = "https://175.107.203.97:4014/api/products/GetProductByDealerCode/";
     private String Token, Retailer_Id, CompanyId;
     private String object_string, object_stringqty;
     private List<OrderChildlist_Model> selectedProductsDataList = new ArrayList<>();

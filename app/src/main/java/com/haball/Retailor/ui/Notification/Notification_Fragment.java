@@ -77,8 +77,8 @@ public class Notification_Fragment extends Fragment {
     private RecyclerView.Adapter NotificationAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private Socket iSocket;
-    private static final String URL = "http://175.107.203.97:4014/";
-    private String URL_Mark_Seen = "http://175.107.203.97:4014/api/useralert/MarkSeen";
+    private static final String URL = "https://175.107.203.97:4014/";
+    private String URL_Mark_Seen = "https://175.107.203.97:4014/api/useralert/MarkSeen";
     private String UserId, Token;
     private List<Retailer_Notification_Model> NotificationList = new ArrayList<>();
     private TextView tv_notification_no_data;
@@ -89,7 +89,7 @@ public class Notification_Fragment extends Fragment {
     private int pageNumber = 0;
     private double totalPages = 0;
     private double totalEntries = 0;
-    private String URL_Notification = "http://175.107.203.97:4014/api/useralert/ShowAll";
+    private String URL_Notification = "https://175.107.203.97:4014/api/useralert/ShowAll";
 
     public Notification_Fragment() {
         // Required empty public constructor

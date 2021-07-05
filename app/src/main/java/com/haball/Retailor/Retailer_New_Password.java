@@ -90,8 +90,8 @@ import java.util.Map;
 public class Retailer_New_Password extends AppCompatActivity {
 
     private Button update_password, btn_back;
-    private String URL = "http://175.107.203.97:4014/api/users/UpdatePasswordByLink";
-    private String URL_TokenValidate = "http://175.107.203.97:4014/api/users/ValidateToken";
+    private String URL = "https://175.107.203.97:4014/api/users/UpdatePasswordByLink";
+    private String URL_TokenValidate = "https://175.107.203.97:4014/api/users/ValidateToken";
     private String Token;
     private String UserName, Name;
     private TextInputLayout layout_password3, layout_password1;

@@ -94,9 +94,9 @@ public class Retailer_Order_Summary extends Fragment {
     private List<String> selectedProductsQuantityList_temp = new ArrayList<>();
 
     private String object_string, object_stringqty, Token, DistributorId, CompanyId;
-    private String URL_CONFIRM_ORDERS = "http://175.107.203.97:4014/api/Orders/saveOrder";
+    private String URL_CONFIRM_ORDERS = "https://175.107.203.97:4014/api/Orders/saveOrder";
     //    private String URL_SAVE_TEMPLATE = "https://175.107.203.97:4013/api/ordertemplate/save";
-    private String URL_SAVE_DRAFT = "http://175.107.203.97:4014/api/Orders/draft";
+    private String URL_SAVE_DRAFT = "https://175.107.203.97:4014/api/Orders/draft";
     //    private Button btn_confirm, btn_template, btn_draft, btn_add_product;
     private Button btn_confirm, btn_draft, btn_add_product;
     private TextView gross_amount, discount_amount, total_amount;

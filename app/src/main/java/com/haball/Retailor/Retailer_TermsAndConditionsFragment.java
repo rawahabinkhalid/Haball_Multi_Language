@@ -44,7 +44,7 @@ import java.util.Map;
 public class Retailer_TermsAndConditionsFragment extends AppCompatActivity {
 
     private Button agree_button, disagree_button;
-    private String URL = "http://175.107.203.97:4014/api/users/termsandcondition";
+    private String URL = "https://175.107.203.97:4014/api/users/termsandcondition";
     private String Token;
     boolean doubleBackToExitPressedOnce = false;
     private Loader loader;

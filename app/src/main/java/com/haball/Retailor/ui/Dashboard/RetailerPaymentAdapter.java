@@ -3,11 +3,16 @@ package com.haball.Retailor.ui.Dashboard;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.Gravity;
@@ -23,7 +28,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.haball.Distributor.ui.payments.InputStreamVolleyRequest;
+import com.haball.Distributor.ui.payments.MyJsonArrayRequest;
+import com.haball.Distributor.ui.payments.MyStringRequest;
 import com.haball.Distributor.ui.payments.ViewPDFRequest;
+import com.haball.MyWebView;
+import com.haball.ProcessingError;
 import com.haball.R;
 import com.haball.Retailor.RetailorDashboard;
 import com.haball.Retailor.ui.Make_Payment.PaymentJazzCashApi;
@@ -34,10 +52,18 @@ import com.haball.Retailor.ui.Make_Payment.ViewVoucherRequest;
 import com.haball.Retailor.ui.RetailerPayment.RetailerViewInvoice;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.lang.reflect.Method;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
@@ -72,20 +98,20 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
 
     @Override
     public void onBindViewHolder(@NonNull RetailerPaymentAdapter.ViewHolder holder, final int position) {
-         if (paymentsList.size() == 3 || paymentsList.size() == 4) {
- //            if (rv_filter.getVisibility() == View.GONE) {
-                 if (position == (paymentsList.size() - 1)) {
- //        if (position == 2) {
-                     // Log.i("DebugSupportFilter_In", paymentsList.get(position).getInvoiceNumber());
-                     RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-                             RelativeLayout.LayoutParams.WRAP_CONTENT,
-                             RelativeLayout.LayoutParams.WRAP_CONTENT
-                     );
-                     params.setMargins(0, 50, 0, 360);
-                     holder.main_layout_payment_box_retailer.setLayoutParams(params);
-                 }
- //            }
-         }
+        if (paymentsList.size() == 3 || paymentsList.size() == 4) {
+            //            if (rv_filter.getVisibility() == View.GONE) {
+            if (position == (paymentsList.size() - 1)) {
+                //        if (position == 2) {
+                // Log.i("DebugSupportFilter_In", paymentsList.get(position).getInvoiceNumber());
+                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.WRAP_CONTENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT
+                );
+                params.setMargins(0, 50, 0, 360);
+                holder.main_layout_payment_box_retailer.setLayoutParams(params);
+            }
+            //            }
+        }
 
         holder.tv_heading.setText(paymentsList.get(position).getCompanyName());
         holder.tv_payment_id.setText(paymentsList.get(position).getInvoiceNumber());
@@ -189,6 +215,15 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
 
 
                                         break;
+
+                                    case R.id.pay_by_make_payment:
+                                        try {
+                                            payByMakePayments(paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()));
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                        break;
+
                                 }
                                 return false;
                             }
@@ -373,11 +408,65 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
 
 
                         break;
+
+                    case R.id.pay_by_make_payment:
+                        try {
+                            payByMakePayments(paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        break;
                 }
                 return false;
             }
         });
         popup.show();
+    }
+
+    private void payByMakePayments(String PSID, double Amount) throws JSONException {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("LoginToken",
+                Context.MODE_PRIVATE);
+        final String Token = sharedPreferences.getString("Login_Token", "");
+        String URL = "https://175.107.203.97:4014/api/payaxis/DapiAuthenticateCall";
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("Amount", Amount);
+        jsonObject.put("PSID", PSID);
+        jsonObject.put("ReturnUrl", "https://175.107.203.97:4014/#/user/dashboard");
+        jsonObject.put("key", "");
+
+        final Context finalcontext = context;
+        MyStringRequest request = new MyStringRequest(Request.Method.POST, URL, jsonObject, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+//                Toast.makeText(context, response, Toast.LENGTH_LONG).show();
+                MyWebView webview = new MyWebView();
+                webview.URL = response;
+                Intent login_intent = new Intent(context, webview.getClass());
+                context.startActivity(login_intent);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                new ProcessingError().showError(context);
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", "bearer " + Token);
+                params.put("Content-Type", "application/json; charset=UTF-8");
+                return params;
+            }
+        };
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                15000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        Volley.newRequestQueue(context).add(request);
+
     }
 
     private boolean checkAndRequestPermissions() {

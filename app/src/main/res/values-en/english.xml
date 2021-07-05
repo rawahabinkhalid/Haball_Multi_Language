@@ -766,13 +766,13 @@
 		fcm_default_channel
 	</string>
     <string name="retailer_production_server">
-		http://175.107.203.97:4014/
+		https://175.107.203.97:4014/
 	</string>
     <string name="retailer_qa_server">
-		http://http://175.107.203.97:4014/
+		http://https://175.107.203.97:4014/
 	</string>
     <string name="retailer_server">
-		http://175.107.203.97:4014/
+		https://175.107.203.97:4014/
 	</string>
 
 	// retailer login
