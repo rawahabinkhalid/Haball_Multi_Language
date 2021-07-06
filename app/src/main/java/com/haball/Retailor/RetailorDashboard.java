@@ -95,6 +95,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.view.GravityCompat;
 
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -147,7 +148,7 @@ public class RetailorDashboard extends AppCompatActivity {
         mstb_multi_id.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
             @Override
             public void onValueChanged(int position) {
-                if(position == 0) {
+                if (position == 0) {
                     Paper.book().write("language", "en");
                 } else {
                     Paper.book().write("language", "ur");
@@ -1004,7 +1005,12 @@ public class RetailorDashboard extends AppCompatActivity {
         ChangeLanguage changeLanguage = new ChangeLanguage();
         changeLanguage.changeLanguage(this, lang);
 
-        if(!language.equals(lang)) {
+        if (!language.equals(lang)) {
+//            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.main_container_ret);
+//            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.detach(currentFragment);
+//            fragmentTransaction.attach(currentFragment);
+//            fragmentTransaction.commit();
             Intent intent = new Intent(RetailorDashboard.this, RetailorDashboard.class);
             startActivity(intent);
         }

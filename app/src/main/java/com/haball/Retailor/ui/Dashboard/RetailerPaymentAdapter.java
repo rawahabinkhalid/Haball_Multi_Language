@@ -69,6 +69,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
@@ -217,8 +218,16 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
                                         break;
 
                                     case R.id.pay_by_make_payment:
+                                        SharedPreferences OrderId_MakePayment = ((FragmentActivity) context).getSharedPreferences("PaymentId",
+                                                Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor editor_MakePayment = OrderId_MakePayment.edit();
+                                        editor_MakePayment.putString("PaymentId", paymentsList.get(position).getRetailerInvoiceId());
+                                        editor_MakePayment.putString("InvoiceStatus", String.valueOf(paymentsList.get(position).getStatus()));
+                                        // Log.i("InvoiceStatus_Adapter", String.valueOf(paymentsList.get(position).getStatus()));
+                                        editor_MakePayment.apply();
+
                                         try {
-                                            payByMakePayments(paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()));
+                                            payByMakePayments(paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()), new RetailerViewInvoice(), new RetailerViewInvoice());
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
@@ -410,8 +419,24 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
                         break;
 
                     case R.id.pay_by_make_payment:
+                        SharedPreferences PrePaidNumberView_MakePayment = context.getSharedPreferences("PrePaidNumber",
+                                Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editorView_MakePayment = PrePaidNumberView_MakePayment.edit();
+                        editorView_MakePayment.putString("PrePaidNumber", paymentsList.get(position).getInvoiceNumber());
+                        editorView_MakePayment.putString("PrePaidId", paymentsList.get(position).getRetailerInvoiceId());
+                        editorView_MakePayment.putString("CompanyName", paymentsList.get(position).getCompanyName());
+                        editorView_MakePayment.putString("Amount", paymentsList.get(position).getTotalPrice());
+                        editorView_MakePayment.putString("MenuItem", "View");
+                        editorView_MakePayment.apply();
+
+                        SharedPreferences paymentsRequestListID = ((FragmentActivity) context).getSharedPreferences("paymentsRequestListID",
+                                Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = paymentsRequestListID.edit();
+                        editor.putString("paymentsRequestListID", paymentsList.get(position).getRetailerInvoiceId());
+                        editor.apply();
+
                         try {
-                            payByMakePayments(paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()));
+                            payByMakePayments(paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()), new View_Payment_Fragment(), new PaymentScreen3Fragment_Retailer());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -423,7 +448,7 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
         popup.show();
     }
 
-    private void payByMakePayments(String PSID, double Amount) throws JSONException {
+    private void payByMakePayments(String PSID, double Amount, final Fragment PaidFragment, final Fragment UnpaidFragment) throws JSONException {
         SharedPreferences sharedPreferences = context.getSharedPreferences("LoginToken",
                 Context.MODE_PRIVATE);
         final String Token = sharedPreferences.getString("Login_Token", "");
@@ -439,11 +464,20 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
         MyStringRequest request = new MyStringRequest(Request.Method.POST, URL, jsonObject, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-//                Toast.makeText(context, response, Toast.LENGTH_LONG).show();
+////                Toast.makeText(context, response, Toast.LENGTH_LONG).show();
                 MyWebView webview = new MyWebView();
                 webview.URL = response;
+                webview.ReturnURL = "https://175.107.203.97:4014/#/user/dashboard";
+                webview.PaidFragment = PaidFragment;
+                webview.UnpaidFragment = UnpaidFragment;
                 Intent login_intent = new Intent(context, webview.getClass());
                 context.startActivity(login_intent);
+//                String URL = response;
+//                URL = URL.replaceAll("\\\"", "");
+////        URL = "https://175.107.203.97:8009/#/user/payment-channels/3c688f4b688ecffb3639013061dda6e1";
+////        URL = "https://www.google.com/";
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
+//                context.startActivity(browserIntent);
 
             }
         }, new Response.ErrorListener() {
