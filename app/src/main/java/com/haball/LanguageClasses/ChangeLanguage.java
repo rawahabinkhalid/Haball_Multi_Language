@@ -13,7 +13,11 @@ public class ChangeLanguage {
         Configuration config = new Configuration();
         config.locale = locale;
         config.setLayoutDirection(new Locale("en"));
+        config.setLayoutDirection(new Locale("en"));
+        config.setLayoutDirection(new Locale("en"));
          context.getResources().updateConfiguration(config,
                  context.getResources().getDisplayMetrics());
+        context.getResources().updateConfiguration(config,
+                context.getResources().getDisplayMetrics());
     }
 }
