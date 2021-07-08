@@ -846,6 +846,7 @@
     <string name="order_no"> : آرڈر نمبر</string>
     <string name="amount_items"> : رقم </string>
     <string name="status_items"> : موجودہ حالت </string>
+    <string name="paymentid_data"> : ادائیگی کی شناخت، آئی ڈی</string>
     <string name="paymentid"> : ادائیگی کی شناخت، آئی ڈی</string>
     <string name="search_by">  ذریعہ تلاش کریں : </string>
     <string name="cancelled">منسوخ کر دیا گیا ہے </string>

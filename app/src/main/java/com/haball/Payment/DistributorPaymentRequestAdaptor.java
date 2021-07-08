@@ -32,11 +32,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -50,14 +52,18 @@ import com.haball.Distributor.DistributorDashboard;
 import com.haball.Distributor.ui.main.invoice.ViewInvoice;
 import com.haball.Distributor.ui.payments.EditPayment;
 import com.haball.Distributor.ui.payments.EditPaymentRequestFragment;
+import com.haball.Distributor.ui.payments.MyStringRequest;
 import com.haball.Distributor.ui.payments.PaymentScreen3Fragment;
 import com.haball.Distributor.ui.payments.Payments_Fragment;
 import com.haball.Distributor.ui.payments.ViewVoucherRequest;
 import com.haball.HaballError;
 import com.haball.Loader;
+import com.haball.MyWebView;
 import com.haball.ProcessingError;
 import com.haball.R;
+import com.haball.Retailor.ui.RetailerPayment.RetailerViewInvoice;
 import com.haball.SSL_HandShake;
+import com.haball.testWhatsapp.Pay_By_Make_Payment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -458,6 +464,31 @@ DistributorPaymentRequestAdaptor extends RecyclerView.Adapter<DistributorPayment
 //                                        e.printStackTrace();
 //                                    }
 //                                    break;
+                                    case R.id.pay_by_make_payment:
+                                        SharedPreferences PrePaidNumber_MakePayment = context.getSharedPreferences("PrePaidNumber",
+                                                Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor editor_MakePayment = PrePaidNumber_MakePayment.edit();
+                                        editor_MakePayment.putString("PrePaidNumber", paymentsRequestList.get(position).getPrePaidNumber());
+                                        editor_MakePayment.putString("PrePaidId", paymentsRequestList.get(position).getID());
+                                        editor_MakePayment.putString("CompanyId", paymentsRequestList.get(position).getCompanyId());
+                                        editor_MakePayment.putString("CompanyName", paymentsRequestList.get(position).getCompanyName());
+                                        editor_MakePayment.putString("Amount", paymentsRequestList.get(position).getPaidAmount());
+                                        editor_MakePayment.putString("MenuItem", "View");
+                                        editor_MakePayment.apply();
+
+                                        SharedPreferences paymentsRequestListID = ((FragmentActivity) context).getSharedPreferences("paymentsRequestListID",
+                                                Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor editor_MakePayment1 = paymentsRequestListID.edit();
+                                        editor_MakePayment1.putString("paymentsRequestListID", paymentsRequestList.get(position).getID());
+                                        editor_MakePayment1.apply();
+
+                                        try {
+                                            new Pay_By_Make_Payment().payByMakePaymentsDistributor(context, paymentsRequestList.get(position).getPrePaidNumber(), Double.parseDouble(paymentsRequestList.get(position).getPaidAmount()), new View_Payment_Fragment(), new PaymentScreen3Fragment());
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                        break;
+
                                 }
                                 return false;
                             }

@@ -50,6 +50,7 @@ import com.haball.Retailor.ui.Make_Payment.ViewInvoiceVoucher;
 import com.haball.Retailor.ui.Make_Payment.ViewReceeiptPDFRequest;
 import com.haball.Retailor.ui.Make_Payment.ViewVoucherRequest;
 import com.haball.Retailor.ui.RetailerPayment.RetailerViewInvoice;
+import com.haball.testWhatsapp.Pay_By_Make_Payment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -227,7 +228,7 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
                                         editor_MakePayment.apply();
 
                                         try {
-                                            payByMakePayments(paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()), new RetailerViewInvoice(), new RetailerViewInvoice());
+                                            new Pay_By_Make_Payment().payByMakePaymentsRetailer(context, paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()), new RetailerViewInvoice(), new RetailerViewInvoice());
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
@@ -436,7 +437,7 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
                         editor.apply();
 
                         try {
-                            payByMakePayments(paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()), new View_Payment_Fragment(), new PaymentScreen3Fragment_Retailer());
+                            new Pay_By_Make_Payment().payByMakePaymentsRetailer(context, paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()), new View_Payment_Fragment(), new PaymentScreen3Fragment_Retailer());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -448,60 +449,6 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
         popup.show();
     }
 
-    private void payByMakePayments(String PSID, double Amount, final Fragment PaidFragment, final Fragment UnpaidFragment) throws JSONException {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("LoginToken",
-                Context.MODE_PRIVATE);
-        final String Token = sharedPreferences.getString("Login_Token", "");
-        String URL = "https://175.107.203.97:4014/api/payaxis/DapiAuthenticateCall";
-
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Amount", Amount);
-        jsonObject.put("PSID", PSID);
-        jsonObject.put("ReturnUrl", "https://175.107.203.97:4014/#/user/dashboard");
-        jsonObject.put("key", "");
-
-        final Context finalcontext = context;
-        MyStringRequest request = new MyStringRequest(Request.Method.POST, URL, jsonObject, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-////                Toast.makeText(context, response, Toast.LENGTH_LONG).show();
-                MyWebView webview = new MyWebView();
-                webview.URL = response;
-                webview.ReturnURL = "https://175.107.203.97:4014/#/user/dashboard";
-                webview.PaidFragment = PaidFragment;
-                webview.UnpaidFragment = UnpaidFragment;
-                Intent login_intent = new Intent(context, webview.getClass());
-                context.startActivity(login_intent);
-//                String URL = response;
-//                URL = URL.replaceAll("\\\"", "");
-////        URL = "https://175.107.203.97:8009/#/user/payment-channels/3c688f4b688ecffb3639013061dda6e1";
-////        URL = "https://www.google.com/";
-//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
-//                context.startActivity(browserIntent);
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                new ProcessingError().showError(context);
-                error.printStackTrace();
-            }
-        }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("Authorization", "bearer " + Token);
-                params.put("Content-Type", "application/json; charset=UTF-8");
-                return params;
-            }
-        };
-        request.setRetryPolicy(new DefaultRetryPolicy(
-                15000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        Volley.newRequestQueue(context).add(request);
-
-    }
 
     private boolean checkAndRequestPermissions() {
         int permissionRead = ContextCompat.checkSelfPermission(context,

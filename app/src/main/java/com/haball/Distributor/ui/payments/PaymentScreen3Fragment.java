@@ -59,11 +59,13 @@ import com.haball.Distributor.ui.main.PlaceholderFragment;
 import com.haball.HaballError;
 import com.haball.Loader;
 import com.haball.Payment.DistributorPaymentRequestModel;
+import com.haball.Payment.View_Payment_Fragment;
 import com.haball.ProcessingError;
 import com.haball.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.haball.Retailor.RetailorDashboard;
 import com.haball.TextField;
+import com.haball.testWhatsapp.Pay_By_Make_Payment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -81,10 +83,10 @@ public class PaymentScreen3Fragment extends Fragment {
     private TextView tv_banking_channel, payment_id, btn_newpayment;
     private String PrePaidNumber = "", PrePaidId = "", CompanyName = "", Amount = "", CompanyId = "", MenuItem = "";
     public Button btn_voucher, btn_update;
-    private Spinner spinner_companyName;
+    private Spinner spinner_companyName, spinner_banking_make_payment;
     private TextInputEditText txt_amount;
     private TextInputLayout layout_txt_amount;
-    private ArrayAdapter<String> arrayAdapterPayments;
+    private ArrayAdapter<String> arrayAdapterPayments, arrayAdapter_banking_make_payment;
     private List<String> CompanyNames = new ArrayList<>();
     private static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     private Typeface myFont;
@@ -111,6 +113,7 @@ public class PaymentScreen3Fragment extends Fragment {
 
         payment_id = root.findViewById(R.id.payment_id);
         spinner_companyName = root.findViewById(R.id.spinner_companyName);
+        spinner_banking_make_payment = root.findViewById(R.id.spinner_banking_make_payment);
         txt_amount = root.findViewById(R.id.txt_amount);
         layout_txt_amount = root.findViewById(R.id.layout_txt_amount);
         btn_newpayment = root.findViewById(R.id.btn_addpayment);
@@ -158,6 +161,111 @@ public class PaymentScreen3Fragment extends Fragment {
 //                new CustomToast().showToast(getActivity(), "Payment ID: " + String.valueOf(payment_id.getText()) + " - Copied to clipboard");
                 new CustomToast().showToast(getActivity(), "PSID has been copied to clipboard");
                 return false;
+            }
+        });
+
+        List<String> banking_make_payment = new ArrayList<>();
+        banking_make_payment.add("Select Payment Options");
+        banking_make_payment.add("Payment Instructions");
+        banking_make_payment.add("Make Payment");
+
+        arrayAdapter_banking_make_payment = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, banking_make_payment) {
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                // TODO Auto-generated method stub
+                View view = super.getView(position, convertView, parent);
+                TextView text = (TextView) view.findViewById(android.R.id.text1);
+                text.setTextColor(getResources().getColor(R.color.text_color_selection));
+                text.setTextSize((float) 13.6);
+                text.setPadding(50, 0, 50, 0);
+                text.setTypeface(myFont);
+                return view;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                // TODO Auto-generated method stub
+                View view = super.getView(position, convertView, parent);
+                TextView text = (TextView) view.findViewById(android.R.id.text1);
+                text.setTextColor(getResources().getColor(R.color.text_color_selection));
+                text.setTextSize((float) 13.6);
+                text.setPadding(50, 0, 50, 0);
+                return view;
+            }
+        };
+        spinner_banking_make_payment.setAdapter(arrayAdapter_banking_make_payment);
+
+        spinner_banking_make_payment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 0) {
+                    try {
+                        ((TextView) adapterView.getChildAt(0)).setTextColor(getResources().getColor(R.color.grey_color));
+                        ((TextView) adapterView.getChildAt(0)).setTextSize((float) 13.6);
+                        ((TextView) adapterView.getChildAt(0)).setPadding(30, 0, 30, 0);
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                    }
+                } else if (i == 1) {
+
+                    final AlertDialog alertDialog2 = new AlertDialog.Builder(getContext()).create();
+                    LayoutInflater inflater2 = LayoutInflater.from(getContext());
+                    View view_popup2 = inflater2.inflate(R.layout.payment_request_details, null);
+                    alertDialog2.setView(view_popup2);
+                    alertDialog2.show();
+                    ImageButton img_close = view_popup2.findViewById(R.id.image_button_close);
+                    TextView payment_information_txt3 = view_popup2.findViewById(R.id.payment_information_txt3);
+                    payment_information_txt3.setText(PrePaidNumber);
+                    Button btn_view_voucher = view_popup2.findViewById(R.id.btn_view_voucher);
+                    btn_view_voucher.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (checkAndRequestPermissions()) {
+                                try {
+                                    viewPDF(getContext(), PrePaidId);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    });
+
+                    img_close.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            alertDialog2.dismiss();
+                        }
+                    });
+                } else if (i == 2) {
+                    SharedPreferences PrePaidNumber_MakePayment = getContext().getSharedPreferences("PrePaidNumber",
+                            Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor_MakePayment = PrePaidNumber_MakePayment.edit();
+                    editor_MakePayment.putString("PrePaidNumber", PrePaidNumber);
+                    editor_MakePayment.putString("PrePaidId", PrePaidId);
+                    editor_MakePayment.putString("CompanyId", CompanyId);
+                    editor_MakePayment.putString("CompanyName", CompanyName);
+                    editor_MakePayment.putString("Amount", Amount);
+                    editor_MakePayment.putString("MenuItem", "View");
+                    editor_MakePayment.apply();
+
+                    SharedPreferences paymentsRequestListID = ((FragmentActivity) getContext()).getSharedPreferences("paymentsRequestListID",
+                            Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor_MakePayment1 = paymentsRequestListID.edit();
+                    editor_MakePayment1.putString("paymentsRequestListID", PrePaidId);
+                    editor_MakePayment1.apply();
+
+                    try {
+                        new Pay_By_Make_Payment().payByMakePaymentsDistributor(getContext(), PrePaidNumber, Double.parseDouble(Amount), new View_Payment_Fragment(), new PaymentScreen3Fragment());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
@@ -426,7 +534,7 @@ public class PaymentScreen3Fragment extends Fragment {
 //                map.put("State", paymentsRequestList.getState());
                 map.put("Status", 0);
 //                map.put("employeesName", paymentsRequestList.getEmployeesName());
-                map.put("PaidAmount" ,txt_amount.getText().toString());
+                map.put("PaidAmount", txt_amount.getText().toString());
                 // Log.i("UpdatePaymentsss", String.valueOf(map));
 
                 JsonObjectRequest sr = new JsonObjectRequest(Request.Method.POST, URL_PAYMENT_REQUESTS_SAVE, map, new Response.Listener<JSONObject>() {
@@ -520,7 +628,8 @@ public class PaymentScreen3Fragment extends Fragment {
         tv_pr1.setText("");
         txt_header1.setText(getResources().getString(R.string.payment_updated));
         String steps1 = getResources().getString(R.string.your_payment_id);
-        String steps2 = getResources().getString(R.string.payment_updated_msg);;
+        String steps2 = getResources().getString(R.string.payment_updated_msg);
+        ;
         String title = paymentID;
         SpannableString ss1 = new SpannableString(title);
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
@@ -694,8 +803,8 @@ public class PaymentScreen3Fragment extends Fragment {
 
             }
         });
-        if(!alertDialog.isShowing())
-        alertDialog.show();
+        if (!alertDialog.isShowing())
+            alertDialog.show();
     }
 
     private void showDiscardDialog() {
@@ -738,7 +847,7 @@ public class PaymentScreen3Fragment extends Fragment {
 
                 }
             });
-            if(!alertDialog.isShowing())
+            if (!alertDialog.isShowing())
                 alertDialog.show();
 
         } else {

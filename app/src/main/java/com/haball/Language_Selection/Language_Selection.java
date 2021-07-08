@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -15,6 +16,7 @@ import android.widget.RelativeLayout;
 
 import com.haball.LanguageClasses.ChangeLanguage;
 import com.haball.LanguageClasses.LanguageHelper;
+import com.haball.Loader;
 import com.haball.R;
 import com.haball.Select_User.Register_Activity;
 
@@ -36,7 +38,7 @@ public class Language_Selection extends AppCompatActivity {
         ll_main_background.setBackground(background_drawable);
 
         rel_english = findViewById(R.id.rel_english);
-        rel_urdu =  findViewById(R.id.rel_urdu);
+        rel_urdu = findViewById(R.id.rel_urdu);
         Paper.init(this);
         rel_english.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -67,10 +69,12 @@ public class Language_Selection extends AppCompatActivity {
         }
 
     }
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LanguageHelper.onAttach(newBase, "en"));
-    }
+//
+//    @Override
+//    protected void attachBaseContext(Context newBase) {
+//        super.attachBaseContext(LanguageHelper.onAttach(newBase, "en"));
+//    }
+
     private void updateView(String lang) {
         context = LanguageHelper.setLocale(this, lang);
         Resources resources = context.getResources();
@@ -82,9 +86,27 @@ public class Language_Selection extends AppCompatActivity {
         ChangeLanguage changeLanguage = new ChangeLanguage();
         changeLanguage.changeLanguage(this, lang);
 
+        final Loader loader = new Loader(Language_Selection.this);
+        loader.showLoader();
 
-        Intent intent = new Intent(Language_Selection.this, Register_Activity.class);
-        startActivity(intent);
+        try {
+            new CountDownTimer(5000, 100) {
+
+                public void onTick(long millisUntilFinished) {
+                }
+
+                public void onFinish() {
+                    // Log.i("mContext_hide", String.valueOf(mContext));
+                    loader.hideLoader();
+                    Intent intent = new Intent(Language_Selection.this, Register_Activity.class);
+                    startActivity(intent);
+                    finish();
+
+                }
+            }.start();
+        } catch (IllegalArgumentException ignored) {
+
+        }
 
     }
 }

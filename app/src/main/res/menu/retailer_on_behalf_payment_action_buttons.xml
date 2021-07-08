@@ -13,7 +13,7 @@
             android:title="Delete" />
         <item
             android:id="@+id/pay_by_retailer"
-            android:title="Pay By PSID"/>
+            android:title="Payment Instructions"/>
 
     </group>
 </menu>

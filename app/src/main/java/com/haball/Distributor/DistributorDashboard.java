@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
@@ -58,6 +59,7 @@ import com.haball.Distributor.ui.terms_and_conditions.TermsAndConditionsFragment
 import com.haball.HaballError;
 import com.haball.LanguageClasses.ChangeLanguage;
 import com.haball.LanguageClasses.LanguageHelper;
+import com.haball.Language_Selection.Language_Selection;
 import com.haball.Loader;
 import com.haball.ProcessingError;
 import com.haball.R;
@@ -896,8 +898,27 @@ public class DistributorDashboard extends AppCompatActivity {
         changeLanguage.changeLanguage(this, lang);
 
         if(!language.equals(lang)) {
-            Intent intent = new Intent(DistributorDashboard.this, DistributorDashboard.class);
-            startActivity(intent);
+            final Loader loader = new Loader(DistributorDashboard.this);
+            loader.showLoader();
+
+            try {
+                new CountDownTimer(5000, 100) {
+
+                    public void onTick(long millisUntilFinished) {
+                    }
+
+                    public void onFinish() {
+                        // Log.i("mContext_hide", String.valueOf(mContext));
+                        loader.hideLoader();
+                        Intent intent = new Intent(DistributorDashboard.this, DistributorDashboard.class);
+                        startActivity(intent);
+
+                    }
+                }.start();
+            } catch (IllegalArgumentException ignored) {
+
+            }
+
         }
     }
 }

@@ -59,8 +59,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.haball.CustomToast;
 import com.haball.Distributor.StatusKVP;
+import com.haball.Distributor.ui.payments.PaymentScreen3Fragment;
 import com.haball.HaballError;
 import com.haball.Loader;
+import com.haball.Payment.View_Payment_Fragment;
 import com.haball.ProcessingError;
 import com.haball.R;
 import com.haball.Retailor.RetailorDashboard;
@@ -74,6 +76,7 @@ import com.haball.Retailor.ui.Make_Payment.ViewReceeiptPDFRequest;
 import com.haball.Retailor.ui.Make_Payment.ViewVoucherRequest;
 import com.haball.Retailor.ui.RetailerOrder.RetailerOrdersAdapter.RetailerViewOrderProductAdapter;
 import com.haball.Retailor.ui.RetailerOrder.RetailerOrdersModel.RetailerViewOrderProductModel;
+import com.haball.Retailor.ui.RetailerPayment.RetailerViewInvoice;
 import com.haball.SSL_HandShake;
 import com.haball.TextField;
 import com.google.android.material.tabs.TabLayout;
@@ -81,6 +84,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.haball.testWhatsapp.Pay_By_Make_Payment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -124,9 +128,9 @@ public class PlaceholderFragment extends Fragment {
     private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "https://175.107.203.97:4014/api/prepaidrequests/GetByRetailerCode";
     private String PrePaidNumber = "", PrePaidId = "", CompanyName = "", Amount = "", CompanyId = "", MenuItem = "";
     private Button btn_voucher, btn_update, btn_back;
-    private Spinner spinner_companyName;
+    private Spinner spinner_companyName,spinner_banking_make_payment;
     private HashMap<String, String> companyNameAndId = new HashMap<>();
-    private ArrayAdapter<String> arrayAdapterPayments;
+    private ArrayAdapter<String> arrayAdapterPayments, arrayAdapter_banking_make_payment;
     private List<String> CompanyNames = new ArrayList<>();
     private static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     private String company_names;
@@ -389,6 +393,7 @@ public class PlaceholderFragment extends Fragment {
 
                     payment_id = rootView.findViewById(R.id.payment_id);
                     spinner_companyName = rootView.findViewById(R.id.spinner_companyName);
+                    spinner_banking_make_payment = rootView.findViewById(R.id.spinner_banking_make_payment);
                     txt_amount = rootView.findViewById(R.id.txt_amount);
                     layout_txt_amount = rootView.findViewById(R.id.layout_txt_amount);
                     btn_newpayment = rootView.findViewById(R.id.btn_addpayment);
@@ -401,10 +406,10 @@ public class PlaceholderFragment extends Fragment {
 
                     rl_jazz_cash = rootView.findViewById(R.id.rl_jazz_cash);
 
-                    if (InvoiceStatus.equals("Cancelled"))
-                        rl_jazz_cash.setVisibility(View.GONE);
-                    else
-                        rl_jazz_cash.setVisibility(View.VISIBLE);
+//                    if (InvoiceStatus.equals("Cancelled"))
+//                        rl_jazz_cash.setVisibility(View.GONE);
+//                    else
+//                        rl_jazz_cash.setVisibility(View.VISIBLE);
 
                     rl_jazz_cash.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -473,6 +478,102 @@ public class PlaceholderFragment extends Fragment {
 
                     spinner_companyName.setAdapter(arrayAdapterPayments);
 
+
+                    List<String> banking_make_payment = new ArrayList<>();
+                    banking_make_payment.add("Select Payment Options");
+                    banking_make_payment.add("Payment Instructions");
+                    banking_make_payment.add("Make Payment");
+
+                    arrayAdapter_banking_make_payment = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, banking_make_payment) {
+                        @Override
+                        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                            // TODO Auto-generated method stub
+                            View view = super.getView(position, convertView, parent);
+                            TextView text = (TextView) view.findViewById(android.R.id.text1);
+                            text.setTextColor(getResources().getColor(R.color.text_color_selection));
+                            text.setTextSize((float) 13.6);
+                            text.setPadding(50, 0, 50, 0);
+                            text.setTypeface(myFont);
+                            return view;
+                        }
+
+                        @Override
+                        public View getView(int position, View convertView, ViewGroup parent) {
+                            // TODO Auto-generated method stub
+                            View view = super.getView(position, convertView, parent);
+                            TextView text = (TextView) view.findViewById(android.R.id.text1);
+                            text.setTextColor(getResources().getColor(R.color.text_color_selection));
+                            text.setTextSize((float) 13.6);
+                            text.setPadding(50, 0, 50, 0);
+                            return view;
+                        }
+                    };
+                    spinner_banking_make_payment.setAdapter(arrayAdapter_banking_make_payment);
+
+                    spinner_banking_make_payment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                            if (i == 0) {
+                                try {
+                                    ((TextView) adapterView.getChildAt(0)).setTextColor(getResources().getColor(R.color.grey_color));
+                                    ((TextView) adapterView.getChildAt(0)).setTextSize((float) 13.6);
+                                    ((TextView) adapterView.getChildAt(0)).setPadding(30, 0, 30, 0);
+                                } catch (NullPointerException e) {
+                                    e.printStackTrace();
+                                }
+                            } else if (i == 1) {
+
+                                final AlertDialog alertDialog2 = new AlertDialog.Builder(getContext()).create();
+                                LayoutInflater inflater2 = LayoutInflater.from(getContext());
+                                View view_popup2 = inflater2.inflate(R.layout.payment_request_details, null);
+                                alertDialog2.setView(view_popup2);
+                                alertDialog2.show();
+                                ImageButton img_close = view_popup2.findViewById(R.id.image_button_close);
+                                TextView payment_information_txt3 = view_popup2.findViewById(R.id.payment_information_txt3);
+                                payment_information_txt3.setText(PrePaidNumber);
+                                Button btn_view_voucher = view_popup2.findViewById(R.id.btn_view_voucher);
+                                btn_view_voucher.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (checkAndRequestPermissions()) {
+                                            try {
+                                                viewPDF(getContext(), PrePaidId);
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                });
+
+                                img_close.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        alertDialog2.dismiss();
+                                    }
+                                });
+                            } else if (i == 2) {
+//                                SharedPreferences OrderId_MakePayment = ((FragmentActivity) getContext()).getSharedPreferences("PaymentId",
+//                                        Context.MODE_PRIVATE);
+//                                SharedPreferences.Editor editor_MakePayment = OrderId_MakePayment.edit();
+//                                editor_MakePayment.putString("PaymentId", paymentsList.get(position).getRetailerInvoiceId());
+//                                editor_MakePayment.putString("InvoiceStatus", String.valueOf(paymentsList.get(position).getStatus()));
+//                                // Log.i("InvoiceStatus_Adapter", String.valueOf(paymentsList.get(position).getStatus()));
+//                                editor_MakePayment.apply();
+
+                                try {
+                                    new Pay_By_Make_Payment().payByMakePaymentsRetailer(getContext(), PrePaidNumber, Double.parseDouble(Amount), new RetailerViewInvoice(), new RetailerViewInvoice());
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+
+                        }
+                    });
 
                     btn_newpayment.setOnClickListener(new View.OnClickListener() {
                         @Override

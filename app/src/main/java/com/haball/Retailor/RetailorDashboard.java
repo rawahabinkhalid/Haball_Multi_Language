@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
@@ -1011,8 +1012,28 @@ public class RetailorDashboard extends AppCompatActivity {
 //            fragmentTransaction.detach(currentFragment);
 //            fragmentTransaction.attach(currentFragment);
 //            fragmentTransaction.commit();
-            Intent intent = new Intent(RetailorDashboard.this, RetailorDashboard.class);
-            startActivity(intent);
+
+            final Loader loader = new Loader(RetailorDashboard.this);
+            loader.showLoader();
+
+            try {
+                new CountDownTimer(5000, 100) {
+
+                    public void onTick(long millisUntilFinished) {
+                    }
+
+                    public void onFinish() {
+                        // Log.i("mContext_hide", String.valueOf(mContext));
+                        loader.hideLoader();
+                        Intent intent = new Intent(RetailorDashboard.this, RetailorDashboard.class);
+                        startActivity(intent);
+
+                    }
+                }.start();
+            } catch (IllegalArgumentException ignored) {
+
+            }
+
         }
     }
 }

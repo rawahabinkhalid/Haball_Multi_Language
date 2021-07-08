@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".Payment.Payment_Make_New"
-    android:clickable="true">
+    android:clickable="true"
+    tools:context=".Payment.Payment_Make_New">
 
     <RelativeLayout
         android:id="@+id/ln_login"
@@ -218,7 +218,7 @@
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/open_sans"
                         android:gravity="center"
-                        android:hint="@string/paymentid"
+                        android:hint="@string/paymentid_data"
                         android:paddingLeft="20dp"
                         android:textColor="@color/textcolor"
                         android:textSize="@dimen/rv_box_text_size" />
@@ -248,6 +248,47 @@
                     android:text="@string/Txt_Payment"
                     android:textSize="15.6sp" />
 
+
+                <RelativeLayout
+                    android:id="@+id/relative_banking_make_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/spinner_round">
+
+                    <!--                    <Spinner-->
+                    <!--                        android:id="@+id/spinner_companyName"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="match_parent"-->
+                    <!--                        android:background="@null"-->
+                    <!--                        android:fontFamily="@font/open_sans"-->
+                    <!--                        android:paddingLeft="20dp"-->
+                    <!--                        android:paddingTop="5dp"-->
+                    <!--                        android:paddingRight="20dp"-->
+                    <!--                        android:paddingBottom="5dp"-->
+                    <!--                        android:textColor="@color/textcolor"-->
+                    <!--                        android:textSize="14sp"-->
+                    <!--                        app:boxStrokeColor="@color/box_stroke" />-->
+                    <Spinner
+                        android:id="@+id/spinner_banking_make_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:dropDownWidth="match_parent"
+                        android:popupBackground="@drawable/spinner_round" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignTop="@id/spinner_banking_make_payment"
+                        android:layout_alignEnd="@+id/spinner_banking_make_payment"
+                        android:layout_alignRight="@+id/spinner_banking_make_payment"
+                        android:layout_alignBottom="@+id/spinner_banking_make_payment"
+                        android:src="@drawable/ic_arrow_drop_down_black_24dp"
+                        android:theme="@style/Spinner" />
+                </RelativeLayout>
+
+
                 <RelativeLayout
                     android:id="@+id/rl_banking"
                     android:layout_width="match_parent"
@@ -256,13 +297,14 @@
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/spinner_round"
-                    android:padding="20dp">
+                    android:padding="20dp"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="50dp"
@@ -274,9 +316,9 @@
                             android:id="@+id/tv_banking_channel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
                             android:fontFamily="@font/open_sans"
                             android:gravity="left"
-                            android:layout_gravity="center_vertical"
                             android:text="@string/banking_channel"
                             android:textColor="@color/textcolor"
                             android:textSize="15sp" />
@@ -289,12 +331,12 @@
                     android:id="@+id/rl_jazz_cash"
                     android:layout_width="match_parent"
                     android:layout_height="68dp"
-                    android:visibility="gone"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/spinner_round"
-                    android:padding="20dp">
+                    android:padding="20dp"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"

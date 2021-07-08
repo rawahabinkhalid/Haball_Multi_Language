@@ -29,6 +29,7 @@ import com.haball.Retailor.ui.RetailerPayment.RetailerViewInvoice;
 
 public class MyWebView extends AppCompatActivity {
     public static String URL = "";
+    public static int ContainerId = -1;
     public static String ReturnURL = "";
     public static Fragment PaidFragment;
     public static Fragment UnpaidFragment;
@@ -97,7 +98,7 @@ public class MyWebView extends AppCompatActivity {
 //                    finish();
                     Fragment tempFragment = (url.contains("error=true")) ? UnpaidFragment : PaidFragment;
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.add(R.id.main_container_ret, tempFragment).addToBackStack("tag");
+                    fragmentTransaction.add(ContainerId, tempFragment).addToBackStack("tag");
                     fragmentTransaction.commit();
                 }
             }
