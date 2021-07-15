@@ -773,8 +773,8 @@
     <string name="user_name">یوزر نیم یا موبائل نمبر</string>
     <string name="password">پاسورڈ</string>
     <string name="login">لاگ ان</string>
-    <string name="Forgot_Password">پاسورڈ بھول گے</string>
-    <string name="need_support">مدد کی ضرورت ہے</string>
+    <string name="Forgot_Password">پاسورڈ بھول گے؟</string>
+    <string name="need_support">مدد کی ضرورت ہے؟</string>
 
     // forgot password
     <string name="txt_forgot">
@@ -822,6 +822,7 @@
     <string name="order_id">آرڈر کی شناخت، آئی ڈی</string>
     <string name="company">کمپنی</string>
 	<string name="status">موجودہ حالت</string>
+	<string name="status_status">Status</string>
     <string name="created_date">تشکیل کی تاریخ</string>
     <string name="amount">رقم</string>
     <string name="tab_retailer_order">آرڈر</string>
@@ -850,6 +851,7 @@
     <string name="paymentid"> : ادائیگی کی شناخت، آئی ڈی</string>
     <string name="search_by">  ذریعہ تلاش کریں : </string>
     <string name="cancelled">منسوخ کر دیا گیا ہے </string>
+	<string name="cancelled_status">Cancelled</string>
     <string name="paid">Paid</string>
     <string name="un_paid">Un-Paid</string>
     // my Network
@@ -992,9 +994,9 @@
     <string name="pre_payment">Pre Payment</string>
     <string name="approved">Approved</string>
     <string name="rejected">Rejected</string>
-    <string name="draft">ڈرافت</string>
+    <string name="draft">Draft</string>
     <string name="overview_distributor">اورویو</string>
-    <string name="pack_size_adapter"><![CDATA[Pack Size: ]]></string>
+    <string name="pack_size_adapter"><![CDATA[پیک سائز: ]]></string>
     <string name="cancelled_order_msg">کامیابی کے ساتھ منسوخ کر دیا گیا ہے۔</string>
     <string name="cancelled_order">آرڈر منسوخ کر دیا گیا ہے</string>
     <string name="order_deleted">آرڈر ڈیلیٹ کردیا گیا ہے </string>
@@ -1101,7 +1103,7 @@
 	<string name="credit_amount"> :کریڈٹ</string>
     <string name="balance_item"> :بقیہ</string>
     // bottom line
-    <string name="all_rights_reserved">© حبل | حبل تمام حقوق محفوظ ہیں</string>
+    <string name="all_rights_reserved">© حبل | تمام حقوق محفوظ ہیں</string>
 
 
 </resources>

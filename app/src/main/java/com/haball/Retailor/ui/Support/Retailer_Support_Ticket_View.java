@@ -84,9 +84,9 @@ public class Retailer_Support_Ticket_View extends Fragment {
     private TextInputEditText txt_comments;
     private String ID;
     private FragmentTransaction fragmentTransaction;
-    private HashMap<String, String> RetailerIssueTypePrivateKVP;
-    private HashMap<String, String> RetailerCriticalityPrivateKVP;
-    private HashMap<String, String> RetailerContactingMethodKVP;
+    private HashMap<String, String> RetailerIssueTypePrivateKVP = new HashMap<>();
+    private HashMap<String, String> RetailerCriticalityPrivateKVP = new HashMap<>();
+    private HashMap<String, String> RetailerContactingMethodKVP = new HashMap<>();
     private StatusKVP statusKVP;
     private String RetailerIssueTypePrivateKVPString, RetailerCriticalityPrivateKVPString, RetailerContactingMethodKVPString;
     private Loader loader;
@@ -247,9 +247,12 @@ public class Retailer_Support_Ticket_View extends Fragment {
                 Type type = new TypeToken<HashMap<String, String>>() {
                 }.getType();
                 Gson gson = new Gson();
-                RetailerIssueTypePrivateKVP = gson.fromJson(RetailerIssueTypePrivateKVPString, type);
-                RetailerContactingMethodKVP = gson.fromJson(RetailerContactingMethodKVPString, type);
-                RetailerCriticalityPrivateKVP = gson.fromJson(RetailerCriticalityPrivateKVPString, type);
+                if (!RetailerIssueTypePrivateKVPString.equals(""))
+                    RetailerIssueTypePrivateKVP = gson.fromJson(RetailerIssueTypePrivateKVPString, type);
+                if (!RetailerContactingMethodKVPString.equals(""))
+                    RetailerContactingMethodKVP = gson.fromJson(RetailerContactingMethodKVPString, type);
+                if (!RetailerCriticalityPrivateKVPString.equals(""))
+                    RetailerCriticalityPrivateKVP = gson.fromJson(RetailerCriticalityPrivateKVPString, type);
                 // Log.i("statuskvp1", String.valueOf(RetailerIssueTypePrivateKVPString));
                 // Log.i("statuskvp1", String.valueOf(RetailerIssueTypePrivateKVP));
 //                RetailerIssueTypePrivateKVP = statusKVP.getRetailerIssueTypePrivateKVP();
@@ -264,19 +267,19 @@ public class Retailer_Support_Ticket_View extends Fragment {
                 try {
                     tv_ticket_id.setText(response.getString("TicketNumber"));
 
-                    if(!String.valueOf(response.get("ContactName")).equals("") && !String.valueOf(response.get("ContactName")).equals("null")) {
+                    if (!String.valueOf(response.get("ContactName")).equals("") && !String.valueOf(response.get("ContactName")).equals("null")) {
                         txt_business_name.setText(String.valueOf(response.get("ContactName")));
                         txt_business_name.setTextColor(getResources().getColor(R.color.textcolor));
                     }
-                    if(!String.valueOf(response.get("Email")).equals("") && !String.valueOf(response.get("Email")).equals("null")) {
+                    if (!String.valueOf(response.get("Email")).equals("") && !String.valueOf(response.get("Email")).equals("null")) {
                         txt_email_address.setText(String.valueOf(response.get("Email")));
                         txt_email_address.setTextColor(getResources().getColor(R.color.textcolor));
                     }
-                    if(!String.valueOf(response.get("MobileNumber")).equals("") && !String.valueOf(response.get("MobileNumber")).equals("null")) {
+                    if (!String.valueOf(response.get("MobileNumber")).equals("") && !String.valueOf(response.get("MobileNumber")).equals("null")) {
                         txt_mobile_number.setText(String.valueOf(response.get("MobileNumber")));
                         txt_mobile_number.setTextColor(getResources().getColor(R.color.textcolor));
                     }
-                    if(!String.valueOf(response.get("Description")).equals("") && !String.valueOf(response.get("Description")).equals("null")) {
+                    if (!String.valueOf(response.get("Description")).equals("") && !String.valueOf(response.get("Description")).equals("null")) {
                         txt_comments.setText(String.valueOf(response.get("Description")));
                         txt_comments.setTextColor(getResources().getColor(R.color.textcolor));
                     }

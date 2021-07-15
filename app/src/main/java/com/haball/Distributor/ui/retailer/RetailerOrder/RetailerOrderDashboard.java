@@ -290,12 +290,12 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
 
 
                     if (Filter_selected.equals(getResources().getString(R.string.order_id))) {
-                        search_bar.setHint("Search by " + Filter_selected);
+                        search_bar.setHint((getResources().getString(R.string.search_by)) + Filter_selected);
                         Filter_selected = "OrderNumber";
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals(getResources().getString(R.string.company))) {
-                        search_bar.setHint("Search by " + Filter_selected);
+                        search_bar.setHint((getResources().getString(R.string.search_by)) + Filter_selected);
                         Filter_selected = "Retailer";
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);
@@ -323,7 +323,7 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
                         Filter_selected2 = "AmountMax";
                         checkAmountChanged();
                     } else if (Filter_selected.equals("Submitter")) {
-                        search_bar.setHint("Search by " + Filter_selected);
+                        search_bar.setHint((getResources().getString(R.string.search_by)) + Filter_selected);
                         Filter_selected = "Submitter";
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);

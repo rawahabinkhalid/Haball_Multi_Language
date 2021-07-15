@@ -264,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
 //                    spinner2.setSelection(0);
 //                    conso_edittext.setText("");
 //                    if (Filter_selected.equals("Ticket ID")) {
-//                        search_bar.setHint("Search by " + Filter_selected);
+//                        search_bar.setHint((getResources().getString(R.string.search_by)) + Filter_selected);
 //                        Filter_selected = "TicketNumber";
 //                        conso_edittext.setInputType(InputType.TYPE_CLASS_NUMBER);
 //                        conso_edittext.setVisibility(View.VISIBLE);

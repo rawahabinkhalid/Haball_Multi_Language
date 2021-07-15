@@ -136,7 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/open_sans"
-                    android:text="Total Disc:"
+                    android:text="@string/total_disc"
                     android:textColor="@color/rv_box_color"
                     android:textSize="13sp" />
 
@@ -167,7 +167,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/discount"
                     android:fontFamily="@font/open_sans"
-                    android:text="Total Amount:"
+                    android:text="@string/total_amount"
                     android:textColor="@color/rv_box_color"
                     android:textSize="13sp" />
 

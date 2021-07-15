@@ -75,6 +75,7 @@ public class StatusKVP {
     public StatusKVP(Context mContext, String token) {
         context = mContext;
         Token = token;
+        Log.i("statuskvp_debug", "in constructor");
 
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(
                 "LoginToken",
@@ -91,6 +92,7 @@ public class StatusKVP {
     }
 
     public void putInSharedPreferences() {
+        Log.i("statuskvp_debug", "putting in shared preferences");
         Gson gson = new Gson();
         SharedPreferences prefs = context.getSharedPreferences(
                 "StatusKVP",
@@ -361,6 +363,7 @@ public class StatusKVP {
     }
 
     private void GetRetailerStatusDefault() {
+        Log.i("statuskvp_debug", "getting status");
         new SSL_HandShake().handleSSLHandshake();
         //        final HurlStack hurlStack = new SSL_HandShake().handleSSLHandshake(context);
         JsonArrayRequest sr = new JsonArrayRequest(

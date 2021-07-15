@@ -771,6 +771,7 @@
     <string name="order_id">Order ID</string>
     <string name="company">Company</string>
     <string name="status">Status</string>
+	<string name="status_status">Status</string>
     <string name="created_date">Created Date</string>
     <string name="cancel_order">Cancel Order</string>
     <string name="cancel_order_text">Are you sure, you want to cancel this order?</string>
@@ -793,6 +794,7 @@
     <string name="paymentid">Payment ID: </string>
     <string name="search_by">Search by </string>
     <string name="cancelled">Cancelled</string>
+	<string name="cancelled_status">Cancelled</string>
     <string name="paid">Paid</string>
     <string name="un_paid">Un-Paid</string>
     <string name="ticket_created_text">کامیابی کے ساتھ تشکیل دے دیا گیا ہے ، ہمارا کسٹمر سپورٹ آفیسر جلد ہی آپ سے رابطہ کرے گا۔</string>

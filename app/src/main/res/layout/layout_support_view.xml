@@ -18,32 +18,31 @@
 
 
             <LinearLayout
-                android:id="@+id/ln_login"
+                android:id="@+id/ll_tv_support"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/underline"
-                android:orientation="horizontal"
-                android:weightSum="5.3">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tv_support"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3.3"
                     android:fontFamily="@font/open_sans"
-                    android:paddingTop="5dp"
+                    android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:text="Support"
+                    android:text="@string/support"
                     android:textColor="@color/textcolor"
                     android:textSize="17sp" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ln_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/ln_login"
+                android:layout_below="@+id/ll_tv_support"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
                 android:weightSum="3">
@@ -60,7 +59,7 @@
                         android:fontFamily="@font/open_sans"
                         android:paddingTop="5dp"
                         android:paddingBottom="10dp"
-                        android:text="Ticket ID: "
+                        android:text="@string/ticket_id_item"
                         android:textSize="16sp" />
 
                     <TextView
@@ -81,7 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_weight="1"
-                    android:hint="Business Name"
+                    android:hint="@string/business_name"
                     android:theme="@style/TextLabel"
                     app:boxBackgroundColor="#fff"
                     app:boxStrokeColor="@color/box_stroke"
@@ -92,7 +91,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="number"
-                     android:theme="@style/TextLabelEditeText" />
+                        android:theme="@style/TextLabelEditeText" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,7 +103,7 @@
                     android:layout_height="55dp"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
-                    android:hint="Email"
+                    android:hint="@string/email"
                     android:theme="@style/TextLabel"
                     app:boxBackgroundColor="#fff"
                     app:boxStrokeColor="@color/box_stroke"
@@ -115,7 +114,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="number"
-                       android:theme="@style/TextLabelEditeText"/>
+                        android:theme="@style/TextLabelEditeText" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,7 +125,7 @@
                     android:layout_height="55dp"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
-                    android:hint="Mobile No"
+                    android:hint="@string/mobile_no"
                     android:theme="@style/TextLabel"
                     app:boxBackgroundColor="#fff"
                     app:boxStrokeColor="@color/box_stroke"
@@ -137,7 +136,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="number"
-                       android:theme="@style/TextLabelEditeText" />
+                        android:theme="@style/TextLabelEditeText" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -172,6 +171,7 @@
                         android:src="@drawable/ic_arrow_drop_down_black_24dp"
                         android:theme="@style/Spinner" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/relative_txt_criticality"
                     android:layout_width="match_parent"
@@ -203,6 +203,7 @@
                         android:src="@drawable/ic_arrow_drop_down_black_24dp"
                         android:theme="@style/Spinner" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/relative_txt_preferred_contact_method"
                     android:layout_width="match_parent"
@@ -329,7 +330,7 @@
                     android:layout_height="100dp"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
-                    android:hint="Comments"
+                    android:hint="@string/comments"
                     android:theme="@style/TextLabel"
                     app:boxBackgroundColor="#fff"
                     app:boxStrokeColor="@color/box_stroke"
@@ -339,9 +340,9 @@
                         android:id="@+id/txt_comments"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingBottom="50dp"
                         android:inputType="textMultiLine|textCapSentences"
-                       android:theme="@style/TextLabelEditeText" />
+                        android:paddingBottom="50dp"
+                        android:theme="@style/TextLabelEditeText" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -363,13 +364,13 @@
                     android:layout_height="45dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_round"
-                    android:gravity="center"
                     android:fontFamily="@font/open_sans"
+                    android:gravity="center"
                     android:stateListAnimator="@null"
-                    android:text="Delete"
+                    android:text="@string/delete"
                     android:textAllCaps="false"
                     android:textColor="#fff"
-                    android:textSize="@dimen/button_text_size"  />
+                    android:textSize="@dimen/button_text_size" />
 
                 <Button
                     android:id="@+id/btn_back"
@@ -382,10 +383,10 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:stateListAnimator="@null"
-                    android:text="Back"
+                    android:text="@string/back"
                     android:textAllCaps="false"
                     android:textColor="#fff"
-                    android:textSize="@dimen/button_text_size"  />
+                    android:textSize="@dimen/button_text_size" />
             </LinearLayout>
 
             <!--            <TextView-->

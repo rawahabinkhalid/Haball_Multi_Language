@@ -133,6 +133,8 @@ public class RetailerOrdersAdapter extends RecyclerView.Adapter<RetailerOrdersAd
                         setMenuCancelled(popup, position);
                     else if (OrdersList.get(position).getOrderStatusValue().equals("Approved"))
                         setMenuApproved(popup, position);
+                    else if (OrdersList.get(position).getOrderStatusValue().equals("Pending"))
+                        setMenuCancelled(popup, position);
                     else
                         setMenuAll(popup, position);
                 } else if (OrdersList.get(position).getOrderStatus() != null) {
@@ -144,6 +146,8 @@ public class RetailerOrdersAdapter extends RecyclerView.Adapter<RetailerOrdersAd
                         setMenuCancelled(popup, position);
                     else if (OrderStatusKVP.get(OrdersList.get(position).getOrderStatus()).equals("Approved"))
                         setMenuApproved(popup, position);
+                    else if (OrderStatusKVP.get(OrdersList.get(position).getOrderStatusValue()).equals("Pending"))
+                        setMenuCancelled(popup, position);
                     else
                         setMenuAll(popup, position);
                 }

@@ -189,14 +189,15 @@ public class ParentListAdapter extends ExpandableRecyclerAdapter<OrderParentlist
 ////            orderChildList_vh.list_pack_size_value.setText(orderChildlist_model.getPackSize());
 //        orderChildList_vh.list_UOM_value.setText(orderChildlist_model.getUnitOFMeasure());
 
-        orderChildList_vh.product_code.setText("Product Code:\u00A0");
+//        orderChildList_vh.product_code.setText("Product Code:\u00A0");
+        orderChildList_vh.product_code.setText(R.string.product_code_for_adapter);
         SpannableString ss1 = new SpannableString(orderChildlist_model.getProductCode());
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
         orderChildList_vh.product_code.append(ss1);
 
         orderChildList_vh.product_code.append("\n");
 
-        orderChildList_vh.product_code.append("Price:\u00A0");
+        orderChildList_vh.product_code.append(context.getResources().getString(R.string.price_adapter));
 
         DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
         String yourFormattedString1 = formatter1.format(Double.parseDouble(orderChildlist_model.getProductUnitPrice()));
@@ -209,7 +210,7 @@ public class ParentListAdapter extends ExpandableRecyclerAdapter<OrderParentlist
         if (orderChildlist_model.getUnitOFMeasure() != null && !orderChildlist_model.getUnitOFMeasure().equals("null")) {
             orderChildList_vh.product_code.append("\u00A0| ");
 
-            orderChildList_vh.product_code.append("UOM:\u00A0");
+            orderChildList_vh.product_code.append(context.getResources().getString(R.string.UOM_adapter));
             String temp_uom = orderChildlist_model.getUnitOFMeasure().replaceAll(" ", "\u00A0");
             ss1 = new SpannableString(temp_uom);
             ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
@@ -219,7 +220,7 @@ public class ParentListAdapter extends ExpandableRecyclerAdapter<OrderParentlist
         if (orderChildlist_model.getDiscountAmount() != null && !orderChildlist_model.getDiscountAmount().equals("0") && !orderChildlist_model.getDiscountAmount().equals("") && !orderChildlist_model.getDiscountAmount().equals("null")) {
             orderChildList_vh.product_code.append("\u00A0| ");
 
-            orderChildList_vh.product_code.append("Disc:\u00A0");
+            orderChildList_vh.product_code.append(context.getResources().getString(R.string.disc_adpter));
 
             formatter1 = new DecimalFormat("#,###,##0.00");
             yourFormattedString1 = formatter1.format(Double.parseDouble(orderChildlist_model.getDiscountAmount()));

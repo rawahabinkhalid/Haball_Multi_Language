@@ -262,14 +262,14 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
 
 
 
-        holder.product_code.setText("Product Code:\u00A0");
+        holder.product_code.setText(R.string.product_code_for_adapter);
         SpannableString ss1 = new SpannableString(selectedProductsDataList.get(position).getProductCode());
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
         holder.product_code.append(ss1);
 
         holder.product_code.append("\n");
 
-        holder.product_code.append("Price:\u00A0");
+        holder.product_code.append(context.getResources().getString(R.string.price_adapter));
 
         DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
         String yourFormattedString1 = formatter1.format(Double.parseDouble(selectedProductsDataList.get(position).getProductUnitPrice()));
@@ -282,7 +282,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
         if (selectedProductsDataList.get(position).getUnitOFMeasure() != null && !selectedProductsDataList.get(position).getUnitOFMeasure().equals("null")) {
             holder.product_code.append("\u00A0| ");
 
-            holder.product_code.append("UOM:\u00A0");
+            holder.product_code.append(context.getResources().getString(R.string.UOM_adapter));
             String temp_uom = selectedProductsDataList.get(position).getUnitOFMeasure().replaceAll(" ", "\u00A0");
             ss1 = new SpannableString(temp_uom);
             ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
@@ -292,7 +292,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
         if (selectedProductsDataList.get(position).getDiscountAmount() != null && !selectedProductsDataList.get(position).getDiscountAmount().equals("0") && !selectedProductsDataList.get(position).getDiscountAmount().equals("") && !selectedProductsDataList.get(position).getDiscountAmount().equals("null")) {
             holder.product_code.append("\u00A0| ");
 
-            holder.product_code.append("Disc:\u00A0");
+            holder.product_code.append(String.valueOf(R.string.disc_adpter));
 
             formatter1 = new DecimalFormat("#,###,##0.00");
             yourFormattedString1 = formatter1.format(Double.parseDouble(selectedProductsDataList.get(position).getDiscountAmount()));
@@ -304,7 +304,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
         yourFormattedString3 = formatter1.format(totalamount);
         holder.product_code.append("\u00A0| ");
 
-        holder.product_code.append("Amount:\u00A0");
+        holder.product_code.append(context.getResources().getString(R.string.amount_adapter));
         ss1 = new SpannableString(yourFormattedString3);
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
         holder.product_code.append(ss1);
@@ -492,14 +492,14 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
 //                        holder.totalAmount_value.setText(yourFormattedString3);
 
 
-                        holder.product_code.setText("Product Code:\u00A0");
+                        holder.product_code.setText(R.string.product_code_for_adapter);
                         SpannableString ss1 = new SpannableString(selectedProductsDataList.get(position).getProductCode());
                         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
                         holder.product_code.append(ss1);
 
                         holder.product_code.append("\n");
 
-                        holder.product_code.append("Price:\u00A0");
+                        holder.product_code.append(context.getResources().getString(R.string.price_adapter));
 
                         DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                         String yourFormattedString1 = formatter1.format(Double.parseDouble(selectedProductsDataList.get(position).getProductUnitPrice()));
@@ -512,7 +512,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
                         if (selectedProductsDataList.get(position).getUnitOFMeasure() != null && !selectedProductsDataList.get(position).getUnitOFMeasure().equals("null")) {
                             holder.product_code.append("\u00A0| ");
 
-                            holder.product_code.append("UOM:\u00A0");
+                            holder.product_code.append(context.getResources().getString(R.string.UOM_adapter));
                             String temp_uom = selectedProductsDataList.get(position).getUnitOFMeasure().replaceAll(" ", "\u00A0");
                             ss1 = new SpannableString(temp_uom);
                             ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
@@ -522,7 +522,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
                         if (selectedProductsDataList.get(position).getDiscountAmount() != null && !selectedProductsDataList.get(position).getDiscountAmount().equals("0") && !selectedProductsDataList.get(position).getDiscountAmount().equals("") && !selectedProductsDataList.get(position).getDiscountAmount().equals("null")) {
                             holder.product_code.append("\u00A0| ");
 
-                            holder.product_code.append("Disc:\u00A0");
+                            holder.product_code.append(String.valueOf(R.string.disc_adpter));
 
                             formatter1 = new DecimalFormat("#,###,##0.00");
                             yourFormattedString1 = formatter1.format(Double.parseDouble(selectedProductsDataList.get(position).getDiscountAmount()));
@@ -534,7 +534,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
                         yourFormattedString3 = formatter1.format(totalamount);
                         holder.product_code.append("\u00A0| ");
 
-                        holder.product_code.append("Amount:\u00A0");
+                        holder.product_code.append(context.getResources().getString(R.string.amount_adapter));
                         ss1 = new SpannableString(yourFormattedString3);
                         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
                         holder.product_code.append(ss1);
@@ -552,14 +552,14 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
 ////        holder.totalAmount_value.setText(String.valueOf(totalamount));
 //                        yourFormattedString3 = formatter1.format(totalamount);
 //                        holder.totalAmount_value.setText(yourFormattedString3);
-                        holder.product_code.setText("Product Code:\u00A0");
+                        holder.product_code.setText(R.string.product_code_for_adapter);
                         SpannableString ss1 = new SpannableString(selectedProductsDataList.get(position).getProductCode());
                         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
                         holder.product_code.append(ss1);
 
                         holder.product_code.append("\n");
 
-                        holder.product_code.append("Price:\u00A0");
+                        holder.product_code.append(context.getResources().getString(R.string.price_adapter));
 
                         DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                         String yourFormattedString1 = formatter1.format(Double.parseDouble(selectedProductsDataList.get(position).getProductUnitPrice()));
@@ -572,7 +572,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
                         if (selectedProductsDataList.get(position).getUnitOFMeasure() != null && !selectedProductsDataList.get(position).getUnitOFMeasure().equals("null")) {
                             holder.product_code.append("\u00A0| ");
 
-                            holder.product_code.append("UOM:\u00A0");
+                            holder.product_code.append(context.getResources().getString(R.string.UOM_adapter));
                             String temp_uom = selectedProductsDataList.get(position).getUnitOFMeasure().replaceAll(" ", "\u00A0");
                             ss1 = new SpannableString(temp_uom);
                             ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
@@ -582,7 +582,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
                         if (selectedProductsDataList.get(position).getDiscountAmount() != null && !selectedProductsDataList.get(position).getDiscountAmount().equals("0") && !selectedProductsDataList.get(position).getDiscountAmount().equals("") && !selectedProductsDataList.get(position).getDiscountAmount().equals("null")) {
                             holder.product_code.append("\u00A0| ");
 
-                            holder.product_code.append("Disc:\u00A0");
+                            holder.product_code.append(String.valueOf(R.string.disc_adpter));
 
                             formatter1 = new DecimalFormat("#,###,##0.00");
                             yourFormattedString1 = formatter1.format(Double.parseDouble(selectedProductsDataList.get(position).getDiscountAmount()));
@@ -594,7 +594,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
                         yourFormattedString3 = formatter1.format(totalamount);
                         holder.product_code.append("\u00A0| ");
 
-                        holder.product_code.append("Amount:\u00A0");
+                        holder.product_code.append(context.getResources().getString(R.string.amount_adapter));
                         ss1 = new SpannableString(yourFormattedString3);
                         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
                         holder.product_code.append(ss1);

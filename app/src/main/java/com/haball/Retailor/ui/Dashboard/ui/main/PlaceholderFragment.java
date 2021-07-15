@@ -1511,13 +1511,13 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                     conso_edittext.setText("");
 
                     if (Filter_selected.equals(getResources().getText(R.string.order_id))) {
-                        search_bar.setHint("Search by " + Filter_selected);
+                        search_bar.setHint((getResources().getString(R.string.search_by)) + Filter_selected);
                         Filter_selected = "OrderNumber";
                         conso_edittext.setInputType(InputType.TYPE_CLASS_NUMBER);
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals(getResources().getText(R.string.company))) {
-                        search_bar.setHint("Search by " + Filter_selected);
+                        search_bar.setHint((getResources().getString(R.string.search_by)) + Filter_selected);
                         Filter_selected = "CompanyName";
                         conso_edittext.setInputType(InputType.TYPE_CLASS_TEXT);
                         conso_edittext.setVisibility(View.VISIBLE);

@@ -1445,7 +1445,7 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                         filters.add(getResources().getString(R.string.approved));
                         filters.add(getResources().getString(R.string.rejected));
                         filters.add(getResources().getString(R.string.draft));
-                        filters.add(getResources().getString(R.string.cancelled));
+                        filters.add(getResources().getString(R.string.cancelled_status));
                         arrayAdapterFeltter = new ArrayAdapter<String>(rootView.getContext(),
                                 android.R.layout.simple_spinner_dropdown_item, filters) {
                             @Override

@@ -339,7 +339,6 @@ public class RetailerLogin extends AppCompatActivity {
                 try {
                     if (!result.get("access_token").toString().isEmpty()) {
                         token = result.get("access_token").toString();
-                        StatusKVP statusKVP = new StatusKVP(RetailerLogin.this, token);
                         JSONObject userAccount = new JSONObject(String.valueOf(result.get("UserAccount")));
 //                        userRight = new JSONArray(String.valueOf(userAccount.getJSONArray("UserRights")));
 //                        // Log.i("userRight", String.valueOf(userRight));
@@ -370,9 +369,10 @@ public class RetailerLogin extends AppCompatActivity {
                         editor.putString("UserId", ID);
                         editor.putString("UserRights", userRights);
 
-                        editor.commit();
+                        editor.apply();
                         //updatePassword token
 
+                        StatusKVP statusKVP = new StatusKVP(RetailerLogin.this, token);
                         URL_Profile = URL_Profile + RetailerId;
 
                         new SSL_HandShake().handleSSLHandshake();
