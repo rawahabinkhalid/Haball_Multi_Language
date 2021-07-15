@@ -12,6 +12,7 @@ public class Profile_Model {
     private String Email;
     private String Phone;
     private String Address;
+    private String Address1;
 
 
     public Profile_Model() {
@@ -118,5 +119,13 @@ public class Profile_Model {
 
     public void setAddress(String address) {
         Address = address;
+    }
+
+    public String getAddress1() {
+        return Address1;
+    }
+
+    public void setAddress1(String address1) {
+        Address1 = address1;
     }
 }

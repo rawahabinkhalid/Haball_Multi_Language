@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -942,7 +943,7 @@ public class PlaceholderFragment extends Fragment {
         StringRequest sr = new StringRequest(Request.Method.GET, PROFILE_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String result) {
-                // Log.i("aaaaa", result);
+                 Log.i("aaaaa", result);
                 try {
                     if (result != null && !result.equals("")) {
                         Gson gson = new Gson();
@@ -983,8 +984,11 @@ public class PlaceholderFragment extends Fragment {
                         tv_created_date.setText(Date);
                         if (!String.valueOf(tv_created_date.getText()).equals(""))
                             tv_created_date.setTextColor(getResources().getColor(R.color.textcolor));
+                        R_Address.setText(profile_model.getAddress1());
+                        if (!String.valueOf(R_Address.getText()).equals(""))
+                            R_Address.setTextColor(getResources().getColor(R.color.textcolor));
 
-                        fetchAddresses();
+//                        fetchAddresses();
 
                     }
 //                    SharedPreferences companyId = getActivity().getSharedPreferences("SendData",
@@ -1488,9 +1492,30 @@ public class PlaceholderFragment extends Fragment {
         jsonObject.put("CNIC", tv_cnic.getText().toString());
         jsonObject.put("Phone", Phone);
         jsonObject.put("Mobile", edt_dist_mobile.getText().toString());
+        jsonObject.put("OtherContact", null);
         jsonObject.put("Email", edt_email.getText().toString());
-//        jsonObject.put("BillingAddress1", R_Address.getText().toString());
+        jsonObject.put("ShippingAddress1", null);
+        jsonObject.put("ShippingAddress2", null);
+        jsonObject.put("ShippingCountryId", null);
+        jsonObject.put("ShippingCityId", null);
+        jsonObject.put("ShippingProvinceId", null);
+        jsonObject.put("ShippingPostCode", null);
+        jsonObject.put("URL", null);
+        jsonObject.put("BillingAddress1", null);
+        jsonObject.put("BillingAddress2", null);
+        jsonObject.put("BillingCountryId", null);
+        jsonObject.put("BillingCityId", null);
+        jsonObject.put("BillingProvinceId", null);
+        jsonObject.put("BillingPostCode", null);
+        jsonObject.put("ReferenceID", null);
         jsonObject.put("Status", 1);
+        jsonObject.put("IsAgree", null);
+        jsonObject.put("IsAllowAutoPayment", 1);
+//        jsonObject.put("BillingAddress1", R_Address.getText().toString());
+        jsonObject.put("Address1", R_Address.getText().toString());
+        jsonObject.put("CountryName", null);
+        jsonObject.put("CityName", null);
+        jsonObject.put("DealerSapCode", null);
         jsonObject.put("UserID", UserID);
         jsonObject.put("DistributorId", DistributorId);
         // Log.i("Distributor_Id ", String.valueOf(jsonObject));
@@ -1527,118 +1552,118 @@ public class PlaceholderFragment extends Fragment {
         JsonObjectRequest sr = new JsonObjectRequest(Request.Method.POST, PROFILE_EDIT_URL, jsonObject, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject result) {
-//                final Dialog fbDialogue = new Dialog(getActivity());
-//                //fbDialogue.getWindow().setBackgroundDrawable(new ColorDrawable(Color.argb(100, 0, 0, 0)));
-//                fbDialogue.setContentView(R.layout.password_updatepopup);
-//                TextView tv_pr1, txt_header1;
-//                txt_header1 = fbDialogue.findViewById(R.id.txt_header1);
-//                tv_pr1 = fbDialogue.findViewById(R.id.txt_details);
-//                tv_pr1.setText("Your profile has been updated successfully.");
-//                txt_header1.setText("Profile Updated");
-//                fbDialogue.setCancelable(true);
-//                fbDialogue.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);
-//                WindowManager.LayoutParams layoutParams = fbDialogue.getWindow().getAttributes();
-//                layoutParams.y = 200;
-//                layoutParams.x = -70;// top margin
-//                fbDialogue.getWindow().setAttributes(layoutParams);
-//                fbDialogue.show();
+////                final Dialog fbDialogue = new Dialog(getActivity());
+////                //fbDialogue.getWindow().setBackgroundDrawable(new ColorDrawable(Color.argb(100, 0, 0, 0)));
+////                fbDialogue.setContentView(R.layout.password_updatepopup);
+////                TextView tv_pr1, txt_header1;
+////                txt_header1 = fbDialogue.findViewById(R.id.txt_header1);
+////                tv_pr1 = fbDialogue.findViewById(R.id.txt_details);
+////                tv_pr1.setText("Your profile has been updated successfully.");
+////                txt_header1.setText("Profile Updated");
+////                fbDialogue.setCancelable(true);
+////                fbDialogue.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);
+////                WindowManager.LayoutParams layoutParams = fbDialogue.getWindow().getAttributes();
+////                layoutParams.y = 200;
+////                layoutParams.x = -70;// top margin
+////                fbDialogue.getWindow().setAttributes(layoutParams);
+////                fbDialogue.show();
+////
+////                ImageButton close_button = fbDialogue.findViewById(R.id.image_button);
+////                close_button.setOnClickListener(new View.OnClickListener() {
+////                    @Override
+////                    public void onClick(View v) {
+////                        fbDialogue.dismiss();
+////                    }
+////                });
+////
+////                fbDialogue.setOnDismissListener(new DialogInterface.OnDismissListener() {
+////                    @Override
+////                    public void onDismiss(DialogInterface dialog) {
+////                        //                    Toast.makeText(getContext(), "Profile Information Successfully updated for " + result.getString("RetailerCode"), Toast.LENGTH_LONG).show();
+////                        fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+////                        fragmentTransaction.add(R.id.main_container, new Distributor_Profile()).addToBackStack("tag");
+////                        fragmentTransaction.commit();
+////                    }
+////                });
 //
-//                ImageButton close_button = fbDialogue.findViewById(R.id.image_button);
-//                close_button.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        fbDialogue.dismiss();
-//                    }
-//                });
 //
-//                fbDialogue.setOnDismissListener(new DialogInterface.OnDismissListener() {
-//                    @Override
-//                    public void onDismiss(DialogInterface dialog) {
-//                        //                    Toast.makeText(getContext(), "Profile Information Successfully updated for " + result.getString("RetailerCode"), Toast.LENGTH_LONG).show();
-//                        fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                        fragmentTransaction.add(R.id.main_container, new Distributor_Profile()).addToBackStack("tag");
-//                        fragmentTransaction.commit();
+//                if(!String.valueOf(R_Address.getText()).equals("")) {
+//                    JSONObject jsonObject = new JSONObject();
+//                    try {
+//                        jsonObject.put("ID", AddressData.get("ID"));
+//                        jsonObject.put("DistributorId", DistributorId);
+//                        jsonObject.put("Address1", R_Address.getText().toString());
+//                        jsonObject.put("CountryId", AddressData.get("CountryId"));
+//                        jsonObject.put("ProvinceId", AddressData.get("ProvinceId"));
+//                        jsonObject.put("CityId", AddressData.get("CityId"));
+//                        jsonObject.put("PostCode", AddressData.get("PostCode"));
+//                        jsonObject.put("Status", 1);
+//                        jsonObject.put("Type", AddressData.get("Type"));
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
 //                    }
-//                });
-
-
-                if(!String.valueOf(R_Address.getText()).equals("")) {
-                    JSONObject jsonObject = new JSONObject();
-                    try {
-                        jsonObject.put("ID", AddressData.get("ID"));
-                        jsonObject.put("DistributorId", DistributorId);
-                        jsonObject.put("Address1", R_Address.getText().toString());
-                        jsonObject.put("CountryId", AddressData.get("CountryId"));
-                        jsonObject.put("ProvinceId", AddressData.get("ProvinceId"));
-                        jsonObject.put("CityId", AddressData.get("CityId"));
-                        jsonObject.put("PostCode", AddressData.get("PostCode"));
-                        jsonObject.put("Status", 1);
-                        jsonObject.put("Type", AddressData.get("Type"));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                    JsonObjectRequest sr = new JsonObjectRequest(Request.Method.POST, "https://175.107.203.97:4013/api/distributor/SaveAdditionalAddress", jsonObject, new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject result) {
-                            final Dialog fbDialogue = new Dialog(getActivity());
-                            //fbDialogue.getWindow().setBackgroundDrawable(new ColorDrawable(Color.argb(100, 0, 0, 0)));
-                            fbDialogue.setContentView(R.layout.password_updatepopup);
-                            TextView tv_pr1, txt_header1;
-                            txt_header1 = fbDialogue.findViewById(R.id.txt_header1);
-                            tv_pr1 = fbDialogue.findViewById(R.id.txt_details);
-                            tv_pr1.setText(getResources().getString(R.string.profile_updated_msg));
-                            txt_header1.setText(getResources().getString(R.string.profile_updated));
-                            fbDialogue.setCancelable(true);
-                            fbDialogue.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);
-                            WindowManager.LayoutParams layoutParams = fbDialogue.getWindow().getAttributes();
-                            layoutParams.y = 200;
-                            layoutParams.x = -70;// top margin
-                            fbDialogue.getWindow().setAttributes(layoutParams);
-                            fbDialogue.show();
-
-                            ImageButton close_button = fbDialogue.findViewById(R.id.image_button);
-                            close_button.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    fbDialogue.dismiss();
-                                }
-                            });
-
-                            fbDialogue.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                                @Override
-                                public void onDismiss(DialogInterface dialog) {
-                                    //                    Toast.makeText(getContext(), "Profile Information Successfully updated for " + result.getString("RetailerCode"), Toast.LENGTH_LONG).show();
-                                    fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                                    fragmentTransaction.add(R.id.main_container, new Distributor_Profile()).addToBackStack("tag");
-                                    fragmentTransaction.commit();
-                                }
-                            });
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            new HaballError().printErrorMessage(getContext(), error);
-                            new ProcessingError().showError(getContext());
-
-                            error.printStackTrace();
-                        }
-                    }) {
-                        @Override
-                        public Map<String, String> getHeaders() throws AuthFailureError {
-                            Map<String, String> params = new HashMap<String, String>();
-                            params.put("Authorization", "bearer " + Token);
-                            params.put("Content-Type", "application/json; charset=UTF-8");
-                            return params;
-                        }
-                    };
-                    sr.setRetryPolicy(new DefaultRetryPolicy(
-                            15000,
-                            DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-                    Volley.newRequestQueue(getContext()).add(sr);
-
-                } else {
+//
+//                    JsonObjectRequest sr = new JsonObjectRequest(Request.Method.POST, "https://175.107.203.97:4013/api/distributor/SaveAdditionalAddress", jsonObject, new Response.Listener<JSONObject>() {
+//                        @Override
+//                        public void onResponse(JSONObject result) {
+//                            final Dialog fbDialogue = new Dialog(getActivity());
+//                            //fbDialogue.getWindow().setBackgroundDrawable(new ColorDrawable(Color.argb(100, 0, 0, 0)));
+//                            fbDialogue.setContentView(R.layout.password_updatepopup);
+//                            TextView tv_pr1, txt_header1;
+//                            txt_header1 = fbDialogue.findViewById(R.id.txt_header1);
+//                            tv_pr1 = fbDialogue.findViewById(R.id.txt_details);
+//                            tv_pr1.setText(getResources().getString(R.string.profile_updated_msg));
+//                            txt_header1.setText(getResources().getString(R.string.profile_updated));
+//                            fbDialogue.setCancelable(true);
+//                            fbDialogue.getWindow().setGravity(Gravity.TOP | Gravity.START | Gravity.END);
+//                            WindowManager.LayoutParams layoutParams = fbDialogue.getWindow().getAttributes();
+//                            layoutParams.y = 200;
+//                            layoutParams.x = -70;// top margin
+//                            fbDialogue.getWindow().setAttributes(layoutParams);
+//                            fbDialogue.show();
+//
+//                            ImageButton close_button = fbDialogue.findViewById(R.id.image_button);
+//                            close_button.setOnClickListener(new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+//                                    fbDialogue.dismiss();
+//                                }
+//                            });
+//
+//                            fbDialogue.setOnDismissListener(new DialogInterface.OnDismissListener() {
+//                                @Override
+//                                public void onDismiss(DialogInterface dialog) {
+//                                    //                    Toast.makeText(getContext(), "Profile Information Successfully updated for " + result.getString("RetailerCode"), Toast.LENGTH_LONG).show();
+//                                    fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+//                                    fragmentTransaction.add(R.id.main_container, new Distributor_Profile()).addToBackStack("tag");
+//                                    fragmentTransaction.commit();
+//                                }
+//                            });
+//                        }
+//                    }, new Response.ErrorListener() {
+//                        @Override
+//                        public void onErrorResponse(VolleyError error) {
+//                            new HaballError().printErrorMessage(getContext(), error);
+//                            new ProcessingError().showError(getContext());
+//
+//                            error.printStackTrace();
+//                        }
+//                    }) {
+//                        @Override
+//                        public Map<String, String> getHeaders() throws AuthFailureError {
+//                            Map<String, String> params = new HashMap<String, String>();
+//                            params.put("Authorization", "bearer " + Token);
+//                            params.put("Content-Type", "application/json; charset=UTF-8");
+//                            return params;
+//                        }
+//                    };
+//                    sr.setRetryPolicy(new DefaultRetryPolicy(
+//                            15000,
+//                            DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+//                            DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+//                    Volley.newRequestQueue(getContext()).add(sr);
+//
+//                } else {
                     final Dialog fbDialogue = new Dialog(getActivity());
                     //fbDialogue.getWindow().setBackgroundDrawable(new ColorDrawable(Color.argb(100, 0, 0, 0)));
                     fbDialogue.setContentView(R.layout.password_updatepopup);
@@ -1674,7 +1699,7 @@ public class PlaceholderFragment extends Fragment {
                     });
                 }
 
-            }
+//            }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
