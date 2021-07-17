@@ -21,7 +21,6 @@
                 android:layout_width="match_parent"
                 android:layout_marginLeft="50dp"
                 android:layout_height="wrap_content">
-
                 <ImageButton
                     android:id="@+id/notification_icon"
                     android:layout_width="wrap_content"
@@ -34,18 +33,17 @@
                     android:id="@+id/tv_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
                     android:textSize="11sp"
                     android:fontFamily="@font/open_sans"
                     android:layout_marginRight="10dp"
                     android:textColor="#6D6E72"
                     android:text="Hi, Jawwad Ali"
+                    android:layout_toLeftOf="@+id/toggle_online_payment"
                     android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/tv_user_company"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
                     android:textColor="#6D6E72"
                     android:text="Jawwad Associates"
                     android:textSize="7sp"
@@ -53,7 +51,19 @@
                     android:fontFamily="@font/open_sans"
                     android:layout_marginRight="10dp"
                     android:layout_below="@+id/tv_username"
+                    android:layout_toLeftOf="@+id/toggle_online_payment"
                     android:textStyle="bold"/>
+                <Switch
+                    android:id="@+id/toggle_online_payment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enable Online\nPayments"
+                    android:textSize="11sp"
+                    android:textColor="#6D6E72"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    />
+
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
 

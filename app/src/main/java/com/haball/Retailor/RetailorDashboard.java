@@ -27,11 +27,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +61,7 @@ import com.haball.R;
 import com.haball.Registration.BooleanRequest;
 import com.haball.Retailer_Login.RetailerLogin;
 import com.haball.Retailor.ui.Dashboard.Dashboard_Tabs;
+import com.haball.Retailor.ui.Dashboard.View_Payment_Fragment;
 import com.haball.Retailor.ui.Make_Payment.CreatePaymentRequestFragment;
 import com.haball.Retailor.ui.Make_Payment.PaymentScreen3Fragment_Retailer;
 import com.haball.Retailor.ui.Make_Payment.Payment_Summary;
@@ -77,6 +80,7 @@ import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
 import com.google.gson.Gson;
+import com.haball.testWhatsapp.Pay_By_Make_Payment;
 import com.techatmosphere.expandablenavigation.model.HeaderModel;
 import com.techatmosphere.expandablenavigation.view.ExpandableNavigationListView;
 
@@ -138,6 +142,8 @@ public class RetailorDashboard extends AppCompatActivity {
     private String language = "";
     private MultiStateToggleButton mstb_multi_id;
     Context context;
+    private Switch toggle_online_payment;
+    private boolean toggle_online_payment_state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -268,6 +274,20 @@ public class RetailorDashboard extends AppCompatActivity {
 //        getNotificationCount();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toggle_online_payment = findViewById(R.id.toggle_online_payment);
+        toggle_online_payment_state = toggle_online_payment.isChecked();
+        toggle_online_payment.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                toggle_online_payment.setChecked(toggle_online_payment_state);
+                try {
+                    new Pay_By_Make_Payment().toggleOnlinePayments_Retailer(RetailorDashboard.this);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
 
         setSupportActionBar(toolbar);
 

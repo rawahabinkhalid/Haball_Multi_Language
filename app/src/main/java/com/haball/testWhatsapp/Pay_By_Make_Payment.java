@@ -3,6 +3,8 @@ package com.haball.testWhatsapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -11,11 +13,14 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.haball.Distributor.ui.home.HomeFragment;
 import com.haball.Distributor.ui.payments.MyStringRequest;
 import com.haball.MyWebView;
 import com.haball.ProcessingError;
 import com.haball.R;
+import com.haball.Retailor.ui.Dashboard.Dashboard_Tabs;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -138,4 +143,107 @@ public class Pay_By_Make_Payment {
 
     }
 
+
+    public void toggleOnlinePayments_Retailer(final Context context) throws JSONException {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("LoginToken",
+                Context.MODE_PRIVATE);
+        final String Token = sharedPreferences.getString("Login_Token", "");
+        String URL = "https://175.107.203.97:4014/api/Dapi/DapiAuthenticateCall";
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("ReturnUrl", "https://175.107.203.97:4014/#/user/dashboard");
+
+        final Context finalcontext = context;
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL, jsonObject, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+////                Toast.makeText(context, response, Toast.LENGTH_LONG).show();
+                MyWebView webview = new MyWebView();
+                try {
+                    webview.URL = response.getString("URL");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                webview.ContainerId = R.id.main_container_ret;
+                webview.ReturnURL = "https://175.107.203.97:4014/#/user/dashboard";
+                webview.PaidFragment = new Dashboard_Tabs();
+                webview.UnpaidFragment = new Dashboard_Tabs();
+                Intent login_intent = new Intent(context, webview.getClass());
+                login_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(login_intent);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                new ProcessingError().showError(context);
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", "bearer " + Token);
+                params.put("Content-Type", "application/json; charset=UTF-8");
+                return params;
+            }
+        };
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                15000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        Volley.newRequestQueue(context).add(request);
+
+    }
+
+    public void toggleOnlinePayments_Distributor(final Context context) throws JSONException {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("LoginToken",
+                Context.MODE_PRIVATE);
+        final String Token = sharedPreferences.getString("Login_Token", "");
+        String URL = "https://175.107.203.97:4013/api/Dapi/DapiAuthenticateCall";
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("ReturnUrl", "https://175.107.203.97:4013/#/prepaidrequest");
+
+        final Context finalcontext = context;
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL, jsonObject, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+////                Toast.makeText(context, response, Toast.LENGTH_LONG).show();
+                MyWebView webview = new MyWebView();
+                try {
+                    webview.URL = response.getString("URL");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                webview.ContainerId = R.id.main_container;
+                webview.ReturnURL = "https://175.107.203.97:4013/#/prepaidrequest";
+                webview.PaidFragment = new HomeFragment();
+                webview.UnpaidFragment = new HomeFragment();
+                Intent login_intent = new Intent(context, webview.getClass());
+                login_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(login_intent);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.v("Volley_Error", "Volley error occurred");
+                new ProcessingError().showError(context);
+                error.printStackTrace();
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", "bearer " + Token);
+                params.put("Content-Type", "application/json; charset=UTF-8");
+                return params;
+            }
+        };
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                15000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        Volley.newRequestQueue(context).add(request);
+
+    }
 }

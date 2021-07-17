@@ -18,8 +18,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,6 +73,7 @@ import com.haball.Select_User.Register_Activity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.haball.testWhatsapp.Pay_By_Make_Payment;
 import com.techatmosphere.expandablenavigation.model.ChildModel;
 import com.techatmosphere.expandablenavigation.model.HeaderModel;
 import com.techatmosphere.expandablenavigation.view.ExpandableNavigationListView;
@@ -118,12 +121,29 @@ public class DistributorDashboard extends AppCompatActivity {
     private String language = "";
     private MultiStateToggleButton mstb_multi_id;
     Context context;
+    private Switch toggle_online_payment;
+    private boolean toggle_online_payment_state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_distributor_dashboard);
         Toolbar toolbar = findViewById(R.id.toolbar);
+
+        toggle_online_payment = findViewById(R.id.toggle_online_payment);
+        toggle_online_payment_state = toggle_online_payment.isChecked();
+        toggle_online_payment.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                toggle_online_payment.setChecked(toggle_online_payment_state);
+                try {
+                    new Pay_By_Make_Payment().toggleOnlinePayments_Distributor(DistributorDashboard.this);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         setSupportActionBar(toolbar);
 
         Paper.init(this);
