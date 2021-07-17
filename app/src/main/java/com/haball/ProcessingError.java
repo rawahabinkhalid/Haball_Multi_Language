@@ -3,6 +3,7 @@ package com.haball;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -11,8 +12,9 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
+
 public class ProcessingError {
-    public void showError(Context context) {
+    public void showError(final Context context) {
         try {
             final Dialog fbDialogue = new Dialog(context);
             //fbDialogue.getWindow().setBackgroundDrawable(new ColorDrawable(Color.argb(100, 0, 0, 0)));
