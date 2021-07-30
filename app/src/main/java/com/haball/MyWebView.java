@@ -1,5 +1,6 @@
 package com.haball;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,7 +10,9 @@ import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
@@ -18,6 +21,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -27,26 +32,27 @@ import com.haball.Retailer_Login.RetailerLogin;
 import com.haball.Retailor.RetailorDashboard;
 import com.haball.Retailor.ui.RetailerPayment.RetailerViewInvoice;
 
-public class MyWebView extends AppCompatActivity {
+public class MyWebView extends Fragment {
     public static String URL = "";
     public static int ContainerId = -1;
     public static String ReturnURL = "";
     public static Fragment PaidFragment;
     public static Fragment UnpaidFragment;
     Loader loader;
-    String UserType;
+    private Context context;
 
+    @SuppressLint("JavascriptInterface")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.webview);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        final View root = inflater.inflate(R.layout.webview, container, false);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("LoginToken",
-                Context.MODE_PRIVATE);
-        UserType = sharedPreferences.getString("User_Type", "");
+        Log.i("url_debug", URL);
 
-        final WebView webView = findViewById(R.id.webView1);
-        loader = new Loader(this);
+        context = getContext();
+
+        final WebView webView = root.findViewById(R.id.webView1);
+        loader = new Loader(context);
 
         // Clear all the Application Cache, Web SQL Database and the HTML5 Web Storage
         WebStorage.getInstance().deleteAllData();
@@ -97,7 +103,7 @@ public class MyWebView extends AppCompatActivity {
 //                    startActivity(login_intent);
 //                    finish();
                     Fragment tempFragment = (url.contains("error=true")) ? UnpaidFragment : PaidFragment;
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    FragmentTransaction fragmentTransaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.add(ContainerId, tempFragment).addToBackStack("tag");
                     fragmentTransaction.commit();
                 }
@@ -106,8 +112,14 @@ public class MyWebView extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                view.loadUrl("javascript:$(document).ajaxStart(function (event, request, settings) { " +
+                        "ajaxHandler.ajaxBegin(); " + // Event called when an AJAX call begins
+                        "});");
                 loader.hideLoader();
                 view.setVisibility(View.VISIBLE);
+                view.loadUrl("javascript:$(document).ajaxComplete(function (event, request, settings) { " +
+                        "ajaxHandler.ajaxDone(); " + // Event called when an AJAX call ends
+                        "});");
             }
 
             @Override
@@ -132,5 +144,8 @@ public class MyWebView extends AppCompatActivity {
         webView.getSettings().setUseWideViewPort(true);
         webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         webView.loadUrl(URL);
+
+        return root;
     }
 }
+

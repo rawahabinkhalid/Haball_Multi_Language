@@ -483,7 +483,7 @@ DistributorPaymentRequestAdaptor extends RecyclerView.Adapter<DistributorPayment
                                         editor_MakePayment1.apply();
 
                                         try {
-                                            new Pay_By_Make_Payment().payByMakePaymentsDistributor(context, paymentsRequestList.get(position).getPrePaidNumber(), Double.parseDouble(paymentsRequestList.get(position).getPaidAmount()), new View_Payment_Fragment(), new PaymentScreen3Fragment());
+                                            new Pay_By_Make_Payment().payByMakePaymentsDistributor(context, paymentsRequestList.get(position).getPrePaidNumber(), Double.parseDouble(paymentsRequestList.get(position).getPaidAmount()), new View_Payment_Fragment(), new PaymentScreen3Fragment(), 1);
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }

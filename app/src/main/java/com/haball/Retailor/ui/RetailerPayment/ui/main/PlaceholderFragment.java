@@ -561,7 +561,7 @@ public class PlaceholderFragment extends Fragment {
 //                                editor_MakePayment.apply();
 
                                 try {
-                                    new Pay_By_Make_Payment().payByMakePaymentsRetailer(getContext(), PrePaidNumber, Double.parseDouble(Amount), new RetailerViewInvoice(), new RetailerViewInvoice());
+                                    new Pay_By_Make_Payment().payByMakePaymentsRetailer(getContext(), PrePaidNumber, Double.parseDouble(Amount), new RetailerViewInvoice(), new RetailerViewInvoice(), 0);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }

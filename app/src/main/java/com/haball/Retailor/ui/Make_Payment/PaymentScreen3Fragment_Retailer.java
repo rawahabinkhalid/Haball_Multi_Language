@@ -345,7 +345,7 @@ public class PaymentScreen3Fragment_Retailer extends Fragment {
 //                                editor_MakePayment.apply();
 
                     try {
-                        new Pay_By_Make_Payment().payByMakePaymentsRetailer(getContext(), PrePaidNumber, Double.parseDouble(Amount), new View_Payment_Fragment(), new PaymentScreen3Fragment_Retailer());
+                        new Pay_By_Make_Payment().payByMakePaymentsRetailer(getContext(), PrePaidNumber, Double.parseDouble(Amount), new View_Payment_Fragment(), new PaymentScreen3Fragment_Retailer(), 1);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

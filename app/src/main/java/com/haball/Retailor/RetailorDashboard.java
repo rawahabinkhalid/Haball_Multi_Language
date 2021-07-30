@@ -276,15 +276,17 @@ public class RetailorDashboard extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toggle_online_payment = findViewById(R.id.toggle_online_payment);
         toggle_online_payment_state = toggle_online_payment.isChecked();
-        toggle_online_payment.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        toggle_online_payment.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
                 toggle_online_payment.setChecked(toggle_online_payment_state);
                 try {
-                    new Pay_By_Make_Payment().toggleOnlinePayments_Retailer(RetailorDashboard.this);
+                    new Pay_By_Make_Payment().toggleOnlinePayments_Retailer(RetailorDashboard.this, toggle_online_payment);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                return true;
+
             }
         });
 

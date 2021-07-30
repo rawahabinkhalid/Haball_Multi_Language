@@ -228,7 +228,7 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
                                         editor_MakePayment.apply();
 
                                         try {
-                                            new Pay_By_Make_Payment().payByMakePaymentsRetailer(context, paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()), new RetailerViewInvoice(), new RetailerViewInvoice());
+                                            new Pay_By_Make_Payment().payByMakePaymentsRetailer(context, paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()), new RetailerViewInvoice(), new RetailerViewInvoice(), 0);
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
@@ -437,7 +437,7 @@ public class RetailerPaymentAdapter extends RecyclerView.Adapter<RetailerPayment
                         editor.apply();
 
                         try {
-                            new Pay_By_Make_Payment().payByMakePaymentsRetailer(context, paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()), new View_Payment_Fragment(), new PaymentScreen3Fragment_Retailer());
+                            new Pay_By_Make_Payment().payByMakePaymentsRetailer(context, paymentsList.get(position).getInvoiceNumber(), Double.parseDouble(paymentsList.get(position).getTotalPrice()), new View_Payment_Fragment(), new PaymentScreen3Fragment_Retailer(), 1);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

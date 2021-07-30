@@ -360,6 +360,7 @@ public class RetailerLogin extends AppCompatActivity {
                         SharedPreferences.Editor editor = login_token.edit();
                         editor.putString("Login_Token", token);
                         editor.putString("User_Type", "Retailer");
+                        editor.putString("Online_Payments", "0");
                         editor.putString("Retailer_Id", RetailerId);
                         editor.putString("username", username);
                         editor.putString("Name", FirstName);
