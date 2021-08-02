@@ -112,14 +112,14 @@ public class MyWebView extends Fragment {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                view.loadUrl("javascript:$(document).ajaxStart(function (event, request, settings) { " +
-                        "ajaxHandler.ajaxBegin(); " + // Event called when an AJAX call begins
-                        "});");
+//                view.loadUrl("javascript:$(document).ajaxStart(function (event, request, settings) { " +
+//                        "ajaxHandler.ajaxBegin(); " + // Event called when an AJAX call begins
+//                        "});");
                 loader.hideLoader();
                 view.setVisibility(View.VISIBLE);
-                view.loadUrl("javascript:$(document).ajaxComplete(function (event, request, settings) { " +
-                        "ajaxHandler.ajaxDone(); " + // Event called when an AJAX call ends
-                        "});");
+//                view.loadUrl("javascript:$(document).ajaxComplete(function (event, request, settings) { " +
+//                        "ajaxHandler.ajaxDone(); " + // Event called when an AJAX call ends
+//                        "});");
             }
 
             @Override

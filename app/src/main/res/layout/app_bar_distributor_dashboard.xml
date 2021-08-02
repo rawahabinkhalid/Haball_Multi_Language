@@ -15,54 +15,63 @@
             android:layout_width="match_parent"
             android:layout_height="42dip"
             android:background="#fff"
-            app:popupTheme="@style/PopupOverlay" >
+            app:popupTheme="@style/PopupOverlay">
+
             <RelativeLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:layout_height="wrap_content">
+                android:orientation="horizontal">
+
                 <ImageButton
                     android:id="@+id/notification_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/tv_username"
                     android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/tv_username"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/ic_no_notifications_black_24dp"/>
+                    android:src="@drawable/ic_no_notifications_black_24dp" />
+
                 <TextView
                     android:id="@+id/tv_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/open_sans"
                     android:layout_marginRight="10dp"
-                    android:textColor="#6D6E72"
+                    android:fontFamily="@font/open_sans"
                     android:text="Hi, Jawwad Ali"
-                    android:layout_toLeftOf="@+id/toggle_online_payment"
-                    android:textStyle="bold"/>
+                    android:textColor="#6D6E72"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+<!--                android:layout_toLeftOf="@+id/toggle_online_payment"-->
+
                 <TextView
                     android:id="@+id/tv_user_company"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#6D6E72"
-                    android:text="Jawwad Associates"
-                    android:textSize="7sp"
-                    android:paddingTop="5dp"
-                    android:fontFamily="@font/open_sans"
-                    android:layout_marginRight="10dp"
                     android:layout_below="@+id/tv_username"
-                    android:layout_toLeftOf="@+id/toggle_online_payment"
-                    android:textStyle="bold"/>
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/open_sans"
+                    android:paddingTop="5dp"
+                    android:text="Jawwad Associates"
+                    android:textColor="#6D6E72"
+                    android:textSize="7sp"
+                    android:textStyle="bold" />
+<!--                android:layout_toLeftOf="@+id/toggle_online_payment"-->
+
                 <Switch
                     android:id="@+id/toggle_online_payment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Enable Online\nPayments"
-                    android:textSize="11sp"
-                    android:textColor="#6D6E72"
-                    android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    />
+                    android:layout_alignParentRight="true"
+                    android:text="Enable Online\nPayments"
+                    android:textColor="#6D6E72"
+                    android:textSize="11sp"
+                    android:visibility="gone" />
 
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>

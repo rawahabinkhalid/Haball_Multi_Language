@@ -69,6 +69,20 @@ public class Pay_By_Make_Payment {
             2.	4508750015741019
 
             * Jazz Cash: 03123456789
+
+
+            EASYPAISA :-
+                account no : 03400228878
+                pin : 12345
+
+            JazzCash Account details:-
+                03123456789
+                345678
+                Successful
+
+                03123456780
+                345678
+                Authentication Error
         * */
 
         final Context finalcontext = context;
