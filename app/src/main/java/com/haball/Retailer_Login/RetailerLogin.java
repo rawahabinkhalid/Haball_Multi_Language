@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -75,6 +76,7 @@ public class RetailerLogin extends AppCompatActivity {
     //    private ProgressDialog progressDialog;
     private Loader loader;
     private String URL_Profile = "https://175.107.203.97:4014/api/retailer/";
+    private TextView login_heading, footer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +91,9 @@ public class RetailerLogin extends AppCompatActivity {
         SharedPreferences languageType = getSharedPreferences("changeLanguage",
                 Context.MODE_PRIVATE);
         language = languageType.getString("language", "");
+
+        login_heading = findViewById(R.id.login_heading);
+        footer = findViewById(R.id.footer);
 
         SharedPreferences selectedProducts = getSharedPreferences("selectedProducts_retailer",
                 Context.MODE_PRIVATE);
@@ -495,12 +500,14 @@ public class RetailerLogin extends AppCompatActivity {
     void changeLanguage() {
         ChangeLanguage changeLanguage = new ChangeLanguage();
         changeLanguage.changeLanguage(this, language);
-        if (language.equals("ur")) {
+//        if (language.equals("ur")) {
             btn_login.setText(R.string.login);
-//        layout_username.setHint(getResources().getString(R.string.user_name));
-//        layout_password.setHint(getResources().getString(R.string.password));
+            layout_username.setHint(getResources().getString(R.string.user_name));
+            layout_password.setHint(getResources().getString(R.string.password));
             btn_password.setText(R.string.Forgot_Password);
             btn_support.setText(R.string.need_support);
-        }
+            footer.setText(R.string.all_rights_reserved);
+            login_heading.setText(R.string.login);
+//        }
     }
 }

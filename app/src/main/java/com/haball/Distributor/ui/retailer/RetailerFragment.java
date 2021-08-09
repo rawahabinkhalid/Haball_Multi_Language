@@ -282,12 +282,12 @@ public class RetailerFragment extends Fragment implements DatePickerDialog.OnDat
                     conso_edittext.setText("");
 
                     if (Filter_selected.equals(getResources().getString(R.string.retailer_code))) {
-                        search_bar.setHint((getResources().getString(R.string.search_by)) + Filter_selected);
+                        search_bar.setHint((getResources().getString(R.string.search_by)) + " " + Filter_selected);
                         Filter_selected = "RetailerCode";
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals(getResources().getString(R.string.company))) {
-                        search_bar.setHint(getResources().getString(R.string.search_by)+ Filter_selected);
+                        search_bar.setHint(getResources().getString(R.string.search_by) + " " + Filter_selected);
                         Filter_selected = "CompanyName";
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);

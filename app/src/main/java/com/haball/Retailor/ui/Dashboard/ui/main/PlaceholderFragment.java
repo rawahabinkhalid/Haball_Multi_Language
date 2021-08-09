@@ -456,13 +456,13 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
 
                     if (Filter_selected.equals(getResources().getText(R.string.paymentid_sp))) {
 
-                        search_bar.setHint(getResources().getText(R.string.search_by) + Filter_selected);
+                        search_bar.setHint(getResources().getText(R.string.search_by) + " " + Filter_selected);
                         Filter_selected = "InvoiceNumber";
                         conso_edittext.setInputType(InputType.TYPE_CLASS_NUMBER);
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals(getResources().getText(R.string.company))) {
-                        search_bar.setHint(getResources().getText(R.string.search_by) + Filter_selected);
+                        search_bar.setHint(getResources().getText(R.string.search_by) + " " + Filter_selected);
                         Filter_selected = "CompanyName";
                         conso_edittext.setInputType(InputType.TYPE_CLASS_TEXT);
                         conso_edittext.setVisibility(View.VISIBLE);
@@ -1073,7 +1073,7 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                 map.put(Filter_selected1, fromDate);
             if (!toDate.equals(""))
                 map.put(Filter_selected2, toDate);
-        } else if (Filter_selected.equals(getResources().getText(R.string.amount))) {
+        } else if (Filter_selected.equals("amount")) {
 //            loader = null;
             loader.showLoader();
             if (!fromAmount.equals(""))
@@ -1511,13 +1511,13 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                     conso_edittext.setText("");
 
                     if (Filter_selected.equals(getResources().getText(R.string.order_id))) {
-                        search_bar.setHint((getResources().getString(R.string.search_by)) + Filter_selected);
+                        search_bar.setHint((getResources().getString(R.string.search_by)) + " " + Filter_selected);
                         Filter_selected = "OrderNumber";
                         conso_edittext.setInputType(InputType.TYPE_CLASS_NUMBER);
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals(getResources().getText(R.string.company))) {
-                        search_bar.setHint((getResources().getString(R.string.search_by)) + Filter_selected);
+                        search_bar.setHint((getResources().getString(R.string.search_by)) + " " + Filter_selected);
                         Filter_selected = "CompanyName";
                         conso_edittext.setInputType(InputType.TYPE_CLASS_TEXT);
                         conso_edittext.setVisibility(View.VISIBLE);

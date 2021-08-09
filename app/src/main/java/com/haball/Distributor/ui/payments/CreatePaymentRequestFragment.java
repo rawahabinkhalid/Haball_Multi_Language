@@ -502,8 +502,8 @@ public class CreatePaymentRequestFragment extends Fragment {
         tv_pr1.setText("");
         txt_header1.setText(getResources().getString(R.string.payment_creadted));
         String steps1 = getResources().getString(R.string.your_payment_id);
-        String steps2 = getResources().getString(R.string.payment_creadted);
-        String title = paymentID;
+        String steps2 = getResources().getString(R.string.created_payment_message);
+        String title = " " + paymentID + " ";
         SpannableString ss1 = new SpannableString(title);
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
 

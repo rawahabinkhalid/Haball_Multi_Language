@@ -70,7 +70,8 @@ public class RetailerViewOrderProductAdapterBackup extends RecyclerView.Adapter<
     public void onBindViewHolder(@NonNull final RetailerViewOrderProductAdapterBackup.ViewHolder holder, int position) {
         holder.txt_products.setText(OrdersList.get(position).getProductName());
 
-        holder.product_code.setText("Product Code:\u00A0");
+        // holder.product_code.setText("Product Code:\u00A0");
+        holder.product_code.setText(R.string.product_code_for_adapter);
         SpannableString ss1 = new SpannableString(OrdersList.get(position).getProductCode());
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
         holder.product_code.append(ss1);
@@ -130,7 +131,8 @@ public class RetailerViewOrderProductAdapterBackup extends RecyclerView.Adapter<
         // Log.i("height_debug_prevLine", String.valueOf(prevLineCount));
 
 
-        holder.product_code.append("Price:\u00A0");
+        // holder.product_code.append("Price:\u00A0");
+        holder.product_code.append(context.getResources().getString(R.string.price_adapter));
 
         DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
         String yourFormattedString1 = formatter1.format(Double.parseDouble(OrdersList.get(position).getUnitPrice()));
@@ -175,7 +177,8 @@ public class RetailerViewOrderProductAdapterBackup extends RecyclerView.Adapter<
             holder.product_code.append("            ");
             holder.product_code.append("            ");
 
-            holder.product_code.append("UOM:\u00A0");
+            // holder.product_code.append("UOM:\u00A0");
+            holder.product_code.append(context.getResources().getString(R.string.UOM_adapter));
 
             ss1 = new SpannableString(OrdersList.get(position).getUOMTitle());
             ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
@@ -226,7 +229,8 @@ public class RetailerViewOrderProductAdapterBackup extends RecyclerView.Adapter<
             holder.product_code.append("            ");
             holder.product_code.append("            ");
 
-            holder.product_code.append("Disc:\u00A0");
+            // holder.product_code.append("Disc:\u00A0");
+            holder.product_code.append(context.getResources().getString(R.string.disc_adpter));
 
             formatter1 = new DecimalFormat("#,###,##0.00");
             yourFormattedString1 = formatter1.format(Double.parseDouble(OrdersList.get(position).getDiscount()));
@@ -239,7 +243,8 @@ public class RetailerViewOrderProductAdapterBackup extends RecyclerView.Adapter<
         holder.product_code.append("            ");
         holder.product_code.append("            ");
 
-        holder.product_code.append("Qty:\u00A0");
+        // holder.product_code.append("Qty:\u00A0");
+        holder.product_code.append(context.getResources().getString(R.string.qty_adapter));
 
         ss1 = new SpannableString(OrdersList.get(position).getOrderQty());
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
@@ -250,7 +255,8 @@ public class RetailerViewOrderProductAdapterBackup extends RecyclerView.Adapter<
 
         if (!OrdersList.get(position).getTaxValue().equals("0") && !OrdersList.get(position).getTaxValue().equals("") && !OrdersList.get(position).getTaxValue().equals("null")) {
 
-            holder.product_code.append("Tax:\u00A0");
+            // holder.product_code.append("Tax:\u00A0");
+            holder.product_code.append(context.getResources().getString(R.string.tax_for_adapter));
 
             formatter1 = new DecimalFormat("#,###,##0.00");
             yourFormattedString1 = formatter1.format(Double.parseDouble(OrdersList.get(position).getTaxValue()));
@@ -262,7 +268,8 @@ public class RetailerViewOrderProductAdapterBackup extends RecyclerView.Adapter<
             holder.product_code.append("            ");
             holder.product_code.append("            ");
         }
-        holder.product_code.append("Amount:\u00A0");
+        // holder.product_code.append("Amount:\u00A0");
+        holder.product_code.append(context.getResources().getString(R.string.amount_adapter));
 
         formatter1 = new DecimalFormat("#,###,##0.00");
         double totalAmount = Double.parseDouble(OrdersList.get(position).getTotalPrice());

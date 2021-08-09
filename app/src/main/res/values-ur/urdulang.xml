@@ -862,7 +862,7 @@
     <string name="payment">ادائیگی</string>
     <string name="select_company">کمپنی کا چناؤ </string>
     <string name="payment_creadted">ادائیگی بنا دی گئی ہے</string>
-    <string name="created_payment_message">   آپ کی ادائیگی کامیابی کے ساتھ بنا دی گئی ہے۔</string>
+    <string name="created_payment_message">   کامیابی کے ساتھ بنا دی گئی ہے۔</string>
     <string name="alert_500_payment">رقم 500 سے زیادہ ہونی چاہئے</string>
     <string name="discard">مسترد کریں</string>
     <string name="btn_next">اگلا</string>
@@ -978,6 +978,7 @@
     <string name="over_the_counter">کاؤنٹر پر ادائیگی کے لئے</string>
     <string name="product_code">پروڈکٹ کوڈ: </string>
     <string name="product_code_for_adapter"><![CDATA[پروڈکٹ کوڈ: ]]></string>
+	<string name="tax_for_adapter"><![CDATA[ٹیکس: ]]></string>
     <string name="price_adapter"><![CDATA[قیمت: ]]></string>
     <string name="UOM_adapter"><![CDATA[یو او ایم: ]]></string>
     <string name="disc_adpter"><![CDATA[ڈسکاؤنٹ: ]]></string>

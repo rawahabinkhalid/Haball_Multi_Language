@@ -170,7 +170,7 @@ public class RetailorDashboard extends AppCompatActivity {
                 Context.MODE_PRIVATE);
         language = languageType.getString("language", "");
         String defaultSelectedLanguage = language;
-        changeLanguage();
+
         SharedPreferences sharedPreferences = this.getSharedPreferences("LoginToken",
                 Context.MODE_PRIVATE);
         username = sharedPreferences.getString("Name", "");
@@ -476,6 +476,9 @@ public class RetailorDashboard extends AppCompatActivity {
 
             }
         });
+
+        changeLanguage();
+
         navigationExpandableListView.init(this);
         if (Payment_View || Order_View)
             navigationExpandableListView.addHeaderModel(new
@@ -1000,6 +1003,7 @@ public class RetailorDashboard extends AppCompatActivity {
     void changeLanguage() {
         ChangeLanguage changeLanguage = new ChangeLanguage();
         changeLanguage.changeLanguage(this, language);
+        footer_item_1.setText(R.string.term_and_condition);
         if (language.equals("ur")) {
             mstb_multi_id.setValue(1);
             // btn_login.setText(R.string.login);

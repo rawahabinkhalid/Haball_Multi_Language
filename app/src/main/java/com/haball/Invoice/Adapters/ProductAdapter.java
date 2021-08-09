@@ -44,7 +44,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Shipment
 //        holder.list_exp_date_value.setText(product_list.get(position).getExpiryDate());
         holder.list_txt_products_.setText(product_list.get(position).getProductName());
 
-        holder.product_code.setText("Product Code:\u00A0");
+        // holder.product_code.setText("Product Code:\u00A0");
+        holder.product_code.setText(R.string.product_code_for_adapter);
         SpannableString ss1 = new SpannableString(product_list.get(position).getProductCode());
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
         holder.product_code.append(ss1);

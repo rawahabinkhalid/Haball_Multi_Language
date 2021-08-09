@@ -251,12 +251,12 @@ public class Shipments_Fragments extends Fragment implements DatePickerDialog.On
                     conso_edittext.setText("");
 
                     if (Filter_selected.equals(getResources().getString(R.string.shipment_no))) {
-                        search_bar.setHint(getResources().getString(R.string.search_by) + Filter_selected);
+                        search_bar.setHint(getResources().getString(R.string.search_by) + " " + Filter_selected);
                         Filter_selected = "DeliveryNumber";
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals(getResources().getString(R.string.company))) {
-                        search_bar.setHint(getResources().getString(R.string.search_by) + Filter_selected);
+                        search_bar.setHint(getResources().getString(R.string.search_by) + " " + Filter_selected);
                         Filter_selected = "CompanyName";
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);

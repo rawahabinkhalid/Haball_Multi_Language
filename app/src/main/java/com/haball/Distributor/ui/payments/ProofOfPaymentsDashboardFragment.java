@@ -284,11 +284,11 @@ public class ProofOfPaymentsDashboardFragment extends Fragment implements DatePi
                     conso_edittext.setText("");
 
                     if (Filter_selected.equals(getResources().getString(R.string.pop_id))) {
-                        search_bar.setHint((getResources().getString(R.string.search_by)) + Filter_selected);
+                        search_bar.setHint((getResources().getString(R.string.search_by)) + " " + Filter_selected);
                         Filter_selected = "POPNumber";
                         conso_edittext.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals(getResources().getString(R.string.paymentid_pop))) {
-                        search_bar.setHint((getResources().getString(R.string.search_by)) + Filter_selected);
+                        search_bar.setHint((getResources().getString(R.string.search_by)) + " " + Filter_selected);
                         Filter_selected = "PaymentID";
                         conso_edittext.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals((getResources().getString(R.string.created_date)))) {

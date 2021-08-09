@@ -970,6 +970,7 @@
 	</string>
 	<string name="product_code">Product Code: </string>
 	<string name="product_code_for_adapter"><![CDATA[Product Code: ]]></string>
+	<string name="tax_for_adapter"><![CDATA[Tax: ]]></string>
 	<string name="price_adapter"><![CDATA[Price: ]]></string>
 	<string name="UOM_adapter"><![CDATA[UOM: ]]></string>
 	<string name="disc_adpter"><![CDATA[Disc: ]]></string>

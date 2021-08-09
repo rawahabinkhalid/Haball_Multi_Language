@@ -245,12 +245,12 @@ public class RetailerPaymentDashboard extends Fragment implements DatePickerDial
                         conso_edittext.setText("");
 
                     if (Filter_selected.equals(getResources().getString(R.string.paymentid_sp))) {
-                        search_bar.setHint(getResources().getString(R.string.search_by) + Filter_selected);
+                        search_bar.setHint(getResources().getString(R.string.search_by) + " " + Filter_selected);
                         Filter_selected = "InvoiceNumber";
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals(getResources().getString(R.string.company))) {
-                        search_bar.setHint(getResources().getString(R.string.search_by) + Filter_selected);
+                        search_bar.setHint(getResources().getString(R.string.search_by) + " " + Filter_selected);
                         Filter_selected = "CompanyName";
                         conso_edittext.setVisibility(View.VISIBLE);
                         search_rl.setVisibility(View.VISIBLE);

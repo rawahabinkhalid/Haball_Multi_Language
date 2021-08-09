@@ -90,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_amount"
-        android:text="@string/address_item"
+        android:text="@string/status_items"
         android:fontFamily="@font/open_sans"
         android:textColor="@color/rv_box_color"
         android:textSize="@dimen/rv_box_text_size"

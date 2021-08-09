@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -78,7 +79,7 @@ import androidx.core.view.ViewCompat;
 
 public class Distribution_Login extends AppCompatActivity {
 
-    private Button btn_login ,btn_support,  btn_password;
+    private Button btn_login, btn_support, btn_password;
     private Button btn_reset;
     public ImageButton btn_back;
     private TextInputEditText et_username, et_password, txt_email;
@@ -89,7 +90,8 @@ public class Distribution_Login extends AppCompatActivity {
     ProgressDialog progressDialog;
     private TextInputLayout layout_password, layout_username;
     private Loader loader;
-    private  String language = "";
+    private String language = "";
+    private TextView login_heading, footer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,10 +106,14 @@ public class Distribution_Login extends AppCompatActivity {
         SharedPreferences languageType = getSharedPreferences("changeLanguage",
                 Context.MODE_PRIVATE);
         language = languageType.getString("language", "");
+
         et_username = findViewById(R.id.txt_username);
         et_password = findViewById(R.id.txt_password);
         layout_username = findViewById(R.id.layout_username);
         layout_password = findViewById(R.id.layout_password);
+
+        login_heading = findViewById(R.id.login_heading);
+        footer = findViewById(R.id.footer);
 
         loader = new Loader(Distribution_Login.this);
 
@@ -180,8 +186,10 @@ public class Distribution_Login extends AppCompatActivity {
         btn_login.setEnabled(false);
         btn_login.setBackground(getResources().getDrawable(R.drawable.disabled_button_background));
 
-         btn_support = findViewById(R.id.btn_support);
-         btn_password = findViewById(R.id.btn_password);
+        btn_support = findViewById(R.id.btn_support);
+        btn_password = findViewById(R.id.btn_password);
+
+        changeLanguage();
 
         progressDialog = new ProgressDialog(this);
 
@@ -248,7 +256,6 @@ public class Distribution_Login extends AppCompatActivity {
         et_username.setText("kashif4169");
         et_password.setText("@dmin1234");
         checkFieldsForEmptyValues();
-        changeLanguage();
     }
 
     private void nullifySharedPreference() {
@@ -528,7 +535,7 @@ public class Distribution_Login extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onErrorResponse(VolleyError error) {
-                 loader.hideLoader();
+                loader.hideLoader();
                 error.printStackTrace();
                 new HaballError().printErrorMessage(Distribution_Login.this, error);
                 new ProcessingError().showError(Distribution_Login.this);
@@ -568,7 +575,7 @@ public class Distribution_Login extends AppCompatActivity {
         }
     }
 
-//    private void printErrMessage(VolleyError error) {
+    //    private void printErrMessage(VolleyError error) {
 //        if (error instanceof NetworkError) {
 //            Toast.makeText(Distribution_Login.this, "Network Error !", Toast.LENGTH_LONG).show();
 //        } else if (error instanceof ServerError) {
@@ -606,16 +613,18 @@ public class Distribution_Login extends AppCompatActivity {
 //            }
 //        }
 //    }
-     void changeLanguage() {
+    void changeLanguage() {
         ChangeLanguage changeLanguage = new ChangeLanguage();
         changeLanguage.changeLanguage(this, language);
-        if (language.equals("ur")) {
+//        if (language.equals("ur")) {
             btn_login.setText(R.string.login);
-//        layout_username.setHint(getResources().getString(R.string.user_name));
-          layout_password.setHint(getResources().getString(R.string.password));
+            layout_username.setHint(getResources().getString(R.string.user_name));
+            layout_password.setHint(getResources().getString(R.string.password));
             btn_password.setText(R.string.Forgot_Password);
             btn_support.setText(R.string.need_support);
-   }
+            footer.setText(R.string.all_rights_reserved);
+            login_heading.setText(R.string.login);
+//        }
     }
 }
 

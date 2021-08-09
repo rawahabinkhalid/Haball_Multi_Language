@@ -84,7 +84,6 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private LinearLayoutManager layoutManager2;
     private HashMap<String, String> companies = new HashMap<>();
     private List<String> company_names = new ArrayList<>();
     private String Token;
@@ -258,7 +257,7 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
                     conso_edittext.setText("");
 
                     if (Filter_selected.equals(getResources().getString(R.string.ledger_id_sp))) {
-                        search_bar.setHint(getResources().getString(R.string.search_by) + Filter_selected);
+                        search_bar.setHint(getResources().getString(R.string.search_by) + " " + Filter_selected);
                         Filter_selected = "DocumentNumber";
                         conso_edittext.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals(getResources().getString(R.string.document_type))) {
@@ -473,7 +472,6 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(mcontext);
-        layoutManager2 = new LinearLayoutManager(mcontext);
 
         recyclerView.setLayoutManager(layoutManager);
 
@@ -502,12 +500,78 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
 //                }
 //            }
 //        });
+//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//                super.onScrollStateChanged(recyclerView, newState);
+//                scrollEvent = new ArrayList<>();
+//
+//            }
+//
+//            @Override
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+//                LinearLayoutManager layoutManager = LinearLayoutManager.class.cast(recyclerView.getLayoutManager());
+//                y = dy;
+//                if (dy <= -5) {
+//                    scrollEvent.add("ScrollDown");
+////                            // Log.i("scrolling", "Scroll Down");
+//                } else if (dy > 5) {
+//                    scrollEvent.add("ScrollUp");
+////                            // Log.i("scrolling", "Scroll Up");
+//                }
+//                String scroll = getScrollEvent();
+//
+//                if (scroll.equals("ScrollDown")) {
+//                    if (spinner_container_main.getVisibility() == View.GONE) {
+//
+//                        spinner_container_main.setVisibility(View.VISIBLE);
+//                        TranslateAnimation animate1 = new TranslateAnimation(
+//                                0,                 // fromXDelta
+//                                0,                 // toXDelta
+//                                -spinner_container_main.getHeight(),  // fromYDelta
+//                                0);                // toYDelta
+//                        animate1.setDuration(250);
+//                        animate1.setFillAfter(true);
+//                        spinner_container_main.clearAnimation();
+//                        spinner_container_main.startAnimation(animate1);
+//                    }
+//                } else if (scroll.equals("ScrollUp")) {
+//                    y = 0;
+//                    if (spinner_container_main.getVisibility() == View.VISIBLE) {
+////                                line_bottom.setVisibility(View.INVISIBLE);
+//                        TranslateAnimation animate = new TranslateAnimation(
+//                                0,                 // fromXDelta
+//                                0,                 // toXDelta
+//                                0,  // fromYDelta
+//                                -spinner_container_main.getHeight()); // toYDelta
+//                        animate.setDuration(100);
+//                        animate.setFillAfter(true);
+//                        spinner_container_main.clearAnimation();
+//                        spinner_container_main.startAnimation(animate);
+//                        spinner_container_main.setVisibility(View.GONE);
+//                    }
+//                }
+//
+//                int visibleItemCount = layoutManager.getChildCount();
+//                int totalItemCount = layoutManager.getItemCount();
+//                int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
+//                if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount && firstVisibleItemPosition >= 0) {
+//                    if (totalPages != 0 && pageNumber < totalPages) {
+////                                Toast.makeText(getContext(), pageNumber + " - " + totalPages, Toast.LENGTH_LONG).show();
+//                        // btn_load_more.setVisibility(View.VISIBLE);
+//                    }
+//                }
+//            }
+//
+//        });
+
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                scrollEvent = new ArrayList<>();
 
+                scrollEvent = new ArrayList<>();
             }
 
             @Override
@@ -533,7 +597,7 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
                                 0,                 // toXDelta
                                 -spinner_container_main.getHeight(),  // fromYDelta
                                 0);                // toYDelta
-                        animate1.setDuration(250);
+                        animate1.setDuration(230);
                         animate1.setFillAfter(true);
                         spinner_container_main.clearAnimation();
                         spinner_container_main.startAnimation(animate1);
@@ -554,22 +618,38 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
                         spinner_container_main.setVisibility(View.GONE);
                     }
                 }
+                if (isLastItemDisplaying(recyclerView)) {
 
-                int visibleItemCount = layoutManager.getChildCount();
-                int totalItemCount = layoutManager.getItemCount();
-                int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
-                if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount && firstVisibleItemPosition >= 0) {
-                    if (totalPages != 0 && pageNumber < totalPages) {
+                    int visibleItemCount = layoutManager.getChildCount();
+                    int totalItemCount = layoutManager.getItemCount();
+                    int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
+                    if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount && firstVisibleItemPosition >= 0) {
+                        if (totalPages != 0 && pageNumber < totalPages) {
 //                                Toast.makeText(getContext(), pageNumber + " - " + totalPages, Toast.LENGTH_LONG).show();
-                        // btn_load_more.setVisibility(View.VISIBLE);
+//                        btn_load_more.setVisibility(View.VISIBLE);
+                            pageNumber++;
+                            try {
+                                performPagination(companies.get(Company_selected));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
                 }
             }
-
         });
         fetchCompanyNames();
 
         return root;
+    }
+
+    private boolean isLastItemDisplaying(RecyclerView recyclerView) {
+        if (recyclerView.getAdapter().getItemCount() > 9) {
+            int lastVisibleItemPosition = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
+            if (lastVisibleItemPosition != RecyclerView.NO_POSITION && lastVisibleItemPosition == recyclerView.getAdapter().getItemCount() - 1)
+                return true;
+        }
+        return false;
     }
 
     private void fetchCompanyNames() {
@@ -629,6 +709,7 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
     }
 
     private void fetchPaymentLedgerData(String companyId) throws JSONException {
+        pageNumber = 0;
         SharedPreferences sharedPreferences = mcontext.getSharedPreferences("LoginToken",
                 Context.MODE_PRIVATE);
         Token = sharedPreferences.getString("Login_Token", "");
@@ -747,7 +828,7 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
     }
 
     private void performPagination(String companyId) throws JSONException {
-
+        loader.showLoader();
         SharedPreferences sharedPreferences = mcontext.getSharedPreferences("LoginToken",
                 Context.MODE_PRIVATE);
         Token = sharedPreferences.getString("Login_Token", "");

@@ -59,7 +59,7 @@
                         android:fontFamily="@font/open_sans"
                         android:gravity="center"
                         android:stateListAnimator="@null"
-                        android:text="Add Product"
+                        android:text="@string/btn_add_product"
                         android:textAllCaps="false"
                         android:textColor="#fff"
                         android:textSize="@dimen/button_text_size" />
@@ -239,7 +239,7 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:stateListAnimator="@null"
-                    android:text="Draft"
+                    android:text="@string/btn_draft"
                     android:textAllCaps="false"
                     android:textColor="#fff"
                     android:textSize="@dimen/button_text_size" />
@@ -255,7 +255,7 @@
                     android:fontFamily="@font/open_sans"
                     android:gravity="center"
                     android:stateListAnimator="@null"
-                    android:text="Confirm Order"
+                    android:text="@string/btn_confirm_order"
                     android:textAllCaps="false"
                     android:textColor="#fff"
                     android:textSize="@dimen/button_text_size" />

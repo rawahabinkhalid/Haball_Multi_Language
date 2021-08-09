@@ -258,11 +258,11 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
                     spinner2.setSelection(0);
                     conso_edittext.setText("");
                     if (Filter_selected.equals(getResources().getString(R.string.ticket_id))) {
-                        search_bar.setHint(getResources().getString(R.string.search_by)+ Filter_selected);
+                        search_bar.setHint(getResources().getString(R.string.search_by) + " " + Filter_selected);
                         Filter_selected = "TicketNumber";
                         conso_edittext.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals(getResources().getString(R.string.contact_name))) {
-                        search_bar.setHint(getResources().getString(R.string.search_by) + Filter_selected);
+                        search_bar.setHint(getResources().getString(R.string.search_by) + " " + Filter_selected);
                         Filter_selected = "CompanyName";
                         conso_edittext.setVisibility(View.VISIBLE);
                     } else if (Filter_selected.equals(getResources().getString(R.string.issue_type))) {
