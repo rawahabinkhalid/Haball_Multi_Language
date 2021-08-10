@@ -34,7 +34,8 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
-        android:hint="Search by Item"
+                                    android:imeOptions="actionSearch" 
+android:hint="Search by Item"
         android:textColorHint="#676a6c"
         android:theme="@style/TextLabelSearchBox">
 

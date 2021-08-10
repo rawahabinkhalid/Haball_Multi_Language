@@ -270,15 +270,24 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
                         spinner_container1.setVisibility(View.VISIBLE);
                         filters = new ArrayList<>();
                         filters.add(getResources().getString(R.string.issue_type));
-                        filters.add(getResources().getString(R.string.main_dashboard));
-                        filters.add(getResources().getString(R.string.connecting_with_business));
-                        filters.add(getResources().getString(R.string.contract));
-                        filters.add(getResources().getString(R.string.order));
-                        filters.add(getResources().getString(R.string.invoice));
-                        filters.add(getResources().getString(R.string.shipment));
-                        filters.add(getResources().getString(R.string.my_prepared_acc));
-                        filters.add(getResources().getString(R.string.my_profile));
-                        filters.add(getResources().getString(R.string.reports));
+//                        filters.add(getResources().getString(R.string.main_dashboard));
+//                        filters.add(getResources().getString(R.string.connecting_with_business));
+//                        filters.add(getResources().getString(R.string.contract));
+//                        filters.add(getResources().getString(R.string.order));
+//                        filters.add(getResources().getString(R.string.invoice));
+//                        filters.add(getResources().getString(R.string.shipment));
+//                        filters.add(getResources().getString(R.string.my_prepared_acc));
+//                        filters.add(getResources().getString(R.string.my_profile));
+//                        filters.add(getResources().getString(R.string.reports));
+                        filters.add("Main Dashboard");
+                        filters.add("Connecting with Businesses");
+                        filters.add("Contracting");
+                        filters.add("Order");
+                        filters.add("Invoice");
+                        filters.add("Shipment");
+                        filters.add("My Prepaid Account");
+                        filters.add("My Profile");
+                        filters.add("Reports");
 
                         arrayAdapterFeltter = new ArrayAdapter<String>(getContext(),
                                 android.R.layout.simple_spinner_dropdown_item, filters) {
@@ -309,7 +318,7 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
                         arrayAdapterFeltter.notifyDataSetChanged();
                         spinner2.setAdapter(arrayAdapterFeltter);
 
-                    } else if (Filter_selected.equals("Date")) {
+                    } else if (Filter_selected.equals(getResources().getString(R.string.date))) {
                         date_filter_rl.setVisibility(View.VISIBLE);
 //                        Toast.makeText(getContext(), "Created Date selected", Toast.LENGTH_LONG).show();
                         Filter_selected = "date";
@@ -327,7 +336,19 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
                                 openCalenderPopup("second date");
                             }
                         });
-                    } else if (Filter_selected.equals("Status")) {
+                        first_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("first date");
+                            }
+                        });
+                        second_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("second date");
+                            }
+                        });
+                    } else if (Filter_selected.equals(getResources().getString(R.string.status))) {
 
                         Filter_selected = "Status";
                         //  tv_shipment_no_ticket.setVisibility(View.VISIBLE);
@@ -335,8 +356,11 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
                         filters = new ArrayList<>();
 
                         filters.add(getResources().getString(R.string.status));
-                        filters.add(getResources().getString(R.string.pending));
-                        filters.add(getResources().getString(R.string.resolved));
+//                        filters.add(getResources().getString(R.string.pending));
+//                        filters.add(getResources().getString(R.string.resolved));
+
+                        filters.add("Pending");
+                        filters.add("Resolved");
 
                         arrayAdapterFeltter = new ArrayAdapter<String>(getContext(),
                                 android.R.layout.simple_spinner_dropdown_item, filters) {
@@ -496,11 +520,11 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
 //            }
 //        });
 
-        conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        conso_edittext.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if(!hasFocus) {
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+//                    Log.i("keylog", "enter pressed");
                     Filter_selected_value = String.valueOf(conso_edittext.getText());
                     if (!Filter_selected_value.equals("")) {
                         try {
@@ -515,9 +539,34 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
                             e.printStackTrace();
                         }
                     }
+                    return true;
                 }
+                return false;
             }
-        });
+       });
+
+        // conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        //     @Override
+        //     public void onFocusChange(View v, boolean hasFocus) {
+
+        //         if(!hasFocus) {
+        //             Filter_selected_value = String.valueOf(conso_edittext.getText());
+        //             if (!Filter_selected_value.equals("")) {
+        //                 try {
+        //                     fetchFilteredSupport();
+        //                 } catch (JSONException e) {
+        //                     e.printStackTrace();
+        //                 }
+        //             } else {
+        //                 try {
+        //                     fetchSupport();
+        //                 } catch (JSONException e) {
+        //                     e.printStackTrace();
+        //                 }
+        //             }
+        //         }
+        //     }
+        // });
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

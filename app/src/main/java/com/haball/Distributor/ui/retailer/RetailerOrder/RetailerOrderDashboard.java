@@ -316,6 +316,18 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
                                 openCalenderPopup("second date");
                             }
                         });
+                        first_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("first date");
+                            }
+                        });
+                        second_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("second date");
+                            }
+                        });
                     } else if (Filter_selected.equals(getResources().getString(R.string.amount))) {
                         amount_filter_rl.setVisibility(View.VISIBLE);
                         Filter_selected = "amount";
@@ -345,7 +357,7 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
         spinner_consolidate.setAdapter(arrayAdapterPayments);
 
         filters = new ArrayList<>();
-        filters.add("Status");
+        filters.add(getResources().getString(R.string.status));
 //        filters.addAll(OrderStatusKVP.values());
 //        filters.add("Pending");
 //        filters.add("Approved");
@@ -480,10 +492,11 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
 //            }
 //        });
 
-        conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        conso_edittext.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+//                    Log.i("keylog", "enter pressed");
                     Filter_selected_value = String.valueOf(conso_edittext.getText());
                     if (!Filter_selected_value.equals("")) {
                         try {
@@ -498,9 +511,33 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
                             e.printStackTrace();
                         }
                     }
+                    return true;
                 }
+                return false;
             }
-        });
+       });
+       
+        // conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        //     @Override
+        //     public void onFocusChange(View v, boolean hasFocus) {
+        //         if (!hasFocus) {
+        //             Filter_selected_value = String.valueOf(conso_edittext.getText());
+        //             if (!Filter_selected_value.equals("")) {
+        //                 try {
+        //                     fetchFilteredOrderData();
+        //                 } catch (JSONException e) {
+        //                     e.printStackTrace();
+        //                 }
+        //             } else {
+        //                 try {
+        //                     fetchRetailerOrdersData();
+        //                 } catch (JSONException e) {
+        //                     e.printStackTrace();
+        //                 }
+        //             }
+        //         }
+        //     }
+        // });
 
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);

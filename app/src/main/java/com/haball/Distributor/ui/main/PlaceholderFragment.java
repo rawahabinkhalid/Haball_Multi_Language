@@ -905,6 +905,18 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                                 openCalenderPopup("second date");
                             }
                         });
+                        first_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("first date");
+                            }
+                        });
+                        second_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("second date");
+                            }
+                        });
                     } else if (Filter_selected.equals((getResources().getString(R.string.created_date)))) {
                         date_filter_rl.setVisibility(View.VISIBLE);
                         Filter_selected = "date";
@@ -917,6 +929,18 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                             }
                         });
                         second_date_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("second date");
+                            }
+                        });
+                        first_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("first date");
+                            }
+                        });
+                        second_date.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 openCalenderPopup("second date");
@@ -1057,11 +1081,11 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
 //            }
 //        });
 
-        conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        conso_edittext.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (!hasFocus) {
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+//                    Log.i("keylog", "enter pressed");
                     Filter_selected_value = String.valueOf(conso_edittext.getText());
                     if (!Filter_selected_value.equals("")) {
                         try {
@@ -1076,9 +1100,34 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                             e.printStackTrace();
                         }
                     }
+                    return true;
                 }
+                return false;
             }
         });
+
+        // conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        //     @Override
+        //     public void onFocusChange(View v, boolean hasFocus) {
+
+        //         if (!hasFocus) {
+        //             Filter_selected_value = String.valueOf(conso_edittext.getText());
+        //             if (!Filter_selected_value.equals("")) {
+        //                 try {
+        //                     fetchFilteredPaymentRequests();
+        //                 } catch (JSONException e) {
+        //                     e.printStackTrace();
+        //                 }
+        //             } else {
+        //                 try {
+        //                     fetchPaymentRequests();
+        //                 } catch (JSONException e) {
+        //                     e.printStackTrace();
+        //                 }
+        //             }
+        //         }
+        //     }
+        // });
 //        consolidate.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -1429,6 +1478,18 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                                 openCalenderPopup("second date");
                             }
                         });
+                        first_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("first date");
+                            }
+                        });
+                        second_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("second date");
+                            }
+                        });
                     } else if (Filter_selected.equals(getResources().getString(R.string.amount))) {
 //                        Toast.makeText(getContext(), "Amount selected", Toast.LENGTH_LONG).show();
                         amount_filter_rl.setVisibility(View.VISIBLE);
@@ -1437,15 +1498,19 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                         Filter_selected2 = "AmountMax";
                         checkAmountChanged();
                     } else if (Filter_selected.equals(getResources().getString(R.string.status))) {
-                        Filter_selected = getResources().getString(R.string.status);
+                        Filter_selected = "Status";
                         filters = new ArrayList<>();
 
                         filters.add(getResources().getString(R.string.status));
-                        filters.add(getResources().getString(R.string.pending));
-                        filters.add(getResources().getString(R.string.approved));
-                        filters.add(getResources().getString(R.string.rejected));
-                        filters.add(getResources().getString(R.string.draft));
-                        filters.add(getResources().getString(R.string.cancelled_status));
+                        filters.add("Pending");
+                        filters.add("Approved");
+                        filters.add("Rejected");
+                        filters.add("Draft");
+                        filters.add("Cancelled");
+                        // filters.add(getResources().getString(R.string.approved));
+                        // filters.add(getResources().getString(R.string.rejected));
+                        // filters.add(getResources().getString(R.string.draft));
+                        // filters.add(getResources().getString(R.string.cancelled_status));
                         arrayAdapterFeltter = new ArrayAdapter<String>(rootView.getContext(),
                                 android.R.layout.simple_spinner_dropdown_item, filters) {
                             @Override
@@ -1633,27 +1698,51 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
 //                                                          }
 //                                                      });
 
-
-        conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        conso_edittext.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                Filter_selected_value = String.valueOf(conso_edittext.getText());
-                if (!Filter_selected_value.equals("")) {
-                    try {
-                        fetchFilteredOrderData();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+//                    Log.i("keylog", "enter pressed");
+                    Filter_selected_value = String.valueOf(conso_edittext.getText());
+                    if (!Filter_selected_value.equals("")) {
+                        try {
+                            fetchFilteredOrderData();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        try {
+                            fetchOrderData();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
-                } else {
-                    try {
-                        fetchOrderData();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                    return true;
                 }
+                return false;
             }
-        });
+       });
+
+        // conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        //     @Override
+        //     public void onFocusChange(View v, boolean hasFocus) {
+
+        //         Filter_selected_value = String.valueOf(conso_edittext.getText());
+        //         if (!Filter_selected_value.equals("")) {
+        //             try {
+        //                 fetchFilteredOrderData();
+        //             } catch (JSONException e) {
+        //                 e.printStackTrace();
+        //             }
+        //         } else {
+        //             try {
+        //                 fetchOrderData();
+        //             } catch (JSONException e) {
+        //                 e.printStackTrace();
+        //             }
+        //         }
+        //     }
+        // });
     }
 
     private void fetchOrderData() throws JSONException {

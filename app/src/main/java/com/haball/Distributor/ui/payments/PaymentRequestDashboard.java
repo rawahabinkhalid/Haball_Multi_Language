@@ -170,7 +170,7 @@ public class PaymentRequestDashboard extends Fragment {
                     } else if (Filter_selected.equals(getResources().getString(R.string.amount))) {
                         // Toast.makeText(getContext(),"Amount selected",Toast.LENGTH_LONG).show();
                     } else if (Filter_selected.equals(getResources().getString(R.string.status))) {
-                        Filter_selected = getResources().getString(R.string.status);
+                        Filter_selected = "Status";
                         spinner2.setVisibility(View.VISIBLE);
                     }
 //                    try {

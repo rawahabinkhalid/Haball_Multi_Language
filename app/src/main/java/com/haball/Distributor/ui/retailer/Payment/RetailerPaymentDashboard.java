@@ -271,6 +271,18 @@ public class RetailerPaymentDashboard extends Fragment implements DatePickerDial
                                 openCalenderPopup("second date");
                             }
                         });
+                        first_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("first date");
+                            }
+                        });
+                        second_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("second date");
+                            }
+                        });
                     } else if (Filter_selected.equals(getResources().getString(R.string.amount))) {
                         amount_filter_rl.setVisibility(View.VISIBLE);
                         Filter_selected = "amount";
@@ -278,7 +290,7 @@ public class RetailerPaymentDashboard extends Fragment implements DatePickerDial
                         Filter_selected2 = "PaymentAmountMax";
                         checkAmountChanged();
                     } else if (Filter_selected.equals(getResources().getString(R.string.status))) {
-                        Filter_selected = getResources().getString(R.string.status);
+                        Filter_selected = "Status";
                         spinner_container1.setVisibility(View.VISIBLE);
                     }
                 }
@@ -295,12 +307,18 @@ public class RetailerPaymentDashboard extends Fragment implements DatePickerDial
 
         filters = new ArrayList<>();
         filters.add(getResources().getString(R.string.status));
-        filters.add(getResources().getString(R.string.pending));
-        filters.add(getResources().getString(R.string.invoiced));
-//        filters.add("Partially Paid");
-        filters.add(getResources().getString(R.string.paid));
-//        filters.add("Payment Processing");
-        filters.add(getResources().getString(R.string.cancelled));
+//        filters.add(getResources().getString(R.string.pending));
+//        filters.add(getResources().getString(R.string.invoiced));
+////        filters.add("Partially Paid");
+//        filters.add(getResources().getString(R.string.paid));
+////        filters.add("Payment Processing");
+//        filters.add(getResources().getString(R.string.cancelled));
+
+        filters.add("Pending");
+        filters.add("Invoiced");
+        filters.add("Paid");
+        filters.add("Cancelled");
+
         arrayAdapterFeltter = new ArrayAdapter<String>(rootView.getContext(),
                 android.R.layout.simple_spinner_dropdown_item, filters) {
             @Override
@@ -405,10 +423,11 @@ public class RetailerPaymentDashboard extends Fragment implements DatePickerDial
 //            }
 //        });
 
-        conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        conso_edittext.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus) {
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+//                    Log.i("keylog", "enter pressed");
                     Filter_selected_value = String.valueOf(conso_edittext.getText());
                     if (!Filter_selected_value.equals("")) {
                         try {
@@ -423,9 +442,33 @@ public class RetailerPaymentDashboard extends Fragment implements DatePickerDial
                             e.printStackTrace();
                         }
                     }
+                    return true;
                 }
+                return false;
             }
-        });
+       });
+
+        // conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        //     @Override
+        //     public void onFocusChange(View v, boolean hasFocus) {
+        //         if(!hasFocus) {
+        //             Filter_selected_value = String.valueOf(conso_edittext.getText());
+        //             if (!Filter_selected_value.equals("")) {
+        //                 try {
+        //                     fetchFilteredRetailerPayments();
+        //                 } catch (JSONException e) {
+        //                     e.printStackTrace();
+        //                 }
+        //             } else {
+        //                 try {
+        //                     fetchPaymentsData();
+        //                 } catch (JSONException e) {
+        //                     e.printStackTrace();
+        //                 }
+        //             }
+        //         }
+        //     }
+        // });
 
         rv_paymentDashBoard.setHasFixedSize(true);
 
@@ -616,7 +659,7 @@ public class RetailerPaymentDashboard extends Fragment implements DatePickerDial
         } else {
             map.put(Filter_selected, Filter_selected_value);
         }
-        // Log.i("Mapsssss", String.valueOf(map));
+         Log.i("Mapsssss", String.valueOf(map));
         JsonObjectRequest sr = new JsonObjectRequest(Request.Method.POST, URL, map, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject result) {

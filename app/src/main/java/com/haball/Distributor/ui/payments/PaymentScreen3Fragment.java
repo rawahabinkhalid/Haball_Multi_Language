@@ -707,28 +707,46 @@ public class PaymentScreen3Fragment extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_BACK) {
-                    final String txt_amounts = txt_amount.getText().toString();
-                    final String company = String.valueOf(spinner_companyName.getItemAtPosition(spinner_companyName.getSelectedItemPosition()));
-                    // Log.i("onResume_txt_amount", String.valueOf(txt_amounts));
-                    // Log.i("onResume_company_name", String.valueOf(company));
-                    // txt_amount.clearFocus();
-                    if (!txt_amounts.equals("") || (!company.equals(getResources().getString(R.string.select_company)) && company != null)) {
-                        showDiscardDialog();
-                        return true;
-
-                    } else {
-
+//                    final String txt_amounts = txt_amount.getText().toString();
+//                    final String company = String.valueOf(spinner_companyName.getItemAtPosition(spinner_companyName.getSelectedItemPosition()));
+//                    // Log.i("onResume_txt_amount", String.valueOf(txt_amounts));
+//                    // Log.i("onResume_company_name", String.valueOf(company));
+//                    // txt_amount.clearFocus();
+//                    if (!txt_amounts.equals("") || (!company.equals(getResources().getString(R.string.select_company)) && company != null)) {
+//                        showDiscardDialog();
+//                        return true;
+//
+//                    } else {
+//
+//                        SharedPreferences tabsFromDraft = getContext().getSharedPreferences("OrderTabsFromDraft",
+//                                Context.MODE_PRIVATE);
+//                        SharedPreferences.Editor editorOrderTabsFromDraft = tabsFromDraft.edit();
+//                        editorOrderTabsFromDraft.putString("TabNo", "0");
+//                        editorOrderTabsFromDraft.apply();
+//
+//                        Intent login_intent = new Intent(((FragmentActivity) getContext()), RetailorDashboard.class);
+//                        ((FragmentActivity) getContext()).startActivity(login_intent);
+//                        ((FragmentActivity) getContext()).finish();
+//                        return true;
+//
+//                    }
+                    if (btn_update.getText().equals(getResources().getString(R.string.back))) {
+//                    final FragmentManager fm = getActivity().getSupportFragmentManager();
+//                    fm.popBackStack();
                         SharedPreferences tabsFromDraft = getContext().getSharedPreferences("OrderTabsFromDraft",
                                 Context.MODE_PRIVATE);
                         SharedPreferences.Editor editorOrderTabsFromDraft = tabsFromDraft.edit();
                         editorOrderTabsFromDraft.putString("TabNo", "0");
                         editorOrderTabsFromDraft.apply();
 
-                        Intent login_intent = new Intent(((FragmentActivity) getContext()), RetailorDashboard.class);
+                        Intent login_intent = new Intent(((FragmentActivity) getContext()), DistributorDashboard.class);
                         ((FragmentActivity) getContext()).startActivity(login_intent);
                         ((FragmentActivity) getContext()).finish();
                         return true;
 
+                    } else if (btn_update.getText().equals(getResources().getString(R.string.btn_update))) {
+                        showDiscardDialog();
+                        return true;
                     }
                 }
                 return false;
@@ -742,27 +760,45 @@ public class PaymentScreen3Fragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
                     // handle back button's click listener
-                    final String txt_amounts = txt_amount.getText().toString();
-                    final String company = String.valueOf(spinner_companyName.getItemAtPosition(spinner_companyName.getSelectedItemPosition()));
-                    // Log.i("onResume_txt_amount", String.valueOf(txt_amounts));
-                    // Log.i("onResume_company_name", String.valueOf(company));
-
-//                    Toast.makeText(getActivity(), "Back press", Toast.LENGTH_SHORT).show();
-                    if (!txt_amounts.equals("") || (!company.equals("Select Company") && company != null)) {
-                        showDiscardDialog();
-                        return true;
-                    } else {
+//                    final String txt_amounts = txt_amount.getText().toString();
+//                    final String company = String.valueOf(spinner_companyName.getItemAtPosition(spinner_companyName.getSelectedItemPosition()));
+//                    // Log.i("onResume_txt_amount", String.valueOf(txt_amounts));
+//                    // Log.i("onResume_company_name", String.valueOf(company));
+//
+////                    Toast.makeText(getActivity(), "Back press", Toast.LENGTH_SHORT).show();
+//                    if (!txt_amounts.equals("") || (!company.equals("Select Company") && company != null)) {
+//                        showDiscardDialog();
+//                        return true;
+//                    } else {
+//                        SharedPreferences tabsFromDraft = getContext().getSharedPreferences("OrderTabsFromDraft",
+//                                Context.MODE_PRIVATE);
+//                        SharedPreferences.Editor editorOrderTabsFromDraft = tabsFromDraft.edit();
+//                        editorOrderTabsFromDraft.putString("TabNo", "0");
+//                        editorOrderTabsFromDraft.apply();
+//
+//                        Intent login_intent = new Intent(((FragmentActivity) getContext()), RetailorDashboard.class);
+//                        ((FragmentActivity) getContext()).startActivity(login_intent);
+//                        ((FragmentActivity) getContext()).finish();
+//                        return true;
+//
+//                    }
+                    if (btn_update.getText().equals(getResources().getString(R.string.back))) {
+//                    final FragmentManager fm = getActivity().getSupportFragmentManager();
+//                    fm.popBackStack();
                         SharedPreferences tabsFromDraft = getContext().getSharedPreferences("OrderTabsFromDraft",
                                 Context.MODE_PRIVATE);
                         SharedPreferences.Editor editorOrderTabsFromDraft = tabsFromDraft.edit();
                         editorOrderTabsFromDraft.putString("TabNo", "0");
                         editorOrderTabsFromDraft.apply();
 
-                        Intent login_intent = new Intent(((FragmentActivity) getContext()), RetailorDashboard.class);
+                        Intent login_intent = new Intent(((FragmentActivity) getContext()), DistributorDashboard.class);
                         ((FragmentActivity) getContext()).startActivity(login_intent);
                         ((FragmentActivity) getContext()).finish();
                         return true;
 
+                    } else if (btn_update.getText().equals(getResources().getString(R.string.btn_update))) {
+                        showDiscardDialog();
+                        return true;
                     }
                 }
                 return false;

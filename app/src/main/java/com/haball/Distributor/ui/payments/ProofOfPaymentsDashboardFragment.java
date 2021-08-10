@@ -309,6 +309,18 @@ public class ProofOfPaymentsDashboardFragment extends Fragment implements DatePi
                                 openCalenderPopup("second date");
                             }
                         });
+                        first_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("first date");
+                            }
+                        });
+                        second_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("second date");
+                            }
+                        });
                     } else if (Filter_selected.equals((getResources().getString(R.string.payment_mode)))) {
                         Filter_selected = "PaymentMode";
                         filters = new ArrayList<>();

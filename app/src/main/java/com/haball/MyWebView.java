@@ -102,6 +102,17 @@ public class MyWebView extends Fragment {
 //                    Intent login_intent = new Intent(MyWebView.this, RetailorDashboard.class);
 //                    startActivity(login_intent);
 //                    finish();
+                    if (url.contains("error=false")) {
+                        SharedPreferences OrderId_MakePayment = ((FragmentActivity) context).getSharedPreferences("PaymentId",
+                                Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor_MakePayment = OrderId_MakePayment.edit();
+                        editor_MakePayment.putString("InvoiceStatus", "Paid");
+                        // Log.i("InvoiceStatus_Adapter", String.valueOf(paymentsList.get(position).getStatus()));
+                        editor_MakePayment.apply();
+
+                        new CustomToast().showToast((FragmentActivity) context, "Payment has been Paid Successfully");
+                    }
+
                     Fragment tempFragment = (url.contains("error=true")) ? UnpaidFragment : PaidFragment;
                     FragmentTransaction fragmentTransaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.add(ContainerId, tempFragment).addToBackStack("tag");

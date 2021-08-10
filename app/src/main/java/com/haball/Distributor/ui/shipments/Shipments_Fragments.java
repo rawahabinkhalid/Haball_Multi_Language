@@ -278,6 +278,18 @@ public class Shipments_Fragments extends Fragment implements DatePickerDialog.On
                                 openCalenderPopup("second date");
                             }
                         });
+                        first_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("first date");
+                            }
+                        });
+                        second_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("second date");
+                            }
+                        });
                     } else if (Filter_selected.equals(getResources().getString(R.string.receiving_date))) {
 //                        Toast.makeText(getContext(), "Receiving Date selected", Toast.LENGTH_LONG).show();
                         date_filter_rl.setVisibility(View.VISIBLE);
@@ -296,6 +308,18 @@ public class Shipments_Fragments extends Fragment implements DatePickerDialog.On
                                 openCalenderPopup("second date");
                             }
                         });
+                        first_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("first date");
+                            }
+                        });
+                        second_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("second date");
+                            }
+                        });
                     } else if (Filter_selected.equals(getResources().getString(R.string.quantity))) {
 //                        Toast.makeText(getContext(), "Quantity selected", Toast.LENGTH_LONG).show();
                         amount_filter_rl.setVisibility(View.VISIBLE);
@@ -304,7 +328,7 @@ public class Shipments_Fragments extends Fragment implements DatePickerDialog.On
                         Filter_selected2 = "QuantityTo";
                         checkAmountChanged();
 
-                    } else if (Filter_selected.equals("Status")) {
+                    } else if (Filter_selected.equals(getResources().getString(R.string.status))) {
                         Filter_selected = "Status";
                         spinner_container1.setVisibility(View.VISIBLE);
                     }
@@ -447,11 +471,11 @@ public class Shipments_Fragments extends Fragment implements DatePickerDialog.On
 //            }
 //        });
 
-
-        conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        conso_edittext.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+//                    Log.i("keylog", "enter pressed");
                     Filter_selected_value = String.valueOf(conso_edittext.getText());
                     if (!Filter_selected_value.equals("")) {
                         try {
@@ -466,9 +490,33 @@ public class Shipments_Fragments extends Fragment implements DatePickerDialog.On
                             e.printStackTrace();
                         }
                     }
+                    return true;
                 }
+                return false;
             }
-        });
+       });
+
+        // conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        //     @Override
+        //     public void onFocusChange(View v, boolean hasFocus) {
+        //         if (!hasFocus) {
+        //             Filter_selected_value = String.valueOf(conso_edittext.getText());
+        //             if (!Filter_selected_value.equals("")) {
+        //                 try {
+        //                     fetchFilteredShipments();
+        //                 } catch (JSONException e) {
+        //                     e.printStackTrace();
+        //                 }
+        //             } else {
+        //                 try {
+        //                     fetchShipments();
+        //                 } catch (JSONException e) {
+        //                     e.printStackTrace();
+        //                 }
+        //             }
+        //         }
+        //     }
+        // });
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {

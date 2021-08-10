@@ -252,10 +252,10 @@ public class Distribution_Login extends AppCompatActivity {
             }
         });
 
-
-        et_username.setText("kashif4169");
-        et_password.setText("@dmin1234");
-        checkFieldsForEmptyValues();
+//
+//        et_username.setText("kashif4169");
+//        et_password.setText("@dmin1234");
+//        checkFieldsForEmptyValues();
     }
 
     private void nullifySharedPreference() {

@@ -50,6 +50,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.haball.CustomToast;
+import com.haball.Distribution_Login.Distribution_Login;
 import com.haball.Distributor.ui.home.HomeFragment;
 import com.haball.Distributor.ui.orders.OrdersTabsNew.Models.OrderChildlist_Model_DistOrder;
 import com.haball.HaballError;
@@ -730,8 +732,15 @@ public class Retailer_Order_Summary extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+//                Log.i("volleyerror", String.valueOf(error.networkResponse.statusCode));
+//                Log.i("volleyerror", String.valueOf(error.networkResponse.data.toString()));
+//                Log.i("volleyerror", error.s);
                 enableAllButtons();
-                new HaballError().printErrorMessage(getContext(), error);
+                if (error.networkResponse.statusCode == 405) {
+                    new CustomToast().showToast((FragmentActivity) getContext(), "You have added inactive product. Please review");
+                } else {
+                    new HaballError().printErrorMessage(getContext(), error);
+                }
                 error.printStackTrace();
                 refreshRetailerInfo();
             }

@@ -49,6 +49,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.haball.Distribution_Login.Distribution_Login;
 import com.haball.Distributor.DistributorDashboard;
+import com.haball.Distributor.ui.home.HomeFragment;
 import com.haball.Distributor.ui.main.invoice.ViewInvoice;
 import com.haball.Distributor.ui.payments.EditPayment;
 import com.haball.Distributor.ui.payments.EditPaymentRequestFragment;
@@ -483,7 +484,7 @@ DistributorPaymentRequestAdaptor extends RecyclerView.Adapter<DistributorPayment
                                         editor_MakePayment1.apply();
 
                                         try {
-                                            new Pay_By_Make_Payment().payByMakePaymentsDistributor(context, paymentsRequestList.get(position).getPrePaidNumber(), Double.parseDouble(paymentsRequestList.get(position).getPaidAmount()), new View_Payment_Fragment(), new PaymentScreen3Fragment(), 1);
+                                            new Pay_By_Make_Payment().payByMakePaymentsDistributor(context, paymentsRequestList.get(position).getPrePaidNumber(), Double.parseDouble(paymentsRequestList.get(position).getPaidAmount()), new View_Payment_Fragment(), new HomeFragment(), 1);
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }

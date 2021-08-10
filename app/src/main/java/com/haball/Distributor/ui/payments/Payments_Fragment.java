@@ -266,7 +266,7 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
                     } else if (Filter_selected.equals(getResources().getString(R.string.date))) {
 //                        Toast.makeText(mcontext, "Date selected", Toast.LENGTH_LONG).show();
                         date_filter_rl.setVisibility(View.VISIBLE);
-                        Filter_selected = getResources().getString(R.string.date);
+                        Filter_selected = "date";
                         Filter_selected1 = "DateFrom";
                         Filter_selected2 = "DateTo";
                         first_date_btn.setOnClickListener(new View.OnClickListener() {
@@ -276,6 +276,18 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
                             }
                         });
                         second_date_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("second date");
+                            }
+                        });
+                        first_date.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                openCalenderPopup("first date");
+                            }
+                        });
+                        second_date.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 openCalenderPopup("second date");
@@ -908,7 +920,7 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
         map.put("CompanyId", companyId);
         map.put("TotalRecords", 10);
         map.put("PageNumber", 0.1);
-        if (Filter_selected.equals(getResources().getString(R.string.date))) {
+        if (Filter_selected.equals("date")) {
             map.put(Filter_selected1, fromDate);
             map.put(Filter_selected2, toDate);
         } else if (Filter_selected.equals("amount")) {

@@ -115,7 +115,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Search by Item"
+                                                        android:imeOptions="actionSearch" 
+android:hint="Search by Item"
                             android:textColorHint="#676a6c"
                             android:theme="@style/TextLabelSearchBox">
 
