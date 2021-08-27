@@ -53,7 +53,8 @@ public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAd
 
         holder.product_code.append("\n");
 
-        holder.product_code.append("Prod\u00A0Date:\u00A0");
+//        holder.product_code.append("Prod\u00A0Date:\u00A0");
+        holder.product_code.append(context.getResources().getString(R.string.prod_date_for_adapter));
 
         ss1 = new SpannableString(product_list.get(position).getProductionDate());
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
@@ -62,14 +63,16 @@ public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAd
 
         holder.product_code.append("\u00A0| ");
 
-        holder.product_code.append("Batch\u00A0No:\u00A0");
+//        holder.product_code.append("Batch\u00A0No:\u00A0");
+        holder.product_code.append(context.getResources().getString(R.string.batch_no_for_adapter));
         ss1 = new SpannableString(product_list.get(position).getBatchNumber());
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
         holder.product_code.append(ss1);
 
         holder.product_code.append("\u00A0| ");
 
-        holder.product_code.append("Exp\u00A0Date:\u00A0");
+//        holder.product_code.append("Exp\u00A0Date:\u00A0");
+        holder.product_code.append(context.getResources().getString(R.string.exp_date_for_adapter));
 
         ss1 = new SpannableString(product_list.get(position).getExpiryDate());
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);
@@ -78,7 +81,8 @@ public class ProductDetailsAdapter extends RecyclerView.Adapter<ProductDetailsAd
 
         holder.product_code.append("\u00A0| ");
 
-        holder.product_code.append("Shipped\u00A0Qty:\u00A0");
+//        holder.product_code.append("Shipped\u00A0Qty:\u00A0");
+        holder.product_code.append(context.getResources().getString(R.string.shipped_qty_for_adapter));
 
         ss1 = new SpannableString(product_list.get(position).getDeliveredQty());
         ss1.setSpan(new StyleSpan(Typeface.BOLD), 0, ss1.length(), 0);

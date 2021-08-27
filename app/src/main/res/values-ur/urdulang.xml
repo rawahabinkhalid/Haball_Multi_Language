@@ -977,7 +977,11 @@
     <string name="mobile_bank_heading"><![CDATA[انٹرنیٹ اور موبائل بینکنگ]]></string>
     <string name="over_the_counter">کاؤنٹر پر ادائیگی کے لئے</string>
     <string name="product_code">پروڈکٹ کوڈ: </string>
-    <string name="product_code_for_adapter"><![CDATA[پروڈکٹ کوڈ: ]]></string>
+    <string name="product_code_for_adapter"><![CDATA[پروڈکٹ کوڈ: ]]></string>
+	<string name="prod_date_for_adapter"><![CDATA[پیداوار کی تاریخ: ]]></string>
+	<string name="batch_no_for_adapter"><![CDATA[بیچ نمبر: ]]></string>
+	<string name="exp_date_for_adapter"><![CDATA[خاتمے کی تاریخ: ]]></string>
+	<string name="shipped_qty_for_adapter"><![CDATA[ترسیل شدہ مقدار: ]]></string>
 	<string name="tax_for_adapter"><![CDATA[ٹیکس: ]]></string>
     <string name="price_adapter"><![CDATA[قیمت: ]]></string>
     <string name="UOM_adapter"><![CDATA[یو او ایم: ]]></string>

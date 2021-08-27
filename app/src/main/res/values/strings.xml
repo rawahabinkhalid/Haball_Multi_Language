@@ -969,6 +969,10 @@
 		* User will keep the payment-reciept from ATM as proof of payment.
 	</string>
 	<string name="product_code">Product Code: </string>
+	<string name="prod_date_for_adapter"><![CDATA[Prod Date: ]]></string>
+	<string name="batch_no_for_adapter"><![CDATA[Batch No: ]]></string>
+	<string name="exp_date_for_adapter"><![CDATA[Exp Date: ]]></string>
+	<string name="shipped_qty_for_adapter"><![CDATA[Shipped Qty: ]]></string>
 	<string name="product_code_for_adapter"><![CDATA[Product Code: ]]></string>
 	<string name="tax_for_adapter"><![CDATA[Tax: ]]></string>
 	<string name="price_adapter"><![CDATA[Price: ]]></string>

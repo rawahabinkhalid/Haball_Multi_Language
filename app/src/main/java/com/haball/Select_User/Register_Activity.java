@@ -112,7 +112,7 @@ public class Register_Activity extends AppCompatActivity {
     void changeLanguage() {
         ChangeLanguage changeLanguage = new ChangeLanguage();
         changeLanguage.changeLanguage(this, language);
-        if (language.equals("ur")) {
+//        if (language.equals("ur")) {
             txt_retailer.setText(R.string.retailer);
             txt_distributor.setText(R.string.distributor);
             select_type.setText(R.string.select_account);
@@ -122,6 +122,6 @@ public class Register_Activity extends AppCompatActivity {
             footer.setText(R.string.all_rights_reserved);
 
 
-        }
+//        }
     }
 }
