@@ -264,9 +264,12 @@ public class PaymentScreen3Fragment_Retailer extends Fragment {
 
 
         List<String> banking_make_payment = new ArrayList<>();
-        banking_make_payment.add("Select Payment Options");
-        banking_make_payment.add("Payment Instructions");
-        banking_make_payment.add("Make Payment");
+//        banking_make_payment.add("Select Payment Options");
+        banking_make_payment.add(getResources().getString(R.string.Txt_Payment));
+//        banking_make_payment.add("Payment Instructions");
+        banking_make_payment.add(getResources().getString(R.string.PSID));
+//        banking_make_payment.add("Make Payment");
+        banking_make_payment.add(getResources().getString(R.string.make_payment));
 
         arrayAdapter_banking_make_payment = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, banking_make_payment) {
             @Override

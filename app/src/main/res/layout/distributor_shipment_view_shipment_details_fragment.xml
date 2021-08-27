@@ -54,7 +54,7 @@
             android:fontFamily="@font/open_sans"
             android:gravity="center"
             android:stateListAnimator="@null"
-            android:text="Back"
+            android:text="@string/back"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="@dimen/button_text_size" />

@@ -523,9 +523,9 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
 
         filters = new ArrayList<>();
         filters.add(getResources().getString(R.string.status));
-        filters.add(getResources().getString(R.string.un_paid));
-        filters.add(getResources().getString(R.string.cancelled));
-        filters.add(getResources().getString(R.string.paid));
+        filters.add("Un-Paid");
+        filters.add("Cancelled");
+        filters.add("Paid");
 //        filters.add("Delete");
 //        filters.add("Pending");
 //        filters.add("Partially Paid");
@@ -1640,7 +1640,7 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
         spinner_consolidate.setAdapter(arrayAdapterPayments);
 
         filters = new ArrayList<>();
-        filters.add("Status");
+        filters.add(getResources().getString(R.string.status));
         filters.add("Pending");
         filters.add("Approved");
         filters.add("Rejected");
