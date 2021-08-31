@@ -988,7 +988,11 @@
 	<string name="total_unpaid_amount">Total Unpaid Amount</string>
 	<string name="total_paid_amount">Total Paid Amount</string>
 	<string name="ledger_balance">Ledger Balance</string>
+	<string name="opening_balance">Opening Balance</string>
+	<string name="closing_balance">Closing Balance</string>
+	<string name="net_settlement">Net Settlement</string>
 	<string name="date">Date</string>
+	<string name="psid_copied_clipboard">PSID has been copied to clipboard</string>
 	<string name="processing_payment">Processing Payment</string>
 	<string name="order">Order</string>
 	<string name="payment_terms">Payment Term</string>

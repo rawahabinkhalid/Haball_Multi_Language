@@ -265,7 +265,7 @@ public class Order_Summary_Adapter_DistOrder extends RecyclerView.Adapter<Order_
         if (selectedProductsDataList.get(position).getDiscountValue() != null && !selectedProductsDataList.get(position).getDiscountValue().equals("0") && !selectedProductsDataList.get(position).getDiscountValue().equals("") && !selectedProductsDataList.get(position).getDiscountValue().equals("null")) {
             holder.product_code.append("\u00A0| ");
 
-            holder.product_code.append(String.valueOf(R.string.disc_adpter));
+            holder.product_code.append(context.getResources().getString(R.string.disc_adpter));
 
             yourFormattedString1 = formatter1.format(Double.parseDouble(selectedProductsDataList.get(position).getDiscountValue()));
 
@@ -808,7 +808,7 @@ public class Order_Summary_Adapter_DistOrder extends RecyclerView.Adapter<Order_
         // Log.i("CreatePayment", "In Dialog");
         final FragmentManager fm = activity.getSupportFragmentManager();
 
-      final AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+        final AlertDialog alertDialog = new AlertDialog.Builder(context).create();
         LayoutInflater inflater = LayoutInflater.from(context);
         View view_popup = inflater.inflate(R.layout.discard_changes, null);
         TextView tv_discard_txt = view_popup.findViewById(R.id.tv_discard_txt);
@@ -846,8 +846,8 @@ public class Order_Summary_Adapter_DistOrder extends RecyclerView.Adapter<Order_
 
             }
         });
-        if(!alertDialog.isShowing())
-        alertDialog.show();
+        if (!alertDialog.isShowing())
+            alertDialog.show();
     }
 
     @Override

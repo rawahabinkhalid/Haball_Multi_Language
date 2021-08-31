@@ -198,8 +198,8 @@
             android:name=".Select_User.Register_Activity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".Language_Selection.Language_Selection"
             android:configChanges="orientation"

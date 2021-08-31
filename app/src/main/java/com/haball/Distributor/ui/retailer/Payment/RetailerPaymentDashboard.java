@@ -540,6 +540,7 @@ public class RetailerPaymentDashboard extends Fragment implements DatePickerDial
             }
 
         });
+        tv_shipment_no_data.setVisibility(View.GONE);
 
         try {
             fetchPaymentsData();

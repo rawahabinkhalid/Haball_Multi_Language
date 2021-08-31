@@ -468,9 +468,9 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
                     } catch (NullPointerException ex) {
                         ex.printStackTrace();
                     }
-                    if (Filter_selected.equals(getResources().getString(R.string.status)))
+                    if (Filter_selected.equals("Status"))
                         Filter_selected_value = String.valueOf(i - 1);
-                    else if (Filter_selected.equals(getResources().getString(R.string.issue_type)))
+                    else if (Filter_selected.equals("IssueType"))
                         Filter_selected_value = String.valueOf(i);
 
                     if (!Filter_selected_value.equals("")) {
@@ -585,7 +585,7 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
                 }
                 return false;
             }
-       });
+        });
 
         // conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
         //     @Override
@@ -856,13 +856,15 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
         map.put("PageNumber", pageNumber);
         if (Filter_selected.equals("date")) {
             loader.showLoader();
-            map.put(Filter_selected1, fromDate);
-            map.put(Filter_selected2, toDate);
+            if (!fromDate.equals(""))
+                map.put(Filter_selected1, fromDate);
+            if (!toDate.equals(""))
+                map.put(Filter_selected2, toDate);
         } else {
             loader.showLoader();
             map.put(Filter_selected, Filter_selected_value);
         }
-        // Log.i("map_SSSS", String.valueOf(map));
+        Log.i("map_SSSS", String.valueOf(map));
         new SSL_HandShake().handleSSLHandshake();
 //        final HurlStack hurlStack = new SSL_HandShake().handleSSLHandshake(getContext());
 
@@ -935,6 +937,7 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
     }
 
     private void fetchFilteredSupport() throws JSONException {
+        loader.showLoader();
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("LoginToken",
                 Context.MODE_PRIVATE);
         Token = sharedPreferences.getString("Login_Token", "");
@@ -945,13 +948,15 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
         map.put("PageNumber", pageNumber);
         if (Filter_selected.equals("date")) {
             loader.showLoader();
-            map.put(Filter_selected1, fromDate);
-            map.put(Filter_selected2, toDate);
+            if (!fromDate.equals(""))
+                map.put(Filter_selected1, fromDate);
+            if (!toDate.equals(""))
+                map.put(Filter_selected2, toDate);
         } else {
             loader.showLoader();
             map.put(Filter_selected, Filter_selected_value);
         }
-        // Log.i("map_SSSS", String.valueOf(map));
+        Log.i("map_SSSS", String.valueOf(map));
         new SSL_HandShake().handleSSLHandshake();
 //        final HurlStack hurlStack = new SSL_HandShake().handleSSLHandshake(getContext());
         MyJsonArrayRequest request = new MyJsonArrayRequest(Request.Method.POST, URL_SUPPORT, map, new Response.Listener<JSONArray>() {
@@ -1062,12 +1067,14 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
     private void updateDisplay(String date_type) {
         if (date_type.equals("first date")) {
             fromDate = year1 + "-" + String.format("%02d", (month1 + 1)) + "-" + String.format("%02d", date1) + "T00:00:00.000Z";
+            fromDate = year1 + "-" + String.format("%02d", (month1 + 1)) + "-" + String.format("%02d", date1);
             // Log.i("fromDate", fromDate);
 
             first_date.setText(new StringBuilder()
                     .append(String.format("%02d", date1)).append("/").append(String.format("%02d", (month1 + 1))).append("/").append(year1));
         } else if (date_type.equals("second date")) {
             toDate = year2 + "-" + String.format("%02d", (month2 + 1)) + "-" + String.format("%02d", date2) + "T23:59:59.000Z";
+            toDate = year2 + "-" + String.format("%02d", (month2 + 1)) + "-" + String.format("%02d", date2);
             second_date.setText(new StringBuilder()
                     .append(String.format("%02d", date2)).append("/").append(String.format("%02d", (month2 + 1))).append("/").append(year2));
         }

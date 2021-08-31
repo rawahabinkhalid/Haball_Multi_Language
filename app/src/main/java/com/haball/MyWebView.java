@@ -28,6 +28,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.haball.Distribution_Login.Distribution_Login;
 import com.haball.Retailer_Login.RetailerLogin;
 import com.haball.Retailor.RetailorDashboard;
 import com.haball.Retailor.ui.RetailerPayment.RetailerViewInvoice;
@@ -110,7 +111,9 @@ public class MyWebView extends Fragment {
                         // Log.i("InvoiceStatus_Adapter", String.valueOf(paymentsList.get(position).getStatus()));
                         editor_MakePayment.apply();
 
-                        new CustomToast().showToast((FragmentActivity) context, "Payment has been Paid Successfully");
+                        new CustomToast().showToast((FragmentActivity) context, "Payment Paid Successfully");
+                    } else if (url.contains("error=true")) {
+                        new ProcessingError().showError(context);
                     }
 
                     Fragment tempFragment = (url.contains("error=true")) ? UnpaidFragment : PaidFragment;

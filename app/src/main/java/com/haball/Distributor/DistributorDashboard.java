@@ -202,6 +202,10 @@ public class DistributorDashboard extends AppCompatActivity {
         fragmentTransaction.add(R.id.main_container, new HomeFragment());
         fragmentTransaction.commit();
 
+        navigationExpandableListView = findViewById(R.id.expandable_navigation);
+        footer_item_1 = findViewById(R.id.footer_item_1);
+        changeLanguage();
+
 
         try {
             userRights = new JSONArray(sharedPreferences.getString("UserRights", ""));
@@ -425,8 +429,6 @@ public class DistributorDashboard extends AppCompatActivity {
         NavList.add(getResources().getString(R.string.logout));
 
 
-        navigationExpandableListView = findViewById(R.id.expandable_navigation);
-        footer_item_1 = findViewById(R.id.footer_item_1);
         footer_item_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -445,7 +447,6 @@ public class DistributorDashboard extends AppCompatActivity {
             }
         });
 
-        changeLanguage();
 
         navigationExpandableListView.init(this);
         if (Payments_Payment_Request || Orders || Dashboard)

@@ -305,6 +305,14 @@ public class RetailorDashboard extends AppCompatActivity {
         drawer =
 
                 findViewById(R.id.drawer_layout_retailor);
+        navigationExpandableListView =
+
+                findViewById(R.id.expandable_navigation);
+
+        footer_item_1 =
+
+                findViewById(R.id.footer_item_1);
+        changeLanguage();
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -458,13 +466,6 @@ public class RetailorDashboard extends AppCompatActivity {
         tv_username.setText("Hi, " + username);
         tv_user_company.setText(companyname);
 
-        navigationExpandableListView =
-
-                findViewById(R.id.expandable_navigation);
-
-        footer_item_1 =
-
-                findViewById(R.id.footer_item_1);
         footer_item_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -477,7 +478,6 @@ public class RetailorDashboard extends AppCompatActivity {
             }
         });
 
-        changeLanguage();
 
         navigationExpandableListView.init(this);
         if (Payment_View || Order_View)

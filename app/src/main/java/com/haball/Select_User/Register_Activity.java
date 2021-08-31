@@ -7,14 +7,17 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -35,6 +38,7 @@ import android.widget.Toast;
 
 import com.haball.Distribution_Login.Distribution_Login;
 import com.haball.LanguageClasses.ChangeLanguage;
+import com.haball.Language_Selection.Language_Selection;
 import com.haball.R;
 import com.haball.Retailer_Login.RetailerLogin;
 import com.haball.Retailor.Retailer_TermsAndConditionsFragment;
@@ -73,6 +77,28 @@ public class Register_Activity extends AppCompatActivity {
         select_type = findViewById(R.id.select_type);
         tv_description = findViewById(R.id.tv_description);
         footer = findViewById(R.id.footer);
+
+        ActionBar bar = getSupportActionBar();
+        assert bar != null;
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+
+        @SuppressLint("InflateParams") View customView = inflater.inflate(R.layout.action_bar_main, null);
+
+        bar.setCustomView(customView);
+        bar.setDisplayShowCustomEnabled(true);
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
+        bar.setTitle("");
+        ImageButton btn_back = customView.findViewById(R.id.btn_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register_Activity.this, Language_Selection.class);
+                startActivity(intent);
+            }
+        });
+
         rl_distributor.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 

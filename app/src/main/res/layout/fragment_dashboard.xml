@@ -160,7 +160,7 @@
                         android:fontFamily="@font/open_sans"
                         android:paddingTop="30dp"
                         android:paddingBottom="5dp"
-                        android:text="Opening Balance"
+                        android:text="@string/opening_balance"
                         android:textColor="@color/rv_box_color"
                         android:textSize="@dimen/rv_box_text_size" />
                     <TextView
@@ -170,7 +170,7 @@
                         android:layout_below="@+id/tv_opening_balance"
                         android:fontFamily="@font/open_sans"
                         android:paddingBottom="5dp"
-                        android:text="Closing Balance"
+                        android:text="@string/closing_balance"
                         android:textColor="@color/rv_box_color"
                         android:textSize="@dimen/rv_box_text_size" />
 
@@ -180,7 +180,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_closing_balance"
                         android:fontFamily="@font/open_sans"
-                        android:text="Net Settlement"
+                        android:text="@string/net_settlement"
                         android:textColor="@color/rv_box_color"
                         android:textSize="@dimen/rv_box_text_size" />
 

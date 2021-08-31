@@ -616,9 +616,13 @@ public class Retailer_Order_Summary extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 enableAllButtons();
-                new HaballError().printErrorMessage(getContext(), error);
+                if (error.networkResponse.statusCode == 405) {
+                    new CustomToast().showToast((FragmentActivity) getContext(), "You have added inactive product. Please review");
+                } else {
+                    new HaballError().printErrorMessage(getContext(), error);
+                }
                 error.printStackTrace();
-                refreshRetailerInfo();
+//                refreshRetailerInfo();
             }
         }) {
             @Override
@@ -742,7 +746,7 @@ public class Retailer_Order_Summary extends Fragment {
                     new HaballError().printErrorMessage(getContext(), error);
                 }
                 error.printStackTrace();
-                refreshRetailerInfo();
+//                refreshRetailerInfo();
             }
         }) {
             @Override
@@ -902,8 +906,8 @@ public class Retailer_Order_Summary extends Fragment {
 
             }
         });
-        if(!alertDialog.isShowing())
-        alertDialog.show();
+        if (!alertDialog.isShowing())
+            alertDialog.show();
     }
 
     private void refreshRetailerInfo() {

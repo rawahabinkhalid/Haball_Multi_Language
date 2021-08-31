@@ -991,7 +991,11 @@
     <string name="total_unpaid_amount">غیر ادا شدہ رقم</string>
     <string name="total_paid_amount">کل ادا شدہ رقم</string>
     <string name="ledger_balance">لیجر بیلنس</string>
+	<string name="opening_balance">اوپننگ بیلنس</string>
+	<string name="closing_balance">کلوزنگ بیلنس</string>
+	<string name="net_settlement">نیٹ سیٹلمنٹ</string>
     <string name="date">تاریخ</string>
+	<string name="psid_copied_clipboard">اس PSID کو کلپ بورڈ پر کاپی کر دیا گیا ہے۔</string>
     <string name="processing_payment">Processing Payment</string>
     <string name="order">آرڈر</string>
     <string name="payment_terms">Payment Term</string>

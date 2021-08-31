@@ -168,7 +168,7 @@ public class PaymentScreen3Fragment_Retailer extends Fragment {
                 ClipboardManager cm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
                 cm.setText(payment_id.getText());
 //                new CustomToast().showToast(getActivity(), "Payment ID: " + String.valueOf(payment_id.getText()) + " - Copied to clipboard");
-                new CustomToast().showToast(getActivity(), "PSID has been copied to clipboard");
+                            new CustomToast().showToast(getActivity(), getResources().getString(R.string.psid_copied_clipboard));
                 return false;
             }
         });

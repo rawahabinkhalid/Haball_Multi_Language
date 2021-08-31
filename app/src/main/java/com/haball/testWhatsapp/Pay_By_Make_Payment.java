@@ -152,8 +152,8 @@ public class Pay_By_Make_Payment {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("Amount", Amount);
         jsonObject.put("PSID", PSID);
-        jsonObject.put("PaidReturnUrl", "https://175.107.203.97:4014/#/user/dashboard");
-        jsonObject.put("ReturnUrl", "https://175.107.203.97:4014/#/user/dashboard");
+        jsonObject.put("PaidReturnUrl", "https://175.107.203.97:4014/#/user/dashboard?error=false");
+        jsonObject.put("ReturnUrl", "https://175.107.203.97:4014/#/user/dashboard?error=true");
         jsonObject.put("Type", Type);
         jsonObject.put("key", "");
 

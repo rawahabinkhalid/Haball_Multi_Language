@@ -421,6 +421,7 @@ public class PlaceholderFragment extends Fragment {
                     Intent login_intent = new Intent(((FragmentActivity) getContext()), RetailorDashboard.class);
                     ((FragmentActivity) getContext()).startActivity(login_intent);
                     ((FragmentActivity) getContext()).finish();
+                    return true;
                 }
                 return false;
             }

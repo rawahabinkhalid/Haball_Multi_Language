@@ -292,7 +292,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
         if (selectedProductsDataList.get(position).getDiscountAmount() != null && !selectedProductsDataList.get(position).getDiscountAmount().equals("0") && !selectedProductsDataList.get(position).getDiscountAmount().equals("") && !selectedProductsDataList.get(position).getDiscountAmount().equals("null")) {
             holder.product_code.append("\u00A0| ");
 
-            holder.product_code.append(String.valueOf(R.string.disc_adpter));
+            holder.product_code.append(context.getResources().getString(R.string.disc_adpter));
 
             formatter1 = new DecimalFormat("#,###,##0.00");
             yourFormattedString1 = formatter1.format(Double.parseDouble(selectedProductsDataList.get(position).getDiscountAmount()));
@@ -522,7 +522,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
                         if (selectedProductsDataList.get(position).getDiscountAmount() != null && !selectedProductsDataList.get(position).getDiscountAmount().equals("0") && !selectedProductsDataList.get(position).getDiscountAmount().equals("") && !selectedProductsDataList.get(position).getDiscountAmount().equals("null")) {
                             holder.product_code.append("\u00A0| ");
 
-                            holder.product_code.append(String.valueOf(R.string.disc_adpter));
+            holder.product_code.append(context.getResources().getString(R.string.disc_adpter));
 
                             formatter1 = new DecimalFormat("#,###,##0.00");
                             yourFormattedString1 = formatter1.format(Double.parseDouble(selectedProductsDataList.get(position).getDiscountAmount()));
@@ -582,7 +582,7 @@ public class Order_Summary_Adapter extends RecyclerView.Adapter<Order_Summary_Ad
                         if (selectedProductsDataList.get(position).getDiscountAmount() != null && !selectedProductsDataList.get(position).getDiscountAmount().equals("0") && !selectedProductsDataList.get(position).getDiscountAmount().equals("") && !selectedProductsDataList.get(position).getDiscountAmount().equals("null")) {
                             holder.product_code.append("\u00A0| ");
 
-                            holder.product_code.append(String.valueOf(R.string.disc_adpter));
+            holder.product_code.append(context.getResources().getString(R.string.disc_adpter));
 
                             formatter1 = new DecimalFormat("#,###,##0.00");
                             yourFormattedString1 = formatter1.format(Double.parseDouble(selectedProductsDataList.get(position).getDiscountAmount()));

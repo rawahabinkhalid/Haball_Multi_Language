@@ -269,6 +269,12 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
         editor1.putString("add_more_product", "");
         editor1.apply();
 
+        SharedPreferences fromDraft = getContext().getSharedPreferences("FromDraft_Temp",
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor2 = fromDraft.edit();
+        editor2.putString("fromDraft", "");
+        editor2.apply();
+
         switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
             case 1: {
                 loader = new Loader(getContext());
@@ -1106,10 +1112,14 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
         map.put("PageNumber", pageNumber);
         if (Filter_selected.equals("date")) {
             loader.showLoader();
-            if (!fromDate.equals(""))
+            if (!fromDate.equals("")) {
                 map.put(Filter_selected1, fromDate);
-            if (!toDate.equals(""))
+                map.put("CreatedDateFrom", fromDate);
+            }
+            if (!toDate.equals("")) {
                 map.put(Filter_selected2, toDate);
+                map.put("CreatedDateTo", toDate);
+            }
         } else if (Filter_selected.equals("amount")) {
 //            loader = null;
             loader.showLoader();
@@ -1205,10 +1215,14 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
 
         if (Filter_selected.equals("date")) {
             loader.showLoader();
-            if (!fromDate.equals(""))
+            if (!fromDate.equals("")) {
                 map.put(Filter_selected1, fromDate);
-            if (!toDate.equals(""))
+                map.put("CreatedDateFrom", fromDate);
+            }
+            if (!toDate.equals("")) {
                 map.put(Filter_selected2, toDate);
+                map.put("CreatedDateTo", toDate);
+            }
         } else if (Filter_selected.equals("amount")) {
             loader.showLoader();
             if (!fromAmount.equals(""))
@@ -1347,10 +1361,12 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
         map.put("PageNumber", pageNumberOrder);
         if (Filter_selected.equals("date")) {
             loader.showLoader();
-            if (!fromDate.equals(""))
+            if (!fromDate.equals("")) {
                 map.put(Filter_selected1, fromDate);
-            if (!toDate.equals(""))
+            }
+            if (!toDate.equals("")) {
                 map.put(Filter_selected2, toDate);
+            }
         } else if (Filter_selected.equals("amount")) {
             loader.showLoader();
             if (!fromAmount.equals(""))
@@ -1798,7 +1814,7 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                 }
                 return false;
             }
-       });
+        });
 
         // conso_edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
         //     @Override
@@ -2017,10 +2033,12 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
         map.put("PageNumber", pageNumberOrder);
         if (Filter_selected.equals("date")) {
             loader.showLoader();
-            if (!fromDate.equals(""))
+            if (!fromDate.equals("")) {
                 map.put(Filter_selected1, fromDate);
-            if (!toDate.equals(""))
+            }
+            if (!toDate.equals("")) {
                 map.put(Filter_selected2, toDate);
+            }
         } else if (Filter_selected.equals("amount")) {
             loader.showLoader();
             if (!fromAmount.equals(""))
@@ -2122,13 +2140,14 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
 
     private void updateDisplay(String date_type) {
         if (date_type.equals("first date")) {
-            fromDate = year1 + "-" + String.format("%02d", (month1 + 1)) + "-" + String.format("%02d", date1) + "T00:00:00.000Z";
+//            fromDate = year1 + "-" + String.format("%02d", (month1 + 1)) + "-" + String.format("%02d", date1) + "T00:00:00.000Z";
+            fromDate = year1 + "-" + String.format("%02d", (month1 + 1)) + "-" + String.format("%02d", date1);
 //            // Log.i("fromDate", fromDate);
 
             first_date.setText(new StringBuilder()
                     .append(String.format("%02d", date1)).append("/").append(String.format("%02d", (month1 + 1))).append("/").append(year1));
         } else if (date_type.equals("second date")) {
-            toDate = year2 + "-" + String.format("%02d", (month2 + 1)) + "-" + String.format("%02d", date2) + "T23:59:59.000Z";
+            toDate = year2 + "-" + String.format("%02d", (month2 + 1)) + "-" + String.format("%02d", date2);
             second_date.setText(new StringBuilder()
                     .append(String.format("%02d", date2)).append("/").append(String.format("%02d", (month2 + 1))).append("/").append(year2));
         }

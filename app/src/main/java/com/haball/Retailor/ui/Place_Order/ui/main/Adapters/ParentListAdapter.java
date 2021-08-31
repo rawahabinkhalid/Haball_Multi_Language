@@ -69,7 +69,7 @@ public class ParentListAdapter extends ExpandableRecyclerAdapter<OrderParentlist
 
     public ParentListAdapter(Context context, List<OrderParentlist_Model> parentItemList, RelativeLayout filter_layout, Button btn_checkout, List<OrderChildlist_Model> productList, Loader loader) {
         super(parentItemList);
-       inflater = LayoutInflater.from(context);
+        this.inflater = LayoutInflater.from(context);
         this.context = context;
         this.parentItemList = parentItemList;
         this.filter_layout = filter_layout;
@@ -366,6 +366,7 @@ public class ParentListAdapter extends ExpandableRecyclerAdapter<OrderParentlist
 
         FragmentTransaction fragmentTransaction;
         if (selectedProductsSP.getString("fromDraft", "").equals("draft")) {
+            Log.i("back_debug", "in draft flow" + "'''1");
             //draft flow
             if (selectedProductsSP.getString("fromDraftChanged", "").equals("changed")) {
                 showDiscardDialog();
@@ -380,6 +381,7 @@ public class ParentListAdapter extends ExpandableRecyclerAdapter<OrderParentlist
                 return true;
             }
         } else {
+            Log.i("back_debug", "in place order flow" + "'''1");
             // place order flow
             if (((!orderCheckedOutStr.equals("")))) {
                 showDiscardDialog();
@@ -452,8 +454,8 @@ public class ParentListAdapter extends ExpandableRecyclerAdapter<OrderParentlist
 
             }
         });
-        if(!alertDialog.isShowing())
-        alertDialog.show();
+        if (!alertDialog.isShowing())
+            alertDialog.show();
     }
 
     private void setQuantity(OrderChildList_VH orderChildList_vh, OrderChildlist_Model orderChildlist_model, int pos) {

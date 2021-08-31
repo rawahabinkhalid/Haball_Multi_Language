@@ -690,7 +690,7 @@ public class PlaceholderFragment extends Fragment {
                     String TotalAmount = "";
 //                    if (totalPrice != 0)
                     TotalAmount = formatter1.format(Double.parseDouble(response.getString("Amount")));
-                    total_amount.setText("Rs. " + TotalAmount);
+                    total_amount.setText(TotalAmount);
                     if (!response.getString("TotoalOrderDiscount").equals("null") && !response.getString("TotoalOrderDiscount").equals("0")) {
                         String OrderTotalDiscount = formatter1.format(Double.parseDouble(response.getString("TotoalOrderDiscount")));
                         discount_amount.setText(OrderTotalDiscount);

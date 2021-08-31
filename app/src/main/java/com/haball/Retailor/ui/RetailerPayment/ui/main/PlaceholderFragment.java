@@ -431,7 +431,7 @@ public class PlaceholderFragment extends Fragment {
 ////                            toast.setGravity(Gravity.TOP, 0, 200);
 //                            toast.show();
 
-                            new CustomToast().showToast(getActivity(), "PSID has been copied to clipboard");
+                            new CustomToast().showToast(getActivity(), getResources().getString(R.string.psid_copied_clipboard));
 
 
                             return false;

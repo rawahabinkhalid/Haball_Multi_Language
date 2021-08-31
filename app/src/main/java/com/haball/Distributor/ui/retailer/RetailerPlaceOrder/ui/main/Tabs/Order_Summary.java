@@ -46,6 +46,7 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.haball.CustomToast;
 import com.haball.Distributor.ui.home.HomeFragment;
 import com.haball.Distributor.ui.orders.OrdersTabsNew.Models.OrderChildlist_Model_DistOrder;
 import com.haball.Distributor.ui.retailer.RetailerOrder.RetailerOrderDashboard;
@@ -612,10 +613,13 @@ public class Order_Summary extends Fragment {
             public void onErrorResponse(VolleyError error) {
                 loader.hideLoader();
                 enableAllButtons();
-                new HaballError().printErrorMessage(getContext(), error);
-                new ProcessingError().showError(getContext());
+                if (error.networkResponse.statusCode == 405) {
+                    new CustomToast().showToast((FragmentActivity) getContext(), "You have added inactive product. Please review");
+                } else {
+                    new HaballError().printErrorMessage(getContext(), error);
+                }
                 error.printStackTrace();
-                refreshRetailerInfo();
+//                refreshRetailerInfo();
             }
         }) {
             @Override
@@ -749,10 +753,13 @@ public class Order_Summary extends Fragment {
             public void onErrorResponse(VolleyError error) {
                 loader.hideLoader();
                 enableAllButtons();
-                new HaballError().printErrorMessage(getContext(), error);
-                new ProcessingError().showError(getContext());
+                if (error.networkResponse.statusCode == 405) {
+                    new CustomToast().showToast((FragmentActivity) getContext(), "You have added inactive product. Please review");
+                } else {
+                    new HaballError().printErrorMessage(getContext(), error);
+                }
                 error.printStackTrace();
-                refreshRetailerInfo();
+//                refreshRetailerInfo();
             }
         }) {
             @Override

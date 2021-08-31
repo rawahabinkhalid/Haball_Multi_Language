@@ -414,7 +414,7 @@ public class SupportFragment extends Fragment implements DatePickerDialog.OnDate
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if (Filter_selected.equals(getResources().getString(R.string.status))) {
+                if (Filter_selected.equals("Status")) {
                     if (i == 0) {
                         try {
                             ((TextView) adapterView.getChildAt(0)).setTextColor(getResources().getColor(R.color.textcolor));
