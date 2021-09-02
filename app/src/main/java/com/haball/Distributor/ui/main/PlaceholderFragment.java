@@ -1602,7 +1602,7 @@ public class PlaceholderFragment extends Fragment implements DatePickerDialog.On
                 } else {
                     byDefaultStatus = false;
                 }
-                if (Filter_selected.equals(getResources().getString(R.string.status)) || Filter_selected.equals("PaymentType")) {
+                if (Filter_selected.equals("Status") || Filter_selected.equals("PaymentType")) {
 
                     if (i == 0) {
                         try {
