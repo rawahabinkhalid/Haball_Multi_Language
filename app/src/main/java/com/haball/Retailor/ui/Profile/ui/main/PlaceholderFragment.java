@@ -1350,7 +1350,7 @@ public class PlaceholderFragment extends Fragment {
 
                     } catch (Exception e) {
                         e.printStackTrace();
-                        Toast.makeText(getActivity(), "Error" + e.toString(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(), "Error" + e.toString(), Toast.LENGTH_SHORT).show();
 
                     }
 

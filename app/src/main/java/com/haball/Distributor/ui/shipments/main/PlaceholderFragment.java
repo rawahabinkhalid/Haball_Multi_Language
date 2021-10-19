@@ -504,10 +504,10 @@ public class PlaceholderFragment extends Fragment {
                     DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                     String yourFormattedString1 = formatter1.format(Double.parseDouble(response.getString("TotalPrice")));
 
-                    total_amount.setText(yourFormattedString1);
+                    total_amount.setText("Rs. " + yourFormattedString1);
 
                     yourFormattedString1 = formatter1.format(Double.parseDouble(response.getString("Discount")));
-                    discount_amount.setText(yourFormattedString1);
+                    discount_amount.setText("Rs. " + yourFormattedString1);
 
                     // Log.i("responesProductmy", response.getString("DeliveryNoteDetails").toString());
                     JSONArray jsonArray = new JSONArray(response.getString("DeliveryNoteDetails"));

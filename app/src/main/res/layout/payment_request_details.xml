@@ -62,16 +62,26 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/open_sans_semibold"
                         android:justificationMode="inter_word"
-                        android:text="PSID: "
+                        android:text="PSID"
+                        android:layout_alignParentLeft="true"
                         android:textAlignment="gravity"
+                        android:textSize="@dimen/payment_options_retailer" />
+                    <TextView
+                        android:id="@+id/payment_information_txt_colon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/payment_information_txt2"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:text=" : "
                         android:textSize="@dimen/payment_options_retailer" />
 
                     <TextView
                         android:id="@+id/payment_information_txt3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/payment_information_txt2"
+                        android:layout_toRightOf="@+id/payment_information_txt_colon"
                         android:fontFamily="@font/open_sans_semibold"
+                        android:text="546546487946546"
                         android:textSize="@dimen/payment_options_retailer" />
                 </RelativeLayout>
 
@@ -103,11 +113,11 @@
 
                 <TextView
                     android:id="@+id/txt_header1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="40dp"
+                    android:layout_marginEnd="20dp"
                     android:background="@drawable/border_set"
                     android:fontFamily="@font/open_sans_semibold"
                     android:padding="10dp"
@@ -200,9 +210,10 @@
 
                 <TextView
                     android:id="@+id/txt_header2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/border_set"
                     android:fontFamily="@font/open_sans_semibold"

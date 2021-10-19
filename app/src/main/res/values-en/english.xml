@@ -844,9 +844,9 @@
 	<string name="delete_payment">Delete Payment</string>
 	<string name="delete_payment_text">Are you sure, you want to delete this payment?</string>
 	<string name="payment_deleted">Payment Deleted</string>
-	<string name="order_no">Order No:</string>
-	<string name="amount_items">Amount: </string>
-	<string name="status_items">Status: </string>
+	<string name="order_no">Order No</string>
+	<string name="amount_items">Amount</string>
+	<string name="status_items">Status</string>
 	<string name="paymentid">Payment ID</string>
 	<string name="paymentid_data">Payment ID: </string>
 	<string name="search_by">Search by </string>
@@ -856,8 +856,8 @@
 	<string name="un_paid">Un-Paid</string>
 	// my netWork
 	<string name="my_network">My Network</string>
-	<string name="mobile_no_items">Mobile No: </string>
-	<string name="address_item">Address:</string>
+	<string name="mobile_no_items">Mobile No</string>
+	<string name="address_item">Address</string>
 	//make payment
 	<string name="payment">Payment</string>
 	<string name="select_company">Select Company</string>
@@ -1015,7 +1015,7 @@
 	<string name="order_behalf">\t\t\tOrder on Behalf</string>
 	<string name="retailer_payment_distri">\t\t\tRetailer Payments</string>
 	//dashboard
-	<string name="state_item">"State: "</string>
+	<string name="state_item">"State"</string>
 	<string name="your_payment_id">Your Payment ID </string>
 	<string name="deleted_payment_msg"> has been deleted successfully.</string>
 	<string name="deleted_payment">Payment Deleted</string>
@@ -1081,7 +1081,7 @@
 	<string name="unable_download_msg">UNABLE TO DOWNLOAD FILE</string>
 	<string name="shipment_id">Shipment ID</string>
 	<string name="shipment_no">Shipment No</string>
-	<string name="shipment_no_adapter">Shipment No: </string>
+	<string name="shipment_no_adapter">Shipment No</string>
 	<string name="shipment_date">Shipment Date</string>
 	<string name="receiving_date">Receiving Date</string>
 	<string name="dc_number">DC Number</string>
@@ -1101,11 +1101,11 @@
 	<string name="my_profile">My Profile</string>
 	<string name="my_prepared_acc">My Prepaid Account</string>
 	<string name="contract">Contracting</string>
-	<string name="payment_ledger_id">Ledger ID:</string>
-	<string name="date_item">Date: </string>
-	<string name="debit_amount">Debit Amount: </string>
-	<string name="credit_amount">Credit Amount: </string>
-	<string name="balance_item">Balance: </string>
+	<string name="payment_ledger_id">Ledger ID</string>
+	<string name="date_item">Date</string>
+	<string name="debit_amount">Debit Amount</string>
+	<string name="credit_amount">Credit Amount</string>
+	<string name="balance_item">Balance</string>
 	// bottom line
 	<string name="all_rights_reserved">© Haball | All rights reserved</string>
 

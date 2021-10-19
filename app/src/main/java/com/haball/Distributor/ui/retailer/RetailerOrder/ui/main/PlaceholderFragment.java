@@ -108,7 +108,7 @@ public class PlaceholderFragment extends Fragment {
             layout_txt_bank, layout_txt_authorization_id, layout_txt_settlement_id, layout_txt_status, layout_txt_order_reference, layout_txt_invoice_reference,
             layout_txt_amount, layout_txt_transaction_charges, layout_txt_total_amount;
     private TextInputEditText txt_orderID, txt_company_order, txt_created_date_order, txt_status_order, txt_comments, txt_confirm, txt_order_reference, txt_invoice_reference;
-    private TextView discount, Rs_discount;
+    private TextView discount;
     private TextInputEditText txt_companyName, txt_paymentID, txt_created_date, txt_bank, txt_authorization_id, txt_settlement_id, txt_status, txt_amount, txt_transaction_charges, txt_total_amount;
     private RecyclerView rv_fragment_retailer_order_details;
     private TextView tv_shipment_no_data;
@@ -333,7 +333,7 @@ public class PlaceholderFragment extends Fragment {
                 disclaimer_tv = rootView.findViewById(R.id.disclaimer_tv);
                 button_back = rootView.findViewById(R.id.button_back);
                 discount = rootView.findViewById(R.id.discount);
-                Rs_discount = rootView.findViewById(R.id.Rs_discount);
+//                Rs_discount = rootView.findViewById(R.id.Rs_discount);
                 discount_amount = rootView.findViewById(R.id.discount_amount);
 
 
@@ -972,17 +972,17 @@ public class PlaceholderFragment extends Fragment {
                     String TotalAmount = "";
                     if (totalPrice != 0)
                         TotalAmount = formatter1.format(Double.parseDouble(response.getString("RetailerOrderTotal")));
-                    total_amount.setText(TotalAmount);
+                    total_amount.setText("Rs. " + TotalAmount);
                     if (!response.getString("TotoalOrderDiscount").equals("null") && !response.getString("TotoalOrderDiscount").equals("0")) {
                         String OrderTotalDiscount = formatter1.format(Double.parseDouble(response.getString("TotoalOrderDiscount")));
-                        discount_amount.setText(OrderTotalDiscount);
+                        discount_amount.setText("Rs. " + OrderTotalDiscount);
                     } else if (totalDiscount == 0) {
                         discount.setVisibility(View.GONE);
-                        Rs_discount.setVisibility(View.GONE);
+//                        Rs_discount.setVisibility(View.GONE);
                         discount_amount.setVisibility(View.GONE);
                     } else {
                         String OrderTotalDiscount = formatter1.format(totalDiscount);
-                        discount_amount.setText(OrderTotalDiscount);
+                        discount_amount.setText("Rs. " + OrderTotalDiscount);
                     }
 
                     if (invo_productList.size() != 0) {

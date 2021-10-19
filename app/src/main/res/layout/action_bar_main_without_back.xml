@@ -30,7 +30,7 @@
                     android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="5dp"
-                    android:layout_toRightOf="@+id/btn_back"
+                    android:layout_alignParentLeft="true"
                     android:src="@drawable/haballlogo1" />
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>

@@ -130,7 +130,7 @@ public class PlaceholderFragment extends Fragment {
     private RelativeLayout ln_login;
     private RelativeLayout rl_jazz_cash;
     private String InvoiceStatus, invoiceID;
-    private TextView discount, Rs_discount;
+    private TextView discount;
     private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "https://175.107.203.97:4013/api/company/ReadActiveCompanyContract/";
 
 
@@ -257,7 +257,7 @@ public class PlaceholderFragment extends Fragment {
                 disclaimer_tv = rootView.findViewById(R.id.disclaimer_tv);
                 button_back = rootView.findViewById(R.id.button_back);
                 discount = rootView.findViewById(R.id.discount);
-                Rs_discount = rootView.findViewById(R.id.Rs_discount);
+//                Rs_discount = rootView.findViewById(R.id.Rs_discount);
                 discount_amount = rootView.findViewById(R.id.discount_amount);
 
 
@@ -875,17 +875,17 @@ public class PlaceholderFragment extends Fragment {
                     String TotalAmount = "";
                     if (totalPrice != 0)
                         TotalAmount = formatter1.format(Double.parseDouble(response.getString("NetPrice")));
-                    total_amount.setText(TotalAmount);
+                    total_amount.setText("Rs. " + TotalAmount);
                     if (!response.getString("Discount").equals("null") && !response.getString("Discount").equals("0")) {
                         String OrderTotalDiscount = formatter1.format(Double.parseDouble(response.getString("Discount")));
-                        discount_amount.setText(OrderTotalDiscount);
+                        discount_amount.setText("Rs. " + OrderTotalDiscount);
                     } else if (totalDiscount == 0) {
                         discount.setVisibility(View.GONE);
-                        Rs_discount.setVisibility(View.GONE);
+//                        Rs_discount.setVisibility(View.GONE);
                         discount_amount.setVisibility(View.GONE);
                     } else {
                         String OrderTotalDiscount = formatter1.format(totalDiscount);
-                        discount_amount.setText(OrderTotalDiscount);
+                        discount_amount.setText("Rs. " + OrderTotalDiscount);
                     }
 
                     if (invo_productList.size() != 0) {

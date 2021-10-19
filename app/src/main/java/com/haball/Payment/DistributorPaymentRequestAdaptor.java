@@ -121,6 +121,7 @@ DistributorPaymentRequestAdaptor extends RecyclerView.Adapter<DistributorPayment
             }
         }
         holder.tv_state.setVisibility(View.GONE);
+        holder.state_colon.setVisibility(View.GONE);
         holder.tv_state_value.setVisibility(View.GONE);
         holder.tv_heading.setText(paymentsRequestList.get(position).getCompanyName());
         holder.payment_id_value.setText(paymentsRequestList.get(position).getPrePaidNumber());
@@ -697,7 +698,7 @@ DistributorPaymentRequestAdaptor extends RecyclerView.Adapter<DistributorPayment
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_heading, payment_id_value, amount_value, status_value, tv_state, tv_state_value;
+        public TextView tv_heading, payment_id_value, amount_value, status_value, tv_state, tv_state_value, state_colon;
         public RelativeLayout main_layout_payment_box;
         public ImageButton menu_btn;
 
@@ -709,6 +710,7 @@ DistributorPaymentRequestAdaptor extends RecyclerView.Adapter<DistributorPayment
             status_value = itemView.findViewById(R.id.status_value);
             menu_btn = itemView.findViewById(R.id.menu_btn);
             tv_state = itemView.findViewById(R.id.tv_state);
+            state_colon = itemView.findViewById(R.id.state_colon);
             tv_state_value = itemView.findViewById(R.id.tv_state_value);
             main_layout_payment_box = itemView.findViewById(R.id.main_layout_payment_box_retailer);
         }

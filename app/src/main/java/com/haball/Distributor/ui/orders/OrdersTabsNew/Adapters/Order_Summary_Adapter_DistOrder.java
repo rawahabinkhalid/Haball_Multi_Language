@@ -132,10 +132,10 @@ public class Order_Summary_Adapter_DistOrder extends RecyclerView.Adapter<Order_
 
             DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
             String yourFormattedString3 = formatter1.format(totalAmount);
-            total_amount.setText(String.format(yourFormattedString3));
+            total_amount.setText("Rs. " + String.format(yourFormattedString3));
 
             yourFormattedString3 = formatter1.format(discAmount);
-            discount_amount.setText(String.format(yourFormattedString3));
+            discount_amount.setText("Rs. " + String.format(yourFormattedString3));
 
 
             SharedPreferences grossamount = context.getSharedPreferences("grossamount",
@@ -689,11 +689,11 @@ public class Order_Summary_Adapter_DistOrder extends RecyclerView.Adapter<Order_
             DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
             String yourFormattedString3 = formatter1.format(totalAmount);
 
-            total_amount.setText(String.format(yourFormattedString3));
+            total_amount.setText("Rs. " + String.format(yourFormattedString3));
 
             yourFormattedString3 = formatter1.format(discAmount);
 
-            discount_amount.setText(String.format(yourFormattedString3));
+            discount_amount.setText("Rs. " + String.format(yourFormattedString3));
 
 
             SharedPreferences grossamount = context.getSharedPreferences("grossamount",
@@ -774,10 +774,10 @@ public class Order_Summary_Adapter_DistOrder extends RecyclerView.Adapter<Order_
 
                         DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
                         String yourFormattedString3 = formatter1.format(totalAmount);
-                        total_amount.setText(String.format(yourFormattedString3));
+                        total_amount.setText("Rs. " + String.format(yourFormattedString3));
 
                         yourFormattedString3 = formatter1.format(discAmount);
-                        discount_amount.setText(String.format(yourFormattedString3));
+                        discount_amount.setText("Rs. " + String.format(yourFormattedString3));
 
 
                         SharedPreferences grossamount = context.getSharedPreferences("grossamount",
@@ -936,11 +936,11 @@ public class Order_Summary_Adapter_DistOrder extends RecyclerView.Adapter<Order_
             DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
             String yourFormattedString3 = formatter1.format(totalAmount);
 
-            total_amount.setText(String.format(yourFormattedString3));
+            total_amount.setText("Rs. " + String.format(yourFormattedString3));
 
             yourFormattedString3 = formatter1.format(discAmount);
 
-            discount_amount.setText(String.format(yourFormattedString3));
+            discount_amount.setText("Rs. " + String.format(yourFormattedString3));
 
 
             SharedPreferences grossamount = context.getSharedPreferences("grossamount",

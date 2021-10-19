@@ -273,8 +273,9 @@ public class RetailerLogin extends AppCompatActivity {
 
 
 //        et_username.setText("kamran.khan@mailinator.com");
+        et_username.setText("shabbir.khan@mailinator.com");
 //        et_username.setText("uzair.ali@mailinator.com");
-//        et_password.setText("@dmin123");
+        et_password.setText("@dmin123");
         checkFieldsForEmptyValues();
         changeLanguage();
     }

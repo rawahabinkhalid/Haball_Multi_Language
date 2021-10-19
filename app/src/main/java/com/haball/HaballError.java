@@ -90,8 +90,8 @@ public class HaballError {
 //                    } catch (JSONException e) {
 //                        e.printStackTrace();
 //                    }
-                } else {
-                    Toast.makeText(context, String.valueOf(error), Toast.LENGTH_LONG).show();
+//                } else {
+//                    Toast.makeText(context, String.valueOf(error), Toast.LENGTH_LONG).show();
                 }
 //            }
         }

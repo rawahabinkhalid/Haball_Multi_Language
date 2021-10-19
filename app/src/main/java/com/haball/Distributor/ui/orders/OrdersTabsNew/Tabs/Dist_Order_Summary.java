@@ -1142,7 +1142,7 @@ public class Dist_Order_Summary extends Fragment {
 //        gross_amount.setText(grossamount.getString("grossamount", "0"));
         float temp_grossAmount = Float.parseFloat(grossamount.getString("grossamount", "0"));
         // gross_amount.setText(String.format("%.0f", temp_grossAmount));
-        discount_amount.setText("0.00");
+        discount_amount.setText("Rs. 0.00");
 
 //        float gstAmount = (Float.parseFloat(grossamount.getString("grossamount", "")) * 17) / 100;
         float gstAmount = 0;
@@ -1150,7 +1150,7 @@ public class Dist_Order_Summary extends Fragment {
         DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
         String yourFormattedString3 = formatter1.format(totalAmount);
 //        gst_amount.setText(String.valueOf(gstAmount));
-        total_amount.setText(String.format(yourFormattedString3));
+        total_amount.setText("Rs. " + String.format(yourFormattedString3));
 
 
     }

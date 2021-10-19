@@ -844,11 +844,11 @@
     <string name="delete_payment">ادائیگی کو ڈیلیٹ کریں</string>
     <string name="delete_payment_text">کیا آپ واقعی اس ادائیگی کو ختم کرنا چاہتے ہیں؟</string>
     <string name="payment_deleted">ادائیگی ڈیلیٹ کر دی گئی ہے</string>
-    <string name="order_no"> : آرڈر نمبر</string>
-    <string name="amount_items"> : رقم </string>
-    <string name="status_items"> : موجودہ حالت </string>
+    <string name="order_no">آرڈر نمبر</string>
+    <string name="amount_items">رقم</string>
+    <string name="status_items">موجودہ حالت</string>
     <string name="paymentid_data"> : ادائیگی کی شناخت، آئی ڈی</string>
-    <string name="paymentid"> : ادائیگی کی شناخت، آئی ڈی</string>
+    <string name="paymentid">ادائیگی کی شناخت، آئی ڈی</string>
     <string name="search_by">  ذریعہ تلاش کریں : </string>
     <string name="cancelled">منسوخ کر دیا گیا ہے </string>
 	<string name="cancelled_status">Cancelled</string>
@@ -856,8 +856,8 @@
     <string name="un_paid">Un-Paid</string>
     // my Network
     <string name="my_network">میرا نیٹ ورک  </string>
-    <string name="mobile_no_items"> : موبائل نمبر</string>
-    <string name="address_item">  :اڈریس </string>
+    <string name="mobile_no_items">موبائل نمبر</string>
+    <string name="address_item">اڈریس</string>
     //make payment
     <string name="payment">ادائیگی</string>
     <string name="select_company">کمپنی کا چناؤ </string>
@@ -887,8 +887,8 @@
     <string name="change_password">پاس ورڈ تبدیل کریں</string>
     <string name="pending">Pending</string>
     <string name="resolved">Resolved</string>
-    <string name="ticket_id_item"> :ٹکٹ آئی ڈی </string>
-    <string name="created_date_item"> :تشکیل کی تاریخ </string>
+    <string name="ticket_id_item">ٹکٹ آئی ڈی: </string>
+    <string name="created_date_item">تشکیل کی تاریخ: </string>
     <string name="delete_ticket">ٹکٹ ڈیلیٹ</string>
     <string name="ticket_delete_msg">کیا آپ واقعی اس ٹکٹ کو ڈیلیٹ کرنا چاہتے ہیں؟</string>
     //suppot form
@@ -902,7 +902,7 @@
     <string name="ticket_created_msg"> کامیابی کے ساتھ تشکیل دے دیا گیا ہے. </string>
     // Profile Screen
     <string name="retailer_code">ریٹیلر کوڈ</string>
-	<string name="retailer_code_adapter"> :ریٹیلر کوڈ</string>
+	<string name="retailer_code_adapter">ریٹیلر کوڈ: </string>
     <string name="full_name">پورا نام*</string>
     <string name="email_address">ای میل ایڈریس*</string>
     <string name="cnic">شناختی کارڈ نمبر</string>
@@ -936,8 +936,8 @@
     <string name="checkout">چیک آؤٹ</string>
     <string name="search_by_item">آئٹم کے ذریعہ تلاش کریں</string>
     <string name="btn_add_product">پروڈکٹ شامل کریں</string>
-    <string name="total_disc"> :مکمل ڈسکاؤنٹ</string>
-    <string name="total_amount"> :مکمل رقم</string>
+    <string name="total_disc">مکمل ڈسکاؤنٹ:  </string>
+    <string name="total_amount">مکمل رقم:  </string>
     <string name="btn_draft">ڈرافت</string>
     <string name="btn_confirm_order">آرڈر کنفرم کریں</string>
     <string name="order_summary_approval_msg">منظوری ، ٹیکس ، اور ڈسکاؤنٹ ( اگر کوئی ہے تو ) کی بنیاد پر کل قیمت تبدیل کی جاسکتی ہے۔</string>
@@ -1019,7 +1019,7 @@
     <string name="order_behalf">\t\t\t\t\tبیہلف پر آرڈر</string>
     <string name="retailer_payment_distri">\t\t\t\t\tریٹیلر  پیمنٹس</string>
     //dashboard
-    <string name="state_item">State: </string>
+    <string name="state_item">State</string>
     <string name="your_payment_id">آپ کی ادائیگی کی شناخت، آئی ڈی </string>
     <string name="deleted_payment_msg"> کامیابی کے ساتھ ڈیلیٹ ہوگیا ہے۔</string>
     <string name="deleted_payment">ادائیگی ڈیلیٹ کر دی گئی ہے</string>
@@ -1030,7 +1030,7 @@
     <string name="payment_ledger_frag">ادائیگی لیجر</string>
     <string name="select_company_msg">براہ کرم کمپنی منتخب کریں</string>
     <string name="ledger_id_sp">لیجر ID</string>
-    <string name="document_type"> :ڈاکومنٹ ٹائپ</string>
+    <string name="document_type">ڈاکومنٹ ٹائپ</string>
     <string name="credit">کریڈٹ</string>
     <string name="debit">ڈیبٹ</string>
     <string name="balance">بقیہ</string>
@@ -1086,7 +1086,7 @@
     <string name="unable_download_msg">UNABLE TO DOWNLOAD FILE</string>
     <string name="shipment_id">شپمینٹ  ID</string>
 	<string name="shipment_no">شپمینٹ نمبر</string>
-	<string name="shipment_no_adapter"> :شپمینٹ نمبر</string>
+	<string name="shipment_no_adapter">شپمینٹ نمبر</string>
     <string name="shipment_date">شپمینٹ کی تاریخ</string>
     <string name="receiving_date">وصولی  کی تاریخ</string>
 	<string name="dc_number">ڈی سی نمبر</string>
@@ -1106,11 +1106,11 @@
     <string name="my_profile">My Profile</string>
     <string name="my_prepared_acc">My Prepaid Account</string>
     <string name="contract">Contracting</string>
-    <string name="payment_ledger_id">: لیجر ID</string>
-    <string name="date_item"> :تاریخ</string>
-    <string name="debit_amount"> :ڈیبٹ</string>
-	<string name="credit_amount"> :کریڈٹ</string>
-    <string name="balance_item"> :بقیہ</string>
+    <string name="payment_ledger_id">لیجر ID</string>
+    <string name="date_item">تاریخ</string>
+    <string name="debit_amount">ڈیبٹ</string>
+	<string name="credit_amount">کریڈٹ</string>
+    <string name="balance_item">بقیہ</string>
     // bottom line
     <string name="all_rights_reserved">© حبل | تمام حقوق محفوظ ہیں</string>
 

@@ -933,17 +933,17 @@ public class PlaceholderFragment extends Fragment {
                     String TotalAmount = "";
 //                    if (totalPrice != 0)
                     TotalAmount = formatter1.format(Double.parseDouble(OrderPaymentDetails.getString("TotalAmount")));
-                    total_amount.setText(TotalAmount);
+                    total_amount.setText("Rs.\u00A0" + TotalAmount);
                     if (!OrderPaymentDetails.getString("OrderTotalDiscount").equals("null") && !OrderPaymentDetails.getString("OrderTotalDiscount").equals("0")) {
                         String OrderTotalDiscount = formatter1.format(Double.parseDouble(OrderPaymentDetails.getString("OrderTotalDiscount")));
-                        discount_amount.setText(OrderTotalDiscount);
+                        discount_amount.setText("Rs.\u00A0" + OrderTotalDiscount);
                     } else if (totalDiscount == 0) {
                         discount.setVisibility(View.GONE);
                         Rs_discount.setVisibility(View.GONE);
                         discount_amount.setVisibility(View.GONE);
                     } else {
                         String OrderTotalDiscount = formatter1.format(totalDiscount);
-                        discount_amount.setText(OrderTotalDiscount);
+                        discount_amount.setText("Rs.\u00A0" + OrderTotalDiscount);
                     }
 
 //

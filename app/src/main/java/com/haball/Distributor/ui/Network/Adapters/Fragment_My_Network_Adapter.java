@@ -56,9 +56,9 @@ public class Fragment_My_Network_Adapter extends RecyclerView.Adapter<Fragment_M
         public TextView company_mobile_no,network_status ,company_address,net_company_name;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            network_status = itemView.findViewById(R.id.network_status);
-            company_mobile_no = itemView.findViewById(R.id.company_mobile_no);
-            company_address = itemView.findViewById(R.id.company_address);
+            network_status = itemView.findViewById(R.id.my_network_fragment_status_value);
+            company_mobile_no = itemView.findViewById(R.id.my_network_fragment_no_value);
+            company_address = itemView.findViewById(R.id.my_network_fragment_cnic_value);
             net_company_name =itemView.findViewById(R.id.net_company_name);
 
         }

@@ -813,17 +813,17 @@ public class PlaceholderFragment extends Fragment {
                     String TotalAmount = "";
 //                    if (totalPrice != 0)
                     TotalAmount = formatter1.format(Double.parseDouble(response.getString("NetPrice")));
-                    total_amount.setText(TotalAmount);
+                    total_amount.setText("Rs. " + TotalAmount);
                     if (!response.getString("Discount").equals("null") && !response.getString("Discount").equals("0")) {
                         String OrderTotalDiscount = formatter1.format(Double.parseDouble(response.getString("Discount")));
-                        discount_amount.setText(OrderTotalDiscount);
+                        discount_amount.setText("Rs. " + OrderTotalDiscount);
                     } else if (totalDiscount == 0) {
                         discount.setVisibility(View.GONE);
-                        Rs_discount.setVisibility(View.GONE);
+//                        Rs_discount.setVisibility(View.GONE);
                         discount_amount.setVisibility(View.GONE);
                     } else {
                         String OrderTotalDiscount = formatter1.format(totalDiscount);
-                        discount_amount.setText(OrderTotalDiscount);
+                        discount_amount.setText("Rs. " + OrderTotalDiscount);
                     }
 
 //                    String TotalAmount = "";
@@ -911,7 +911,8 @@ public class PlaceholderFragment extends Fragment {
                     String Formatted_TotalAmount = formatter1.format(Double.parseDouble(response.getString("PaidAmount")));
                     setTextAndShow(layout_txt_amount, txt_amount, "Rs. " + Formatted_TotalAmount);
 
-                    setTextAndShow(layout_txt_status, txt_status, String.valueOf(InvoiceStatusKVP.get(response.getString("invoiceStatus"))));
+//                    setTextAndShow(layout_txt_status, txt_status, String.valueOf(InvoiceStatusKVP.get(response.getString("invoiceStatus"))));
+                    setTextAndShow(layout_txt_status, txt_status, String.valueOf(response.getString("InvoiceStatusValue")));
                     setTextAndShow(layout_transaction_date, txt_confirm, String.valueOf(response.getString("PaidDate")).split("T")[0]);
 //                        setTextAndShow(layout_txt_bank, txt_bank, String.valueOf(response.getString("BankName")));
 //                        setTextAndShow(layout_txt_authorization_id, txt_authorization_id, String.valueOf(response.getString("AuthID")));

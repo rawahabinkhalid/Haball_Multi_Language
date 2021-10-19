@@ -10,37 +10,35 @@
     android:paddingRight="20dp"
     android:paddingBottom="20dp"
     tools:ignore="MissingDefaultResource">
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/ll_products"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="5.3">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/list_txt_products_"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="4.8"
             android:fontFamily="@font/open_sans_semibold"
             android:paddingTop="5dp"
             android:paddingBottom="10dp"
+            android:text="Shampoo"
             android:textColor="@color/rv_box_color"
             android:textSize="@dimen/rv_box_heading_size" />
 
         <TextView
             android:id="@+id/btn_delete_item"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
             android:fontFamily="@font/open_sans"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:maxLines="1"
+            android:layout_alignParentEnd="true"
             android:paddingStart="8dp"
-            android:drawableLeft="@drawable/ic_delete_black_24dp" />
+            android:drawableStart="@drawable/ic_delete_black_24dp" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/product_code"

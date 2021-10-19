@@ -1026,7 +1026,7 @@ public class Retailer_Order_Summary extends Fragment {
 //        total_amount.setText(String.valueOf(totalAmount));
         DecimalFormat formatter1 = new DecimalFormat("#,###,##0.00");
         String yourFormattedString3 = formatter1.format(totalAmount);
-        total_amount.setText(yourFormattedString3);
+        total_amount.setText("Rs. " + yourFormattedString3);
 
 
     }

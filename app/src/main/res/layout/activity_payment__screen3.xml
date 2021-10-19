@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:id="@+id/ln_login"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
         android:layout_marginTop="20dp"
@@ -31,7 +31,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
 
@@ -39,14 +39,15 @@
                 android:id="@+id/image_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
                 android:src="@drawable/ic_baseline_add_24" />
 
             <TextView
                 android:id="@+id/btn_addpayment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/image_plus"
+                android:layout_toEndOf="@+id/image_plus"
                 android:fontFamily="@font/open_sans"
                 android:paddingTop="2dp"
                 android:text="@string/create_payment"
@@ -218,16 +219,27 @@
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/open_sans"
                         android:gravity="center"
-                        android:hint="@string/paymentid_data"
-                        android:paddingLeft="20dp"
+                        android:hint="@string/paymentid"
+                        android:paddingStart="20dp"
                         android:textColor="@color/textcolor"
                         android:textSize="@dimen/rv_box_text_size" />
 
                     <TextView
+                        android:id="@+id/payment_id_colon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toEndOf="@+id/payment_txt"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:gravity="center_vertical"
+                        android:hint=": "
+                        android:textColor="@color/textcolor"
+                        android:textSize="@dimen/rv_box_text_size" />
+                    <TextView
                         android:id="@+id/payment_id"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_toRightOf="@+id/payment_txt"
+                        android:layout_toEndOf="@+id/payment_id_colon"
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/open_sans_semibold"
                         android:gravity="center_vertical"

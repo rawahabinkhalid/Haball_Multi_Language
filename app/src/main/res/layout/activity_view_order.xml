@@ -13,6 +13,7 @@
 
 
         <com.google.android.material.tabs.TabLayout
+            android:layoutDirection="ltr"
             android:id="@+id/tabs_ret_view_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +31,8 @@
             app:tabSelectedTextColor="#96bb3c"
             app:tabTextAppearance="@style/CustomTextAppearanceTab" />
 
-        <!--        <com.google.android.material.tabs.TabLayout-->
+        <!--        <com.google.android.material.tabs.TabLayout
+            android:layoutDirection="ltr"-->
         <!--            android:id="@+id/tabs_ret5"-->
         <!--            android:layout_width="match_parent"-->
         <!--            android:layout_height="wrap_content"-->

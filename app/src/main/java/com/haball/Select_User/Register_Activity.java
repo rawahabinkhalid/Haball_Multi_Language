@@ -91,6 +91,9 @@ public class Register_Activity extends AppCompatActivity {
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
         bar.setTitle("");
         ImageButton btn_back = customView.findViewById(R.id.btn_back);
+//        if(language.equals("ur")) {
+//            btn_back.
+//        }
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
