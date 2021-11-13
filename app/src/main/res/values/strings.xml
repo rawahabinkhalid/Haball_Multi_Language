@@ -789,6 +789,7 @@
     <string name="payment_deleted">Payment Deleted</string>
     <string name="order_no">Order No</string>
     <string name="amount_items">Amount</string>
+	<string name="due_date_items">Due Date</string>
     <string name="status_items">Status</string>
 	<string name="paymentid_data">Payment ID: </string>
     <string name="paymentid">Payment ID</string>
@@ -804,7 +805,8 @@
     <string name="mobile_no_items">Mobile No</string>
     <string name="address_item">Address</string>
     //make payment
-    <string name="payment">Payment</string>
+	<string name="payment">Payment</string>
+	<string name="consolidation_details">Consolidation Details</string>
     <string name="select_company">Select Company</string>
     <string name="payment_creadted">Payment Created</string>
     <string name="created_payment_message">has been created successfully.</string>
@@ -814,6 +816,7 @@
     <string name="create_payment">Create Payment</string>
     <string name="view_voucher">View Voucher</string>
     <string name="banking_channel">\t\t\tBanking Channel</string>
+	<string name="payment_channel">Payment Channel</string>
     <string name="btn_update">Update</string>
     <string name="payment_updated">Payment Updated</string>
     <string name="payment_updated_msg">has been updated successfully.</string>
@@ -879,6 +882,7 @@
     <string name="btn_add_product">Add Product</string>
     <string name="total_disc">Total Disc:</string>
     <string name="total_amount">Total Amount:</string>
+	<string name="total_amount_hint">Total Amount</string>
     <string name="btn_draft">Draft</string>
     <string name="btn_confirm_order">Confirm Order</string>
     <string name="order_summary_approval_msg">Total price is subject to change based on approval, tax and discount calculation, if any.</string>
@@ -909,10 +913,12 @@
     <string name="transaction_date">Transaction Date</string>
     <string name="bank">Bank</string>
     <string name="auth_id">Authorization ID</string>
-    <string name="seltment_id">Settlement ID</string>
+	<string name="seltment_id">Settlement ID</string>
+	<string name="settlement_date">Settlement Date</string>
     <string name="trans_charges">Transaction Charges</string>
     <string name="view_receipt">View Receipt</string>
-    <string name="order_reference_no">Order Reference No</string>
+	<string name="order_reference_no">Order Reference No</string>
+	<string name="reference">Reference</string>
     <string name="invoice_ref_no">Invoice Reference No</string>
     <string name="mobile_bank_heading"><![CDATA[Internet & Mobile Banking]]></string>
     <string name="over_the_counter">Over the Counter</string>
@@ -1040,6 +1046,8 @@
 	<string name="invoice_no">Invoice No</string>
 	<string name="total_price">Total Price</string>
 	<string name="paid_amount">Paid Amount</string>
+	<string name="remaining_amount">Remaining Amount</string>
+
 	<string name="created_by">Created By</string>
 	<string name="unpaid_sp">Unpaid</string>
 	<string name="partially_paid">Partially Paid</string>

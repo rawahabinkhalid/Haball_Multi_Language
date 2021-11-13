@@ -73,11 +73,50 @@
         android:textColor="@color/rv_box_color"
         android:textSize="@dimen/rv_box_text_size"
         />
+    <RelativeLayout
+        android:id="@+id/rl_due_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/payment_id"
+        android:visibility="gone"
+        >
+
+    <TextView
+        android:id="@+id/tv_due_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/due_date_items"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/open_sans"
+        android:textColor="@color/rv_box_color"
+        android:textSize="@dimen/rv_box_text_size"
+        />
+    <TextView
+        android:id="@+id/due_date_colon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/tv_due_date"
+        android:fontFamily="@font/open_sans"
+        android:text=": "
+        android:textColor="@color/rv_box_color"
+        android:textSize="@dimen/rv_box_text_size" />
+
+    <TextView
+        android:id="@+id/due_date_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10-08-2021"
+        android:layout_toEndOf="@+id/due_date_colon"
+        android:fontFamily="@font/open_sans"
+        android:textColor="@color/rv_box_color"
+        android:textSize="@dimen/rv_box_text_size"
+        />
+    </RelativeLayout>
     <TextView
         android:id="@+id/tv_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/payment_id"
+        android:layout_below="@+id/rl_due_date"
         android:text="@string/amount_items"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/open_sans"
@@ -88,7 +127,7 @@
         android:id="@+id/amount_colon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/payment_id"
+        android:layout_below="@+id/rl_due_date"
         android:layout_toEndOf="@+id/tv_amount"
         android:fontFamily="@font/open_sans"
         android:text=": "
@@ -99,7 +138,7 @@
         android:id="@+id/amount_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/payment_id"
+        android:layout_below="@+id/rl_due_date"
         android:text="Rs. 600,000.00"
         android:layout_toEndOf="@+id/amount_colon"
         android:fontFamily="@font/open_sans"

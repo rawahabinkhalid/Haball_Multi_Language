@@ -845,7 +845,8 @@
     <string name="delete_payment_text">کیا آپ واقعی اس ادائیگی کو ختم کرنا چاہتے ہیں؟</string>
     <string name="payment_deleted">ادائیگی ڈیلیٹ کر دی گئی ہے</string>
     <string name="order_no">آرڈر نمبر</string>
-    <string name="amount_items">رقم</string>
+	<string name="amount_items">رقم</string>
+	<string name="due_date_items">مقررہ تاریخ</string>
     <string name="status_items">موجودہ حالت</string>
     <string name="paymentid_data"> : ادائیگی کی شناخت، آئی ڈی</string>
     <string name="paymentid">ادائیگی کی شناخت، آئی ڈی</string>
@@ -860,6 +861,7 @@
     <string name="address_item">اڈریس</string>
     //make payment
     <string name="payment">ادائیگی</string>
+	<string name="consolidation_details">Consolidation Details</string>
     <string name="select_company">کمپنی کا چناؤ </string>
     <string name="payment_creadted">ادائیگی بنا دی گئی ہے</string>
     <string name="created_payment_message">   کامیابی کے ساتھ بنا دی گئی ہے۔</string>
@@ -870,7 +872,8 @@
     // payment screen
     <string name="create_payment">ادائیگی بنائیں</string>
     <string name="view_voucher">واؤچر دیکھیں</string>
-    <string name="banking_channel">\t\t\tبینکنگ چینل</string>
+	<string name="banking_channel">\t\t\tبینکنگ چینل</string>
+	<string name="payment_channel">آدائیگی کے چینل</string>
     <string name="Txt_Payment">آدائیگی کے طریقے</string>
     <string name="btn_update">اپڈیٹ</string>
     <string name="payment_updated">ادائیگی اپڈیٹ کر دی گئی ہئ</string>
@@ -937,7 +940,8 @@
     <string name="search_by_item">آئٹم کے ذریعہ تلاش کریں</string>
     <string name="btn_add_product">پروڈکٹ شامل کریں</string>
     <string name="total_disc">مکمل ڈسکاؤنٹ:  </string>
-    <string name="total_amount">مکمل رقم:  </string>
+	<string name="total_amount">مکمل رقم:  </string>
+	<string name="total_amount_hint">مکمل رقم</string>
     <string name="btn_draft">ڈرافت</string>
     <string name="btn_confirm_order">آرڈر کنفرم کریں</string>
     <string name="order_summary_approval_msg">منظوری ، ٹیکس ، اور ڈسکاؤنٹ ( اگر کوئی ہے تو ) کی بنیاد پر کل قیمت تبدیل کی جاسکتی ہے۔</string>
@@ -969,9 +973,11 @@
     <string name="bank">بینک</string>
     <string name="auth_id">آتھورائیزیشن آئی ڈی</string>
     <string name="seltment_id">سیٹلمنٹ آئی ڈی</string>
+	<string name="settlement_date">سیٹلمنٹ کی تاریخ</string>
     <string name="trans_charges">ٹرانزیکشن چارجز</string>
     <string name="view_receipt">رسید دیکھیں</string>
     <string name="order_reference_no">آرڈر ریفرنس  نمبر</string>
+	<string name="reference">ریفرنس</string>
     <string name="invoice_ref_no">انوائس  ریفرنس  نمبر</string>انٹرنیٹ بینکنگ
 
     <string name="mobile_bank_heading"><![CDATA[انٹرنیٹ اور موبائل بینکنگ]]></string>
@@ -1050,7 +1056,8 @@
     <string name="consolidate_payments">Consolidate Payments</string>
     <string name="invoice_no">Invoice No</string>
     <string name="total_price">کل قیمت</string>
-    <string name="paid_amount">Paid Amount</string>
+    <string name="paid_amount">ادا شدہ رقم</string>
+	<string name="remaining_amount">بقایا رقم</string>
     <string name="created_by">Created By</string>
     <string name="unpaid_sp">Unpaid</string>
     <string name="partially_paid">Partially Paid</string>

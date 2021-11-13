@@ -23,5 +23,6 @@
     <color name="tab_ripple_color">#F0F0F0</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="false">@color/box_stroke</color>
     <color name="dialog_back">#88000000</color>
+    <color name="hyperlink">#0B0080</color>
 
 </resources>

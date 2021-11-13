@@ -696,7 +696,7 @@ public class PlaceholderFragment extends Fragment {
                         discount_amount.setText(OrderTotalDiscount);
                     } else if (totalDiscount == 0) {
                         discount.setVisibility(View.GONE);
-                        Rs_discount.setVisibility(View.GONE);
+//                        Rs_discount.setVisibility(View.GONE);
                         discount_amount.setVisibility(View.GONE);
                     } else {
                         String OrderTotalDiscount = formatter1.format(totalDiscount);

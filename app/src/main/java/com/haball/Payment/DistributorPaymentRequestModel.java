@@ -23,8 +23,9 @@ public class DistributorPaymentRequestModel {
     private String State;
     private String Status;
     private String employeesName;
+    private String DueDate;
 
-    public DistributorPaymentRequestModel(String bankIMD, String companyCNIC, String companyId, String companyName, String createdBy, String createdDate, String distributorCNIC, String distributorId, String distributorName, String ID, String isInvoice, String isTransmitted, String lastChangedBy, String lastChangedDate, String paidAmount, String paidDate, String prePaidNumber, String prepaidStatusValue, String referenceID, String state, String status, String employeesName) {
+    public DistributorPaymentRequestModel(String bankIMD, String companyCNIC, String companyId, String companyName, String createdBy, String createdDate, String distributorCNIC, String distributorId, String distributorName, String ID, String isInvoice, String isTransmitted, String lastChangedBy, String lastChangedDate, String paidAmount, String paidDate, String prePaidNumber, String prepaidStatusValue, String referenceID, String state, String status, String employeesName, String dueDate) {
         BankIMD = bankIMD;
         CompanyCNIC = companyCNIC;
         CompanyId = companyId;
@@ -47,6 +48,7 @@ public class DistributorPaymentRequestModel {
         State = state;
         Status = status;
         this.employeesName = employeesName;
+        DueDate = dueDate;
     }
 
     public String getBankIMD() {
@@ -223,5 +225,13 @@ public class DistributorPaymentRequestModel {
 
     public void setEmployeesName(String employeesName) {
         this.employeesName = employeesName;
+    }
+
+    public String getDueDate() {
+        return DueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        DueDate = dueDate;
     }
 }

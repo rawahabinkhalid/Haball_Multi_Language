@@ -40,7 +40,13 @@ public class PaymentLedgerAdapter extends RecyclerView.Adapter<PaymentLedgerAdap
         holder.menu_btn.setVisibility(View.GONE);
         holder.tv_heading.setText(PaymentLedgerList.get(position).getCompanyName());
         holder.ledger_id_value.setText(PaymentLedgerList.get(position).getDocumentNumber());
-        holder.document_type_value.setText(PaymentLedgerList.get(position).getDocumentType());
+        if(!String.valueOf(PaymentLedgerList.get(position).getDocumentType()).equals("null")) {
+            holder.document_type.setVisibility(View.VISIBLE);
+            holder.document_type_colon.setVisibility(View.VISIBLE);
+            holder.document_type_value.setVisibility(View.VISIBLE);
+            holder.document_type_value.setText(PaymentLedgerList.get(position).getDocumentType());
+        }
+
 
         holder.date_ledger_value.setText(PaymentLedgerList.get(position).getTransactionDate());
 
@@ -65,12 +71,14 @@ public class PaymentLedgerAdapter extends RecyclerView.Adapter<PaymentLedgerAdap
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_heading, ledger_id_value, document_type_value, transaction_value,balance_value, transaction, date_ledger_value;
+        public TextView tv_heading, ledger_id_value, document_type_value, transaction_value,balance_value, transaction, date_ledger_value, document_type, document_type_colon;
         public ImageButton menu_btn;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_heading = itemView.findViewById(R.id.heading);
             ledger_id_value = itemView.findViewById(R.id.ledger_id_value);
+            document_type = itemView.findViewById(R.id.document_type);
+            document_type_colon = itemView.findViewById(R.id.document_type_colon);
             document_type_value = itemView.findViewById(R.id.document_type_value);
             transaction_value = itemView.findViewById(R.id.transaction_value);
             balance_value = itemView.findViewById(R.id.balance_value);
