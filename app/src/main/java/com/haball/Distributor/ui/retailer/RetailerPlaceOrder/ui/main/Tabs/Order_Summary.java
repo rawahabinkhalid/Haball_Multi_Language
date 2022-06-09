@@ -89,9 +89,9 @@ public class Order_Summary extends Fragment {
     private List<OrderChildlist_Model> selectedProductsDataList_temp = new ArrayList<>();
     private List<String> selectedProductsQuantityList_temp = new ArrayList<>();
     private String object_string, object_stringqty, Token;
-    private String URL_CONFIRM_ORDERS = "https://175.107.203.97:4013/api/retailerorder/save";
-    //    private String URL_SAVE_TEMPLATE = "https://175.107.203.97:4013/api/ordertemplate/save";
-    private String URL_SAVE_DRAFT = "https://175.107.203.97:4013/api/retailerorder/draft";
+    private String URL_CONFIRM_ORDERS = "https://uatdistributor.haball.pk/api/retailerorder/save";
+    //    private String URL_SAVE_TEMPLATE = "https://uatdistributor.haball.pk/api/ordertemplate/save";
+    private String URL_SAVE_DRAFT = "https://uatdistributor.haball.pk/api/retailerorder/draft";
     private Button btn_confirm, btn_draft, btn_add_product;
     private TextView gross_amount, discount_amount, total_amount;
     //    private TextView gst_amount;

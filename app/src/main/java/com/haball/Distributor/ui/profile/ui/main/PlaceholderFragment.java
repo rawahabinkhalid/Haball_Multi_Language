@@ -91,10 +91,10 @@ public class PlaceholderFragment extends Fragment {
             layout_R_Address;
     private TextInputEditText txt_password, txt_newpassword, txt_cfmpassword;
     public TextInputEditText edt_dist_code, tv_cnic, tv_NTN, tv_companyname, tv_created_date;
-    private String PROFILE_URL = "https://175.107.203.97:4013/api/distributor/";
-    private String PROFILE_ADDRESS_URL = "https://175.107.203.97:4013/api/distributor/ReadAdditionalAddress/";
-    public String ChangePass_URL = "https://175.107.203.97:4013/api/Users/ChangePassword";
-    public String PROFILE_EDIT_URL = "https://175.107.203.97:4013/api/distributor/saveProfile";
+    private String PROFILE_URL = "https://uatdistributor.haball.pk/api/distributor/";
+    private String PROFILE_ADDRESS_URL = "https://uatdistributor.haball.pk/api/distributor/ReadAdditionalAddress/";
+    public String ChangePass_URL = "https://uatdistributor.haball.pk/api/Users/ChangePassword";
+    public String PROFILE_EDIT_URL = "https://uatdistributor.haball.pk/api/distributor/saveProfile";
     private String Token;
     private String DistributorId, ID, Username, Phone;
     private Dialog change_password_dail;
@@ -1603,7 +1603,7 @@ public class PlaceholderFragment extends Fragment {
 //                        e.printStackTrace();
 //                    }
 //
-//                    JsonObjectRequest sr = new JsonObjectRequest(Request.Method.POST, "https://175.107.203.97:4013/api/distributor/SaveAdditionalAddress", jsonObject, new Response.Listener<JSONObject>() {
+//                    JsonObjectRequest sr = new JsonObjectRequest(Request.Method.POST, "https://uatdistributor.haball.pk/api/distributor/SaveAdditionalAddress", jsonObject, new Response.Listener<JSONObject>() {
 //                        @Override
 //                        public void onResponse(JSONObject result) {
 //                            final Dialog fbDialogue = new Dialog(getActivity());

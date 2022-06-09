@@ -86,9 +86,9 @@ public class Support_Ticket_Form extends AppCompatActivity {
     //    private ImageButton btn_back;
     private Spinner IssueType, critcicality, Preffered_Contact;
     private String URL_SPINNER_DATA = "https://175.107.203.97:4014/api/support/PublicUsers";
-    //    private String URL_SPINNER_ISSUETYPE = "https://175.107.203.97:4013/api/lookup/public/ISSUE_TYPE_PUBLIC";
-//    private String URL_SPINNER_CRITICALITY = "https://175.107.203.97:4013/api/lookup/public/CRITICALITY_PUBLIC";
-//    private String URL_SPINNER_PREFFEREDCONTACT = "https://175.107.203.97:4013/api/lookup/public/CONTRACTING_METHOD";
+    //    private String URL_SPINNER_ISSUETYPE = "https://uatdistributor.haball.pk/api/lookup/public/ISSUE_TYPE_PUBLIC";
+//    private String URL_SPINNER_CRITICALITY = "https://uatdistributor.haball.pk/api/lookup/public/CRITICALITY_PUBLIC";
+//    private String URL_SPINNER_PREFFEREDCONTACT = "https://uatdistributor.haball.pk/api/lookup/public/CONTRACTING_METHOD";
     private String URL_TICkET = "https://175.107.203.97:4014/api/support/PublicSave";
 
     private List<String> issue_type = new ArrayList<>();

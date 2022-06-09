@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
@@ -64,12 +65,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 
 public class ViewPDFRequest {
-    public String URL_PDF_VIEW_INVOICE = "https://175.107.203.97:4013/api/Invoices/DetailReport/";
-    public String URL_PDF_VIEW = "https://175.107.203.97:4013/api/prepaidrequests/printrecipt";
+    public String URL_PDF_VIEW_INVOICE = "https://uatdistributor.haball.pk/api/Invoices/printrecipt";
+    public String URL_PDF_VIEW = "https://uatdistributor.haball.pk/api/prepaidrequests/printrecipt";
     public String DistributorId, Token;
     public Context mContext;
     private static final int PERMISSION_REQUEST_CODE = 1;
@@ -146,9 +148,12 @@ public class ViewPDFRequest {
                     // Log.i("responseByte", String.valueOf(response));
                     // Log.i("responseByte", String.valueOf(response.length));
                     if (response != null) {
-                        String dir = Environment.getExternalStorageDirectory() + "/Download/";
+//                        String dir = Environment.getExternalStorageDirectory() + "/Download/";
+                        File dir = context.getExternalCacheDir();
+
                         String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss").format(new Date());
-                        String name = dir + "Invoice - " + timeStamp + ".pdf";
+                        String name = dir + "/Invoice - " + timeStamp + ".pdf";
+//                        ٍString filename = "Voucher - " + timeStamp + ".pdf";
                         FileOutputStream fPdf = new FileOutputStream(name);
 
                         fPdf.write(response);
@@ -158,23 +163,36 @@ public class ViewPDFRequest {
                         Toast.makeText(mContext, "File saved in Downloads", Toast.LENGTH_LONG).show();
 
                         File file = new File(name); // Here you declare your pdf path
-                        if (Build.VERSION.SDK_INT >= 24) {
-                            try {
-                                Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                                m.invoke(null);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
+                        Uri excelPath;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            excelPath = FileProvider.getUriForFile(Objects.requireNonNull(context),
+                                    "com.haball.provider", file);
+                        } else {
+                            excelPath = Uri.fromFile(file);
                         }
-                        Intent pdfViewIntent = new Intent(Intent.ACTION_VIEW);
-                        pdfViewIntent.setDataAndType(Uri.fromFile(file), "application/pdf");
-                        pdfViewIntent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-
-                        Intent intent = Intent.createChooser(pdfViewIntent, "Open File");
-                        try {
-                            context.startActivity(intent);
-                        } catch (ActivityNotFoundException e) {
-                            // Instruct the user to install a PDF reader here, or something
+                        if (file.exists()) { //Checking if the file exists or not
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            intent.setDataAndType(excelPath, "application/pdf");
+                            PackageManager pm = context.getPackageManager();
+                            Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                            sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            sendIntent.setType("application/pdf");
+                            Intent openInChooser = Intent.createChooser(intent, "Choose");
+                            List<ResolveInfo> resInfo = pm.queryIntentActivities(sendIntent, 0);
+                            if (resInfo.size() > 0) {
+                                try {
+                                    context.startActivity(openInChooser);
+                                } catch (Throwable throwable) {
+                                    throwable.printStackTrace();
+                                    Toast.makeText(context, "PDF apps are not installed", Toast.LENGTH_SHORT).show();
+                                    // PDF apps are not installed
+                                }
+                            } else {
+                                Toast.makeText(context, "PDF apps are not installed", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(context, "The file not exists! ", Toast.LENGTH_SHORT).show();
                         }
                     }
                 } catch (Exception e) {
@@ -216,8 +234,8 @@ public class ViewPDFRequest {
                 Context.MODE_PRIVATE);
         DistributorId = sharedPreferences1.getString("Distributor_Id", "");
 
-        if (!URL_PDF_VIEW_INVOICE.contains("/" + paymentId))
-            URL_PDF_VIEW_INVOICE = URL_PDF_VIEW_INVOICE + paymentId;
+        // if (!URL_PDF_VIEW_INVOICE.contains("/" + paymentId))
+        //     URL_PDF_VIEW_INVOICE = URL_PDF_VIEW_INVOICE + paymentId;
         // Log.i("DistributorId ", DistributorId);
         // Log.i("Token", Token);
         // Log.i("paymentId", paymentId);
@@ -231,6 +249,7 @@ public class ViewPDFRequest {
         map.put("DistributorId", DistributorId);
         map.put("PageNumber", 0);
         map.put("TotalRecords", 10);
+        map.put("ID", paymentId);
 //        StringRequest sr = new StringRequest(Request.Method.POST, URL_PDF_VIEW, new Response.Listener<String>() {
 //            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
 //            @Override
@@ -279,9 +298,12 @@ public class ViewPDFRequest {
                     // Log.i("responseByte", String.valueOf(response));
                     // Log.i("responseByte", String.valueOf(response.length));
                     if (response != null) {
-                        String dir = Environment.getExternalStorageDirectory() + "/Download/";
+//                        String dir = Environment.getExternalStorageDirectory() + "/Download/";
+                        File dir = context.getExternalCacheDir();
+
                         String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss").format(new Date());
-                        String name = dir + "Invoice - " + timeStamp + ".pdf";
+                        String name = dir + "/Invoice - " + timeStamp + ".pdf";
+//                        ٍString filename = "Voucher - " + timeStamp + ".pdf";
                         FileOutputStream fPdf = new FileOutputStream(name);
 
                         fPdf.write(response);
@@ -291,23 +313,36 @@ public class ViewPDFRequest {
                         Toast.makeText(mContext, "File saved in Downloads", Toast.LENGTH_LONG).show();
 
                         File file = new File(name); // Here you declare your pdf path
-                        if (Build.VERSION.SDK_INT >= 24) {
-                            try {
-                                Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                                m.invoke(null);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
+                        Uri excelPath;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            excelPath = FileProvider.getUriForFile(Objects.requireNonNull(context),
+                                    "com.haball.provider", file);
+                        } else {
+                            excelPath = Uri.fromFile(file);
                         }
-                        Intent pdfViewIntent = new Intent(Intent.ACTION_VIEW);
-                        pdfViewIntent.setDataAndType(Uri.fromFile(file), "application/pdf");
-                        pdfViewIntent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-
-                        Intent intent = Intent.createChooser(pdfViewIntent, "Open File");
-                        try {
-                            context.startActivity(intent);
-                        } catch (ActivityNotFoundException e) {
-                            // Instruct the user to install a PDF reader here, or something
+                        if (file.exists()) { //Checking if the file exists or not
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            intent.setDataAndType(excelPath, "application/pdf");
+                            PackageManager pm = context.getPackageManager();
+                            Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                            sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            sendIntent.setType("application/pdf");
+                            Intent openInChooser = Intent.createChooser(intent, "Choose");
+                            List<ResolveInfo> resInfo = pm.queryIntentActivities(sendIntent, 0);
+                            if (resInfo.size() > 0) {
+                                try {
+                                    context.startActivity(openInChooser);
+                                } catch (Throwable throwable) {
+                                    throwable.printStackTrace();
+                                    Toast.makeText(context, "PDF apps are not installed", Toast.LENGTH_SHORT).show();
+                                    // PDF apps are not installed
+                                }
+                            } else {
+                                Toast.makeText(context, "PDF apps are not installed", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(context, "The file not exists! ", Toast.LENGTH_SHORT).show();
                         }
                     }
                 } catch (Exception e) {

@@ -50,7 +50,7 @@ import java.util.List;
 import java.util.Map;
 
 public class EditOrderDraft {
-    public String URL_EDIT_ORDER_DRAFT = "https://175.107.203.97:4013/api/Orders/";
+    public String URL_EDIT_ORDER_DRAFT = "https://uatdistributor.haball.pk/api/Orders/";
     public String DistributorId, Token;
     public Context mContext;
 
@@ -59,7 +59,7 @@ public class EditOrderDraft {
     private List<String> selectedProductsQuantityList = new ArrayList<>();
     private float grossAmount = 0;
     private FragmentTransaction fragmentTransaction;
-    private String URL_PRODUCT_CATEGORY = "https://175.107.203.97:4013/api/products/ReadCategories/0/";
+    private String URL_PRODUCT_CATEGORY = "https://uatdistributor.haball.pk/api/products/ReadCategories/0/";
     private HashMap<String, String> Categories = new HashMap<>();
     private List<OrderParentlist_Model_DistOrder> totalCategoryTitle = new ArrayList<>();
     private HashMap<String, String> Sub_Categories = new HashMap<>();

@@ -83,10 +83,10 @@ public class Distribution_Login extends AppCompatActivity {
     private Button btn_reset;
     public ImageButton btn_back;
     private TextInputEditText et_username, et_password, txt_email;
-    private String URL_FORGOT_PASSWORD = "https://175.107.203.97:4013/api/Users/forgot";
+    private String URL_FORGOT_PASSWORD = "https://uatdistributor.haball.pk/api/Users/forgot";
     private String token;
-    private String URL = "https://175.107.203.97:4013/Token";
-    private String URL_Dashboard = "https://175.107.203.97:4013/api/dashboard/ReadDistributorDashboard";
+    private String URL = "https://uatdistributor.haball.pk/Token";
+    private String URL_Dashboard = "https://uatdistributor.haball.pk/api/dashboard/ReadDistributorDashboard";
     ProgressDialog progressDialog;
     private TextInputLayout layout_password, layout_username;
     private Loader loader;
@@ -257,6 +257,10 @@ public class Distribution_Login extends AppCompatActivity {
 //        et_password.setText("@dmin1234");
 //        et_username.setText("cocaimprove12@yopmail.com");
 //        et_password.setText("haball123");
+
+        et_username.setText("lewis@yopmail.com");
+        et_password.setText("H@ball123");
+
         checkFieldsForEmptyValues();
     }
 

@@ -90,10 +90,10 @@ public class RetailerOrderDashboard extends Fragment implements DatePickerDialog
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private RelativeLayout btn_place_order;
-    private String URL_ORDER = "https://175.107.203.97:4013/api/retailerorder/search";
+    private String URL_ORDER = "https://uatdistributor.haball.pk/api/retailerorder/search";
     private String Token, DistributorId;
     private TextView tv_shipment_no_data;
-    private String URL_FETCH_ORDERS = "https://175.107.203.97:4013/api/retailerorder/search";
+    private String URL_FETCH_ORDERS = "https://uatdistributor.haball.pk/api/retailerorder/search";
     private List<RetailerOrdersModel> OrdersList;
     private Spinner spinner_order_ret;
     private RelativeLayout spinner_container, spinner_container1;

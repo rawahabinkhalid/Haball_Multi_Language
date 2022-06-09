@@ -102,7 +102,7 @@ public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private String orderID, orderStatus;
-    private String URL_Order_Data = "https://175.107.203.97:4013/api/Invoices/";
+    private String URL_Order_Data = "https://uatdistributor.haball.pk/api/Invoices/";
     private PageViewModel pageViewModel;
     private TextInputEditText txt_companyName, txt_paymentID, txt_created_date, txt_transaction_date, txt_bank, txt_authorization_id, txt_settlement_id, txt_status, txt_amount, txt_transaction_charges, txt_total_amount;
     private RecyclerView rv_fragment_retailer_order_details, recyclerView;
@@ -146,7 +146,7 @@ public class PlaceholderFragment extends Fragment {
     private RelativeLayout rl_jazz_cash;
     private String InvoiceStatus, invoiceID;
     private TextView discount, Rs_discount;
-    private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "https://175.107.203.97:4013/api/company/ReadActiveCompanyContract/";
+    private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "https://uatdistributor.haball.pk/api/company/ReadActiveCompanyContract/";
     private List<DistributorCreditDetailsModel> creditDetailsList;
     private List<DistributorCreditDetailsParentModel> titles = new ArrayList<>();
     private int lastExpandedPosition = -1;
@@ -563,6 +563,7 @@ public class PlaceholderFragment extends Fragment {
                     // layout_txt_transaction_charges.setVisibility(View.GONE);
                     // layout_txt_total_amount.setVisibility(View.GONE);
 
+                    button_view_receipt.setVisibility(View.GONE);
                     button_view_receipt.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -1325,6 +1326,7 @@ public class PlaceholderFragment extends Fragment {
 
     private void setCreditDetails(String Credit_Details) {
         JSONArray jsonArray = null;
+        System.out.println(Credit_Details);
         try {
             jsonArray = new JSONArray(Credit_Details);
         } catch (JSONException e) {
@@ -1346,7 +1348,8 @@ public class PlaceholderFragment extends Fragment {
 //                DistributorConsolidationDetailsParentModel tempModel = gson.fromJson(((JSONObject) item).toString(), DistributorConsolidationDetailsParentModel.class);
 //                titles.add(tempModel);
 ////            }
-            DistributorCreditDetailsParentModel tempModel = new DistributorCreditDetailsParentModel(null, UUID.nameUUIDFromBytes(ConsolidationDetail.getID().getBytes()),null,ConsolidationDetail.getCreditNumber(),ConsolidationDetail.getID(),null);
+            System.out.println(ConsolidationDetail.toString());
+            DistributorCreditDetailsParentModel tempModel = new DistributorCreditDetailsParentModel(null, UUID.nameUUIDFromBytes(ConsolidationDetail.getCreditNumber().getBytes()),null,ConsolidationDetail.getCreditNumber(),ConsolidationDetail.getCreditNumber(),null);
             titles.add(tempModel);
         }
 

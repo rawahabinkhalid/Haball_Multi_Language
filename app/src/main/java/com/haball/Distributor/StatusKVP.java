@@ -33,13 +33,13 @@ import org.json.JSONObject;
 
 public class StatusKVP {
     private String URL_OrderStatus =
-            "https://175.107.203.97:4013/api/lookup/ORDER_STATUS";
+            "https://uatdistributor.haball.pk/api/lookup/ORDER_STATUS";
     private String URL_InvoiceStatus =
-            "https://175.107.203.97:4013/api/lookup/INVOICE_STATUS";
+            "https://uatdistributor.haball.pk/api/lookup/INVOICE_STATUS";
     private String URL_PREPAIDStatus =
-            "https://175.107.203.97:4013/api/lookup/PREPAID_STATUS";
+            "https://uatdistributor.haball.pk/api/lookup/PREPAID_STATUS";
     private String URL_InvoiceState =
-            "https://175.107.203.97:4013/api/lookup/INVOICE_STATE";
+            "https://uatdistributor.haball.pk/api/lookup/INVOICE_STATE";
     private String URL_Retailer_All_Status =
             "https://175.107.203.97:4014/api/lookup/null";
     private HashMap<String, String> OrderStatusKVP = new HashMap<>();

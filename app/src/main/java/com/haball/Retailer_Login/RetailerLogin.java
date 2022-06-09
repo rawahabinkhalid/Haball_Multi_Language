@@ -68,7 +68,7 @@ public class RetailerLogin extends AppCompatActivity {
     private RequestQueue queue;
     private String URL_Token = "https://175.107.203.97:4014/Token";
     //    private String URL_FORGOT_PASSWORD = "https://175.107.203.97:4014/api/Users/forgot";
-//    private String URL_FORGOT_PASSWORD = "https://175.107.203.97:4013/api/users/forgot";
+//    private String URL_FORGOT_PASSWORD = "https://uatdistributor.haball.pk/api/users/forgot";
     private HttpURLConnection urlConnection = null;
     private java.net.URL url;
     private String token;
@@ -276,6 +276,8 @@ public class RetailerLogin extends AppCompatActivity {
 //        et_username.setText("shabbir.khan@mailinator.com");
 ////        et_username.setText("uzair.ali@mailinator.com");
 //        et_password.setText("@dmin123");
+//        et_username.setText("03352766448");
+//        et_password.setText("H@ball123");
         checkFieldsForEmptyValues();
         changeLanguage();
     }

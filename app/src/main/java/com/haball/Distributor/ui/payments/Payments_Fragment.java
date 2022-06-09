@@ -87,9 +87,9 @@ public class Payments_Fragment extends Fragment implements DatePickerDialog.OnDa
     private HashMap<String, String> companies = new HashMap<>();
     private List<String> company_names = new ArrayList<>();
     private String Token;
-    private String URL_PAYMENT_LEDGER_COMPANY = "https://175.107.203.97:4013/api/company/ReadActiveCompanyContract/";
-    private String URL_PAYMENT_LEDGER = "https://175.107.203.97:4013/api/transactions/search";
-    private String URL_PAYMENT_LEDGER_COUNT = "https://175.107.203.97:4013/api/transactions/searchCount";
+    private String URL_PAYMENT_LEDGER_COMPANY = "https://uatdistributor.haball.pk/api/company/ReadActiveCompanyContract/";
+    private String URL_PAYMENT_LEDGER = "https://uatdistributor.haball.pk/api/transactions/search";
+    private String URL_PAYMENT_LEDGER_COUNT = "https://uatdistributor.haball.pk/api/transactions/searchCount";
     private ArrayAdapter<String> arrayAdapterPayments, arrayAdapterPaymentsFilter;
     private List<PaymentLedgerModel> paymentLedgerList = new ArrayList<>();
     private Spinner spinner_criteria;

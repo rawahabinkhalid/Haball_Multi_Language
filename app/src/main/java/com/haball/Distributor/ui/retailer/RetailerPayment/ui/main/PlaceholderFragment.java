@@ -96,7 +96,7 @@ public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private String paymentId, InvoiceStatus;
-    private String URL_Payment_Data = "https://175.107.203.97:4013/api/retailerinvoice/";
+    private String URL_Payment_Data = "https://uatdistributor.haball.pk/api/retailerinvoice/";
     private PageViewModel pageViewModel;
     private TextInputLayout layout_txt_orderID, layout_txt_order_company, layout_txt_created_date_order, layout_txt_status_order, layout_txt_comments,
             layout_txt_companName, layout_txt_paymentID, layout_txt_created_date, layout_transaction_date,

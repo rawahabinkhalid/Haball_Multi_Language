@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.Map;
 
 public class EditOrderDraft {
-    public String URL_EDIT_ORDER_DRAFT = "https://175.107.203.97:4013/api/retailerorder/";
+    public String URL_EDIT_ORDER_DRAFT = "https://uatdistributor.haball.pk/api/retailerorder/";
     public String DistributorId, Token;
     public Context mContext;
 

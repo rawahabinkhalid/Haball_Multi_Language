@@ -72,8 +72,8 @@ public class FragmentNotification extends Fragment {
     SharedPreferences sharedPreferences;
     private Context mcontext;
     static int counter;
-    //private String URL_NOTIFICATION = "https://175.107.203.97:4013/api/useralert/ShowAll/";
-    private String URL_NOTIFICATION = "https://175.107.203.97:4013/api/useralert/ShowAllNotification";
+    //private String URL_NOTIFICATION = "https://uatdistributor.haball.pk/api/useralert/ShowAll/";
+    private String URL_NOTIFICATION = "https://uatdistributor.haball.pk/api/useralert/ShowAllNotification";
     private Loader loader;
     private int pageNumber = 0;
     private double totalPages = 0;
@@ -159,7 +159,7 @@ public class FragmentNotification extends Fragment {
                 Context.MODE_PRIVATE);
         DistributorId = sharedPreferences1.getString("Distributor_Id", "");
         ID = sharedPreferences1.getString("ID", "");
-//        String URL_NOTIFICATION = "https://175.107.203.97:4013/api/useralert/";
+//        String URL_NOTIFICATION = "https://uatdistributor.haball.pk/api/useralert/";
         // Log.i("DistributorId ", DistributorId);
         // Log.i("Token", Token);
 
@@ -246,7 +246,7 @@ public class FragmentNotification extends Fragment {
                 Context.MODE_PRIVATE);
         DistributorId = sharedPreferences1.getString("Distributor_Id", "");
         ID = sharedPreferences1.getString("ID", "");
-//        String URL_NOTIFICATION = "https://175.107.203.97:4013/api/useralert/";
+//        String URL_NOTIFICATION = "https://uatdistributor.haball.pk/api/useralert/";
         // Log.i("DistributorId ", DistributorId);
         // Log.i("Token", Token);
 
@@ -336,7 +336,7 @@ public class FragmentNotification extends Fragment {
         DistributorId = sharedPreferences1.getString("Distributor_Id", "");
         ID = sharedPreferences1.getString("ID", "");
 
-        String URL_NOTIFICATION_SEEN = "https://175.107.203.97:4013/api/useralert/MarkSeen/";
+        String URL_NOTIFICATION_SEEN = "https://uatdistributor.haball.pk/api/useralert/MarkSeen/";
         if (!URL_NOTIFICATION_SEEN.contains("/" + ID))
             URL_NOTIFICATION_SEEN = URL_NOTIFICATION_SEEN + ID;
         // Log.i("URL_NOTIFICATION", URL_NOTIFICATION_SEEN);
@@ -392,7 +392,7 @@ public class FragmentNotification extends Fragment {
 //                Context.MODE_PRIVATE);
 //        DistributorId = sharedPreferences1.getString("Distributor_Id", "");
 //        ID = sharedPreferences1.getString("ID", "");
-//        String URL_NOTIFICATION = "https://175.107.203.97:4013/api/useralert/";
+//        String URL_NOTIFICATION = "https://uatdistributor.haball.pk/api/useralert/";
 //        // Log.i("DistributorId ", DistributorId);
 //        // Log.i("Token", Token);
 //

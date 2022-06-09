@@ -37,14 +37,14 @@ public class Pay_By_Make_Payment {
         SharedPreferences sharedPreferences = context.getSharedPreferences("LoginToken",
                 Context.MODE_PRIVATE);
         final String Token = sharedPreferences.getString("Login_Token", "");
-        String URL = "https://175.107.203.97:4013/api/payaxis/DapiAuthenticateCall";
-        URL = "https://175.107.203.97:4013/api/Dapi/makepayment";
+        String URL = "https://uatdistributor.haball.pk/api/payaxis/DapiAuthenticateCall";
+        URL = "https://uatdistributor.haball.pk/api/Dapi/makepayment";
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("Amount", Amount);
         jsonObject.put("PSID", PSID);
-        jsonObject.put("PaidReturnUrl", "https://175.107.203.97:4013/#/prepaidrequest");
-        jsonObject.put("ReturnUrl", "https://175.107.203.97:4013/#/prepaidrequest");
+        jsonObject.put("PaidReturnUrl", "https://uatdistributor.haball.pk/#/prepaidrequest");
+        jsonObject.put("ReturnUrl", "https://uatdistributor.haball.pk/#/prepaidrequest");
         jsonObject.put("Type", Type);
         jsonObject.put("key", "");
 
@@ -94,7 +94,7 @@ public class Pay_By_Make_Payment {
                     MyWebView webview = new MyWebView();
                     webview.URL = response.getString("URL");
                     webview.ContainerId = R.id.main_container;
-                    webview.ReturnURL = "https://175.107.203.97:4013/#/prepaidrequest";
+                    webview.ReturnURL = "https://uatdistributor.haball.pk/#/prepaidrequest";
                     webview.PaidFragment = PaidFragment;
                     webview.UnpaidFragment = UnpaidFragment;
 //                Intent login_intent = new Intent(context, webview.getClass());
@@ -282,10 +282,10 @@ public class Pay_By_Make_Payment {
         SharedPreferences sharedPreferences = context.getSharedPreferences("LoginToken",
                 Context.MODE_PRIVATE);
         final String Token = sharedPreferences.getString("Login_Token", "");
-        String URL = "https://175.107.203.97:4013/api/Dapi/DapiAuthenticateCall";
+        String URL = "https://uatdistributor.haball.pk/api/Dapi/DapiAuthenticateCall";
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("ReturnUrl", "https://175.107.203.97:4013/#/prepaidrequest");
+        jsonObject.put("ReturnUrl", "https://uatdistributor.haball.pk/#/prepaidrequest");
 
         final Context finalcontext = context;
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL, jsonObject, new Response.Listener<JSONObject>() {
@@ -296,7 +296,7 @@ public class Pay_By_Make_Payment {
                     MyWebView webview = new MyWebView();
                     webview.URL = response.getString("URL");
                     webview.ContainerId = R.id.main_container;
-                    webview.ReturnURL = "https://175.107.203.97:4013/#/prepaidrequest";
+                    webview.ReturnURL = "https://uatdistributor.haball.pk/#/prepaidrequest";
                     webview.PaidFragment = new HomeFragment();
                     webview.UnpaidFragment = new HomeFragment();
 //                    Intent login_intent = new Intent(context, webview.getClass());

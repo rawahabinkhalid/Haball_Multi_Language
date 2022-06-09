@@ -88,7 +88,7 @@ public class PlaceholderFragment extends Fragment {
 
     //    private static final String ARG_SECTION_NUMBER = "section_number";
 //    private String orderID;
-    private String URL_Order_Data = "https://175.107.203.97:4013/api/retailerorder/";
+    private String URL_Order_Data = "https://uatdistributor.haball.pk/api/retailerorder/";
     //    private PageViewModel pageViewModel;
 //    private TextInputEditText txt_orderID, txt_company_order, txt_created_date_order, txt_status_order, txt_comments;
 //    private TextInputEditText txt_companyName, txt_paymentID, txt_created_date, txt_confirm, txt_bank, txt_authorization_id, txt_settlement_id, txt_status, txt_amount, txt_transaction_charges, txt_total_amount;
@@ -123,7 +123,7 @@ public class PlaceholderFragment extends Fragment {
     private FragmentTransaction fragmentTransaction;
 
     private TextView tv_banking_channel, payment_id, btn_newpayment;
-    private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "https://175.107.203.97:4013/api/company/ReadActiveCompanyContract/";
+    private String URL_PAYMENT_REQUESTS_SELECT_COMPANY = "https://uatdistributor.haball.pk/api/company/ReadActiveCompanyContract/";
     private String PrePaidNumber = "", PrePaidId = "", CompanyName = "", Amount = "", CompanyId = "", MenuItem = "";
     private Button btn_voucher, btn_update, btn_back;
     private Spinner spinner_companyName;

@@ -88,7 +88,7 @@ DistributorPaymentRequestAdaptor extends RecyclerView.Adapter<DistributorPayment
     private HashMap<String, String> companyNameAndId = new HashMap<>();
     private static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     private Activity activity;
-    public String URL_DELETE_PAYMENT = "https://175.107.203.97:4013/api/prepaidrequests/save";
+    public String URL_DELETE_PAYMENT = "https://uatdistributor.haball.pk/api/prepaidrequests/save";
 
     Spinner spinner;
     private FragmentTransaction fragmentTransaction;

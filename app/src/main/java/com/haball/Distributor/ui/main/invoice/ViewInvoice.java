@@ -44,7 +44,7 @@ import java.util.Map;
 public class ViewInvoice extends Fragment {
     private String InvoiceStatus;
     Loader loader;
-    private String URL_Order_Data = "https://175.107.203.97:4013/api/Invoices/";
+    private String URL_Order_Data = "https://uatdistributor.haball.pk/api/Invoices/";
     String Token;
     View root;
 

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
@@ -26,6 +27,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.FragmentActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.BuildConfig;
@@ -66,9 +68,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static com.google.android.gms.plus.PlusOneDummyView.TAG;
 import static java.util.stream.Collectors.toList;
+
+import javax.xml.transform.stream.StreamResult;
 
 public class ViewVoucherRequest {
     public String URL_VOUCHER_VIEW = "https://175.107.203.97:4014/api/prepaidrequests/mprintRecipt/";
@@ -78,7 +83,8 @@ public class ViewVoucherRequest {
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     private Loader loader;
 
-    public ViewVoucherRequest(){}
+    public ViewVoucherRequest() {
+    }
 
 
     public void viewPDF(final Context context, String paymentId) throws JSONException {
@@ -89,14 +95,15 @@ public class ViewVoucherRequest {
                 Context.MODE_PRIVATE);
         Token = sharedPreferences.getString("Login_Token", "");
         // Log.i("Token", Token);
-        if(!URL_VOUCHER_VIEW.contains("/" + paymentId))
-            URL_VOUCHER_VIEW = URL_VOUCHER_VIEW+paymentId;
+        if (!URL_VOUCHER_VIEW.contains("/" + paymentId))
+            URL_VOUCHER_VIEW = URL_VOUCHER_VIEW + paymentId;
         // Log.i("URL_VOUCHER_VIEW ", URL_VOUCHER_VIEW);
 
-            new SSL_HandShake().handleSSLHandshake();
+        new SSL_HandShake().handleSSLHandshake();
 //        final HurlStack hurlStack = new SSL_HandShake().handleSSLHandshake(context);
 
         final Context finalcontext = context;
+        System.out.println(URL_VOUCHER_VIEW);
         InputStreamVolleyRequest request = new InputStreamVolleyRequest(Request.Method.GET, URL_VOUCHER_VIEW, null, new Response.Listener<byte[]>() {
             @Override
             public void onResponse(byte[] response) {
@@ -105,10 +112,13 @@ public class ViewVoucherRequest {
                 try {
                     // Log.i("responseByte", String.valueOf(response));
                     // Log.i("responseByte", String.valueOf(response.length));
-                    if (response!=null) {
-                        String dir = Environment.getExternalStorageDirectory() + "/Download/";
+                    if (response != null) {
+//                        String dir = Environment.getExternalStorageDirectory() + "/Download/";
+                        File dir = context.getExternalCacheDir();
+
                         String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss").format(new Date());
-                        String name = dir + "Voucher - " + timeStamp + ".pdf";
+                        String name = dir + "/Voucher - " + timeStamp + ".pdf";
+//                        ٍString filename = "Voucher - " + timeStamp + ".pdf";
                         FileOutputStream fPdf = new FileOutputStream(name);
 
                         fPdf.write(response);
@@ -118,26 +128,40 @@ public class ViewVoucherRequest {
                         Toast.makeText(mContext, "File saved in Downloads", Toast.LENGTH_LONG).show();
 
                         File file = new File(name); // Here you declare your pdf path
-                        if(Build.VERSION.SDK_INT>=24){
-                            try{
-                                Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                                m.invoke(null);
-                            }catch(Exception e){
-                                e.printStackTrace();
-                            }
+                        Uri excelPath;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            excelPath = FileProvider.getUriForFile(Objects.requireNonNull(context),
+                                    "com.haball.provider", file);
+                        } else {
+                            excelPath = Uri.fromFile(file);
                         }
-                        Intent pdfViewIntent = new Intent(Intent.ACTION_VIEW);
-                        pdfViewIntent.setDataAndType(Uri.fromFile(file),"application/pdf");
-                        pdfViewIntent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-
-                        Intent intent = Intent.createChooser(pdfViewIntent, "Open File");
-                        try {
-                            context.startActivity(intent);
-                        } catch (ActivityNotFoundException e) {
-                            // Instruct the user to install a PDF reader here, or something
+                        if (file.exists()) { //Checking if the file exists or not
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            intent.setDataAndType(excelPath, "application/pdf");
+                            PackageManager pm = context.getPackageManager();
+                            Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                            sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            sendIntent.setType("application/pdf");
+                            Intent openInChooser = Intent.createChooser(intent, "Choose");
+                            List<ResolveInfo> resInfo = pm.queryIntentActivities(sendIntent, 0);
+                            if (resInfo.size() > 0) {
+                                try {
+                                    context.startActivity(openInChooser);
+                                } catch (Throwable throwable) {
+                                    throwable.printStackTrace();
+                                    Toast.makeText(context, "PDF apps are not installed", Toast.LENGTH_SHORT).show();
+                                    // PDF apps are not installed
+                                }
+                            } else {
+                                Toast.makeText(context, "PDF apps are not installed", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(context, "The file not exists! ", Toast.LENGTH_SHORT).show();
                         }
                     }
-                } catch (Exception e) {
+                } catch (
+                        Exception e) {
                     // TODO Auto-generated catch block
                     loader.hideLoader();
                     // Log.d("KEY_ERROR", "UNABLE TO DOWNLOAD FILE");
@@ -145,14 +169,14 @@ public class ViewVoucherRequest {
                     e.printStackTrace();
                 }
             }
-        } ,new Response.ErrorListener() {
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 loader.hideLoader();
                 new ProcessingError().showError(context);
                 error.printStackTrace();
             }
-        }, null)  {
+        }, null) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();

@@ -247,7 +247,7 @@ public class Registration_main extends AppCompatActivity implements View.OnFocus
         else {
             txt_username.setError(null);
 
-            String URL = "https://175.107.203.97:4013/api/users/CheckField";
+            String URL = "https://uatdistributor.haball.pk/api/users/CheckField";
 
             JSONObject map = new JSONObject();
             map.put("CName", "Username");

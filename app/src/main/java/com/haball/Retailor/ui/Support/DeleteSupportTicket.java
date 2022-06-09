@@ -39,7 +39,7 @@ package com.haball.Retailor.ui.Support;
         import java.util.Map;
 
 public class DeleteSupportTicket {
-    //    public String URL_SUPPORT_STATUS_CHANGE = "https://175.107.203.97:4013/api/contact/StatusChange";
+    //    public String URL_SUPPORT_STATUS_CHANGE = "https://uatdistributor.haball.pk/api/contact/StatusChange";
     public String URL_SUPPORT_STATUS_CHANGE = "https://175.107.203.97:4014/api/support/Delete";
     public String DistributorId, Token;
     public Context mContext;

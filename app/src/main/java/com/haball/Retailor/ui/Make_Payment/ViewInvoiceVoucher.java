@@ -1,74 +1,78 @@
 package com.haball.Retailor.ui.Make_Payment;
 
-        import android.Manifest;
-        import android.app.Activity;
-        import android.content.ActivityNotFoundException;
-        import android.content.Context;
-        import android.content.Intent;
-        import android.content.SharedPreferences;
-        import android.content.pm.PackageManager;
-        import android.graphics.Canvas;
-        import android.graphics.Paint;
-        import android.graphics.pdf.PdfDocument;
-        import android.net.Uri;
-        import android.os.Build;
-        import android.os.Environment;
-        import android.os.StrictMode;
-        import android.provider.DocumentsContract;
-        import android.provider.DocumentsContract.Document;
-        import android.util.DisplayMetrics;
-        import android.util.Log;
-        import android.view.Display;
-        import android.view.WindowManager;
-        import android.widget.Toast;
+import android.Manifest;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.os.StrictMode;
+import android.provider.DocumentsContract;
+import android.provider.DocumentsContract.Document;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
+import android.widget.Toast;
 
-        import androidx.annotation.RequiresApi;
-        import androidx.core.app.ActivityCompat;
-        import androidx.core.content.ContextCompat;
-        import androidx.core.content.FileProvider;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.FragmentActivity;
 
-        import com.android.volley.AuthFailureError;
-        import com.android.volley.BuildConfig;
-        import com.android.volley.Request;
-        import com.android.volley.RequestQueue;
-        import com.android.volley.Response;
-        import com.android.volley.VolleyError;
-        import com.android.volley.toolbox.HurlStack;
-        import com.android.volley.toolbox.JsonObjectRequest;
-        import com.android.volley.toolbox.StringRequest;
-        import com.android.volley.toolbox.Volley;
-        import com.haball.Distributor.ui.payments.InputStreamVolleyRequest;
-        import com.haball.Loader;
-        import com.haball.ProcessingError;
-        import com.haball.SSL_HandShake;
+import com.android.volley.AuthFailureError;
+import com.android.volley.BuildConfig;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.haball.Distributor.ui.payments.InputStreamVolleyRequest;
+import com.haball.Loader;
+import com.haball.ProcessingError;
+import com.haball.R;
+import com.haball.SSL_HandShake;
 
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-        import java.io.ByteArrayInputStream;
-        import java.io.File;
-        import java.io.FileNotFoundException;
-        import java.io.FileOutputStream;
-        import java.io.IOException;
-        import java.io.InputStream;
-        import java.io.OutputStream;
-        import java.io.UnsupportedEncodingException;
-        import java.lang.reflect.Method;
-        import java.nio.charset.Charset;
-        import java.nio.charset.StandardCharsets;
-        import java.text.SimpleDateFormat;
-        import java.util.ArrayList;
-        import java.util.Base64;
-        import java.util.Calendar;
-        import java.util.Date;
-        import java.util.HashMap;
-        import java.util.Iterator;
-        import java.util.List;
-        import java.util.Map;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Method;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-        import static com.google.android.gms.plus.PlusOneDummyView.TAG;
-        import static java.util.stream.Collectors.toList;
+import static com.google.android.gms.plus.PlusOneDummyView.TAG;
+import static java.util.stream.Collectors.toList;
 
 public class ViewInvoiceVoucher {
     public String URL_VOUCHER_VIEW = "https://175.107.203.97:4014/api/invoices/mPrintInvoice/";
@@ -78,7 +82,8 @@ public class ViewInvoiceVoucher {
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     private Loader loader;
 
-    public ViewInvoiceVoucher(){}
+    public ViewInvoiceVoucher() {
+    }
 
 
     public void viewPDF(final Context context, String paymentId) throws JSONException {
@@ -89,13 +94,15 @@ public class ViewInvoiceVoucher {
                 Context.MODE_PRIVATE);
         Token = sharedPreferences.getString("Login_Token", "");
         // Log.i("Token", Token);
-        if(!URL_VOUCHER_VIEW.contains("/" + paymentId))
-            URL_VOUCHER_VIEW = URL_VOUCHER_VIEW+paymentId;
+        if (!URL_VOUCHER_VIEW.contains("/" + paymentId))
+            URL_VOUCHER_VIEW = URL_VOUCHER_VIEW + paymentId;
         // Log.i("URL_VOUCHER_VIEW ", URL_VOUCHER_VIEW);
+        System.out.println(context.getPackageName());
+        System.out.println(BuildConfig.APPLICATION_ID);
 
 
         final Context finalcontext = context;
-            new SSL_HandShake().handleSSLHandshake();
+        new SSL_HandShake().handleSSLHandshake();
 //        final HurlStack hurlStack = new SSL_HandShake().handleSSLHandshake(context);
         InputStreamVolleyRequest request = new InputStreamVolleyRequest(Request.Method.GET, URL_VOUCHER_VIEW, null, new Response.Listener<byte[]>() {
             @Override
@@ -105,10 +112,13 @@ public class ViewInvoiceVoucher {
                 try {
                     // Log.i("responseByte", String.valueOf(response));
                     // Log.i("responseByte", String.valueOf(response.length));
-                    if (response!=null) {
-                        String dir = Environment.getExternalStorageDirectory() + "/Download/";
+                    if (response != null) {
+//                        String dir = Environment.getExternalStorageDirectory() + "/Download/";
+                        File dir = context.getExternalCacheDir();
+
                         String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss").format(new Date());
-                        String name = dir + "Voucher - " + timeStamp + ".pdf";
+                        String name = dir + "/Voucher - " + timeStamp + ".pdf";
+//                        ٍString filename = "Voucher - " + timeStamp + ".pdf";
                         FileOutputStream fPdf = new FileOutputStream(name);
 
                         fPdf.write(response);
@@ -118,25 +128,36 @@ public class ViewInvoiceVoucher {
                         Toast.makeText(mContext, "File saved in Downloads", Toast.LENGTH_LONG).show();
 
                         File file = new File(name); // Here you declare your pdf path
-                        if(Build.VERSION.SDK_INT>=24){
-                            try{
-                                Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                                m.invoke(null);
-                            }catch(Exception e){
-                                loader.hideLoader();
-                                e.printStackTrace();
-                            }
+                        Uri excelPath;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            excelPath = FileProvider.getUriForFile(Objects.requireNonNull(context),
+                                    "com.haball.provider", file);
+                        } else {
+                            excelPath = Uri.fromFile(file);
                         }
-                        Intent pdfViewIntent = new Intent(Intent.ACTION_VIEW);
-                        pdfViewIntent.setDataAndType(Uri.fromFile(file),"application/pdf");
-                        pdfViewIntent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-
-                        Intent intent = Intent.createChooser(pdfViewIntent, "Open File");
-                        try {
-                            context.startActivity(intent);
-                        } catch (ActivityNotFoundException e) {
-                            loader.hideLoader();
-                            // Instruct the user to install a PDF reader here, or something
+                        if (file.exists()) { //Checking if the file exists or not
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            intent.setDataAndType(excelPath, "application/pdf");
+                            PackageManager pm = context.getPackageManager();
+                            Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                            sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            sendIntent.setType("application/pdf");
+                            Intent openInChooser = Intent.createChooser(intent, "Choose");
+                            List<ResolveInfo> resInfo = pm.queryIntentActivities(sendIntent, 0);
+                            if (resInfo.size() > 0) {
+                                try {
+                                    context.startActivity(openInChooser);
+                                } catch (Throwable throwable) {
+                                    throwable.printStackTrace();
+                                    Toast.makeText(context, "PDF apps are not installed", Toast.LENGTH_SHORT).show();
+                                    // PDF apps are not installed
+                                }
+                            } else {
+                                Toast.makeText(context, "PDF apps are not installed", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(context, "The file not exists! ", Toast.LENGTH_SHORT).show();
                         }
                     }
                 } catch (Exception e) {
@@ -147,14 +168,14 @@ public class ViewInvoiceVoucher {
                     e.printStackTrace();
                 }
             }
-        } ,new Response.ErrorListener() {
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 loader.hideLoader();
                 new ProcessingError().showError(context);
                 error.printStackTrace();
             }
-        }, null)  {
+        }, null) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
@@ -232,5 +253,7 @@ public class ViewInvoiceVoucher {
 //        RequestQueue mRequestQueue = Volley.newRequestQueue(context, new HurlStack());
 //        mRequestQueue.add(request);
     }
+
+
 }
 

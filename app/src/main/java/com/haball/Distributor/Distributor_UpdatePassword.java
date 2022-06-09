@@ -58,7 +58,7 @@ import java.util.Map;
 public class Distributor_UpdatePassword extends AppCompatActivity {
 
     private Button update_password, btn_back;
-    private String URL = "https://175.107.203.97:4013/api/users/UserChangePassword";
+    private String URL = "https://uatdistributor.haball.pk/api/users/UserChangePassword";
     private String Token;
     private String UserName, Name;
     private TextInputLayout layout_password3, layout_password1;
@@ -68,7 +68,7 @@ public class Distributor_UpdatePassword extends AppCompatActivity {
     private TextView txt_change1;
     private TextView tv_pr1, txt_header1;
     boolean doubleBackToExitPressedOnce = false;
-    private String URL_Skip_Password = "https://175.107.203.97:4013/api/users/update";
+    private String URL_Skip_Password = "https://uatdistributor.haball.pk/api/users/update";
     private Loader loader;
     private String language ="";
 
