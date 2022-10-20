@@ -94,8 +94,8 @@
                         android:id="@+id/search_bar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                                                    android:imeOptions="actionSearch" 
-android:hint="Search by Item"
+                        android:hint="Search by Item"
+                        android:imeOptions="actionSearch"
                         android:textColorHint="#676a6c"
                         android:theme="@style/TextLabelSearchBox">
 
@@ -124,7 +124,6 @@ android:hint="Search by Item"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="27dp"
                     android:orientation="horizontal"
-                    android:visibility="gone"
                     android:weightSum="4">
 
                     <LinearLayout

@@ -13,13 +13,19 @@
         <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/action_bar_main.xml" value="0.18020833333333333" />
         <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/action_bar_main_without_back.xml" value="0.18020833333333333" />
         <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/activity_distribution__login.xml" value="0.18020833333333333" />
+        <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/activity_retailer_login.xml" value="0.15572916666666667" />
         <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/activity_sign_up.xml" value="0.2900251466890193" />
         <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/activity_splash_screen.xml" value="0.18020833333333333" />
         <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/activity_support__ticket__form__retailer.xml" value="0.18020833333333333" />
+        <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/fragment_dashboard.xml" value="0.171875" />
         <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/fragment_dashboard_retailor.xml" value="0.18020833333333333" />
         <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/fragment_order_mian__dashboard.xml" value="0.18020833333333333" />
+        <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/fragment_orders.xml" value="0.171875" />
         <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/fragment_payments.xml" value="0.18020833333333333" />
+        <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/fragment_update_password.xml" value="0.25" />
+        <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/pasword_change.xml" value="0.17" />
         <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/layout/retailer_payments.xml" value="0.18020833333333333" />
+        <entry key="..\:/MATZ/Haball_Multi_Language/app/src/main/res/menu/retailer_payment_invoice_action_buttons.xml" value="0.109375" />
       </map>
     </option>
   </component>

@@ -31,8 +31,8 @@
             android:id="@+id/menu_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@null"
             android:layout_alignParentEnd="true"
+            android:background="@null"
             android:src="@drawable/ic_more_vert_black_24dp"
             android:textColor="#676a6c"
             android:textSize="18sp" />

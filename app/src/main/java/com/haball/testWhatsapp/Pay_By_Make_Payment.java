@@ -51,38 +51,38 @@ public class Pay_By_Make_Payment {
         /*
         *   NIFT	Test Account Details:
 
-            Bank ID:	TEST Bank
-            Test Accounts
-            Valid Account	0002562478596921
-            Invalid Account	0002156322782546
-            Dormant Account	0002563292489223
-            Low Balance	0002892462562155
-            OTP
-            Timeout OTP	888888
-            Invalid OTP	654320
-            OTP Expired:	242433
-            Valid OTP	456980
+        Bank ID:	TEST Bank
+        Test Accounts
+        Valid Account	0002562478596921
+        Invalid Account	0002156322782546
+        Dormant Account	0002563292489223
+        Low Balance	0002892462562155
+        OTP
+        Timeout OTP	888888
+        Invalid OTP	654320
+        OTP Expired:	242433
+        Valid OTP	456980
 
-            * NIFT test account for card based transaction
+                * NIFT test account for card based transaction
 
-            1.	5123450000000008
-            2.	4508750015741019
+        1.	5123450000000008
+        2.	4508750015741019
 
-            * Jazz Cash: 03123456789
+                * Jazz Cash: 03123456789
 
 
-            EASYPAISA :-
+        EASYPAISA :-
                 account no : 03400228878
-                pin : 12345
+        pin : 12345
 
-            JazzCash Account details:-
+        JazzCash Account details:-
                 03123456789
-                345678
-                Successful
+        345678
+        Successful
 
-                03123456780
-                345678
-                Authentication Error
+        03123456780
+        345678
+        Authentication Error
         * */
 
         final Context finalcontext = context;
